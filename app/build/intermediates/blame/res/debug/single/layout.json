@@ -1,0 +1,58 @@
+[
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_action_bar.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\list_view_action_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_view.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\list_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\new_worker_dialog.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\new_worker_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\action_bar.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\action_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_slider_layout.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\Field-Work\\OpenATKLib\\unspecified\\res\\layout\\fragment_slider_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_category.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\list_view_category.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_job.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\list_view_job.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_add_field.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\fragment_add_field.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_color_options.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\Field-Work\\OpenATKLib\\unspecified\\res\\layout\\view_color_options.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_edit_job_popup.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\fragment_edit_job_popup.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_job_status.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\Field-Work\\OpenATKLib\\unspecified\\res\\layout\\view_job_status.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\operation_list_item.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\operation_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\new_operation_dialog.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\new_operation_dialog.xml"
+    }
+]

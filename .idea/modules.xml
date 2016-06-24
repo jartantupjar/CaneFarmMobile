@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Field-Work.iml" filepath="$PROJECT_DIR$/Field-Work.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LibTrello/LibTrello.iml" filepath="$PROJECT_DIR$/LibTrello/LibTrello.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OpenATKLib/OpenATKLib.iml" filepath="$PROJECT_DIR$/OpenATKLib/OpenATKLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+    </modules>
+  </component>
+</project>
