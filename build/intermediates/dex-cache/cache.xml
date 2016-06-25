@@ -1,19 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\Field-Work\OpenATKLib\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="b9bad0223bb0516a9a04cd2d1a1eb9fba07df8bc">
-        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\Field-Work-OpenATKLib-unspecified_22e4f0081cee6b62cda12e642af1a28216fd71a7.jar" />
-    </item>
-    <item
-        jar="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\Field-Work\LibTrello\unspecified\jars\classes.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="6504ed06a7faeaa9575758f1b9dd9bbe99f27b1b">
-        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\Field-Work-LibTrello-unspecified_916a69a491c63a8b21a866d3b7ad74d7129d029f.jar" />
-    </item>
-
-</items>

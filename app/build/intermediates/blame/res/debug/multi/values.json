@@ -12,15 +12,7 @@
                     "endOffset": 220
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 1,
-                        "startOffset": 159,
-                        "endLine": 8,
-                        "endColumn": 19,
-                        "endOffset": 279
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
@@ -32,14 +24,7 @@
                     "endOffset": 268
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 2,
-                        "startOffset": 427,
-                        "endColumn": 45,
-                        "endOffset": 470
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -51,14 +36,7 @@
                     "endOffset": 315
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 2,
-                        "startOffset": 380,
-                        "endColumn": 44,
-                        "endOffset": 422
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -70,14 +48,7 @@
                     "endOffset": 355
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 2,
-                        "startOffset": 185,
-                        "endColumn": 37,
-                        "endOffset": 220
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -89,14 +60,7 @@
                     "endOffset": 394
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 2,
-                        "startOffset": 262,
-                        "endColumn": 36,
-                        "endOffset": 296
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -108,14 +72,7 @@
                     "endOffset": 437
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 2,
-                        "startOffset": 338,
-                        "endColumn": 40,
-                        "endOffset": 376
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -127,14 +84,7 @@
                     "endOffset": 482
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 12,
-                        "startColumn": 2,
-                        "startOffset": 475,
-                        "endColumn": 42,
-                        "endOffset": 515
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -146,14 +96,7 @@
                     "endOffset": 543
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 757,
-                        "endColumn": 60,
-                        "endOffset": 813
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -165,14 +108,7 @@
                     "endOffset": 633
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 861,
-                        "endColumn": 89,
-                        "endOffset": 946
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -184,14 +120,7 @@
                     "endOffset": 713
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 16,
-                        "startColumn": 4,
-                        "startOffset": 1041,
-                        "endColumn": 79,
-                        "endOffset": 1116
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -203,14 +132,7 @@
                     "endOffset": 803
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 17,
-                        "startColumn": 4,
-                        "startOffset": 1121,
-                        "endColumn": 89,
-                        "endOffset": 1206
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -222,14 +144,7 @@
                     "endOffset": 893
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 951,
-                        "endColumn": 89,
-                        "endOffset": 1036
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -241,14 +156,7 @@
                     "endOffset": 973
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 18,
-                        "startColumn": 4,
-                        "startOffset": 1211,
-                        "endColumn": 79,
-                        "endOffset": 1286
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -260,14 +168,7 @@
                     "endOffset": 1054
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 20,
-                        "startColumn": 4,
-                        "startOffset": 1371,
-                        "endColumn": 80,
-                        "endOffset": 1447
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -279,14 +180,7 @@
                     "endOffset": 1134
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 21,
-                        "startColumn": 4,
-                        "startOffset": 1452,
-                        "endColumn": 79,
-                        "endOffset": 1527
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -298,14 +192,7 @@
                     "endOffset": 1214
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 19,
-                        "startColumn": 4,
-                        "startOffset": 1291,
-                        "endColumn": 79,
-                        "endOffset": 1366
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -317,14 +204,7 @@
                     "endOffset": 1302
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 102,
-                        "endColumn": 87,
-                        "endOffset": 185
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -336,14 +216,7 @@
                     "endOffset": 1380
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 278,
-                        "endColumn": 77,
-                        "endOffset": 351
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -355,14 +228,7 @@
                     "endOffset": 1468
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 356,
-                        "endColumn": 87,
-                        "endOffset": 439
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -374,14 +240,7 @@
                     "endOffset": 1556
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 190,
-                        "endColumn": 87,
-                        "endOffset": 273
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -393,14 +252,7 @@
                     "endOffset": 1634
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 444,
-                        "endColumn": 77,
-                        "endOffset": 517
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -412,14 +264,7 @@
                     "endOffset": 1713
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 9,
-                        "startColumn": 4,
-                        "startOffset": 600,
-                        "endColumn": 78,
-                        "endOffset": 674
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -431,14 +276,7 @@
                     "endOffset": 1791
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 10,
-                        "startColumn": 4,
-                        "startOffset": 679,
-                        "endColumn": 77,
-                        "endOffset": 752
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -450,14 +288,7 @@
                     "endOffset": 1869
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 4,
-                        "startOffset": 522,
-                        "endColumn": 77,
-                        "endOffset": 595
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_colors.xml"
                 }
             },
             {
@@ -469,14 +300,7 @@
                     "endOffset": 1914
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 2,
-                        "startOffset": 141,
-                        "endColumn": 42,
-                        "endOffset": 181
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -488,14 +312,7 @@
                     "endOffset": 1953
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 8,
-                        "startColumn": 2,
-                        "startOffset": 300,
-                        "endColumn": 36,
-                        "endOffset": 334
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -507,14 +324,7 @@
                     "endOffset": 1992
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 2,
-                        "startOffset": 224,
-                        "endColumn": 36,
-                        "endOffset": 258
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -526,14 +336,7 @@
                     "endOffset": 2040
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 2,
-                        "startOffset": 94,
-                        "endColumn": 45,
-                        "endOffset": 137
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -545,14 +348,7 @@
                     "endOffset": 2080
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 2,
-                        "startOffset": 55,
-                        "endColumn": 37,
-                        "endOffset": 90
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\color.xml"
                 }
             },
             {
@@ -564,14 +360,7 @@
                     "endOffset": 4116
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\dimens.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 92,
-                        "endColumn": 57,
-                        "endOffset": 145
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\dimens.xml"
                 }
             },
             {
@@ -583,14 +372,7 @@
                     "endOffset": 4172
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\dimens.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 151,
-                        "endColumn": 55,
-                        "endOffset": 202
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\dimens.xml"
                 }
             },
             {
@@ -602,14 +384,7 @@
                     "endOffset": 4239
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values\\version.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 66,
-                        "endOffset": 117
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values\\version.xml"
                 }
             },
             {
@@ -621,14 +396,7 @@
                     "endOffset": 4292
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 108,
-                        "endColumn": 52,
-                        "endOffset": 156
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
@@ -640,14 +408,7 @@
                     "endOffset": 4340
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 59,
-                        "endColumn": 47,
-                        "endOffset": 102
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
@@ -659,14 +420,7 @@
                     "endOffset": 4432
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values\\auth_strings.xml",
-                    "position": {
-                        "startLine": 5,
-                        "startColumn": 4,
-                        "startOffset": 253,
-                        "endColumn": 91,
-                        "endOffset": 340
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values\\auth_strings.xml"
                 }
             },
             {
@@ -678,14 +432,7 @@
                     "endOffset": 4520
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values\\auth_strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 109,
-                        "endColumn": 87,
-                        "endOffset": 192
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values\\auth_strings.xml"
                 }
             },
             {
@@ -697,14 +444,7 @@
                     "endOffset": 4752
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 78,
-                        "startColumn": 4,
-                        "startOffset": 6029,
-                        "endColumn": 235,
-                        "endOffset": 6260
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -716,14 +456,7 @@
                     "endOffset": 4878
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 31,
-                        "startColumn": 4,
-                        "startOffset": 2382,
-                        "endColumn": 125,
-                        "endOffset": 2503
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -735,14 +468,7 @@
                     "endOffset": 5059
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 26,
-                        "startColumn": 4,
-                        "startOffset": 1986,
-                        "endColumn": 184,
-                        "endOffset": 2166
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -754,14 +480,7 @@
                     "endOffset": 5184
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 22,
-                        "startColumn": 4,
-                        "startOffset": 1710,
-                        "endColumn": 124,
-                        "endOffset": 1830
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -773,14 +492,7 @@
                     "endOffset": 5308
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 18,
-                        "startColumn": 4,
-                        "startOffset": 1439,
-                        "endColumn": 123,
-                        "endOffset": 1558
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -792,14 +504,7 @@
                     "endOffset": 5521
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 11,
-                        "startColumn": 4,
-                        "startOffset": 742,
-                        "endColumn": 216,
-                        "endOffset": 954
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -811,14 +516,7 @@
                     "endOffset": 5736
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 1124,
-                        "endColumn": 218,
-                        "endOffset": 1338
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -830,14 +528,7 @@
                     "endOffset": 5859
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 7,
-                        "startColumn": 4,
-                        "startOffset": 455,
-                        "endColumn": 122,
-                        "endOffset": 573
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -849,14 +540,7 @@
                     "endOffset": 6024
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 63,
-                        "startColumn": 4,
-                        "startOffset": 4775,
-                        "endColumn": 164,
-                        "endOffset": 4935
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -868,14 +552,7 @@
                     "endOffset": 6118
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 60,
-                        "startColumn": 4,
-                        "startOffset": 4560,
-                        "endColumn": 93,
-                        "endOffset": 4649
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -887,14 +564,7 @@
                     "endOffset": 6259
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 57,
-                        "startColumn": 4,
-                        "startOffset": 4302,
-                        "endColumn": 140,
-                        "endOffset": 4438
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -906,14 +576,7 @@
                     "endOffset": 6349
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 54,
-                        "startColumn": 4,
-                        "startOffset": 4099,
-                        "endColumn": 89,
-                        "endOffset": 4184
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -925,14 +588,7 @@
                     "endOffset": 6452
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 3,
-                        "startColumn": 4,
-                        "startOffset": 205,
-                        "endColumn": 102,
-                        "endOffset": 303
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -944,14 +600,7 @@
                     "endOffset": 6595
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 90,
-                        "startColumn": 4,
-                        "startOffset": 7134,
-                        "endColumn": 142,
-                        "endOffset": 7272
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -963,14 +612,7 @@
                     "endOffset": 6695
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 87,
-                        "startColumn": 4,
-                        "startOffset": 6890,
-                        "endColumn": 99,
-                        "endOffset": 6985
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -982,14 +624,7 @@
                     "endOffset": 6846
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 84,
-                        "startColumn": 4,
-                        "startOffset": 6599,
-                        "endColumn": 150,
-                        "endOffset": 6745
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1001,14 +636,7 @@
                     "endOffset": 6938
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 81,
-                        "startColumn": 4,
-                        "startOffset": 6384,
-                        "endColumn": 91,
-                        "endOffset": 6471
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1020,14 +648,7 @@
                     "endOffset": 7157
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values\\common_strings.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 242,
-                        "endColumn": 222,
-                        "endOffset": 460
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-basement\\8.4.0\\res\\values\\common_strings.xml"
                 }
             },
             {
@@ -1039,14 +660,7 @@
                     "endOffset": 7376
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 69,
-                        "startColumn": 4,
-                        "startOffset": 5305,
-                        "endColumn": 222,
-                        "endOffset": 5523
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1058,14 +672,7 @@
                     "endOffset": 7471
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 66,
-                        "startColumn": 4,
-                        "startOffset": 5073,
-                        "endColumn": 94,
-                        "endOffset": 5163
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1077,14 +684,7 @@
                     "endOffset": 7576
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 72,
-                        "startColumn": 4,
-                        "startOffset": 5622,
-                        "endColumn": 104,
-                        "endOffset": 5722
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1096,14 +696,7 @@
                     "endOffset": 7757
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 39,
-                        "startColumn": 4,
-                        "startOffset": 2929,
-                        "endColumn": 184,
-                        "endOffset": 3109
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1115,14 +708,7 @@
                     "endOffset": 7882
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 35,
-                        "startColumn": 4,
-                        "startOffset": 2654,
-                        "endColumn": 124,
-                        "endOffset": 2774
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1134,14 +720,7 @@
                     "endOffset": 8057
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 51,
-                        "startColumn": 4,
-                        "startOffset": 3811,
-                        "endColumn": 178,
-                        "endOffset": 3985
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1153,14 +732,7 @@
                     "endOffset": 8162
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 47,
-                        "startColumn": 4,
-                        "startOffset": 3572,
-                        "endColumn": 104,
-                        "endOffset": 3672
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1172,14 +744,7 @@
                     "endOffset": 8310
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 43,
-                        "startColumn": 4,
-                        "startOffset": 3294,
-                        "endColumn": 147,
-                        "endOffset": 3437
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1191,14 +756,7 @@
                     "endOffset": 8373
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 75,
-                        "startColumn": 4,
-                        "startOffset": 5822,
-                        "endColumn": 62,
-                        "endOffset": 5880
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1210,14 +768,7 @@
                     "endOffset": 8435
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 93,
-                        "startColumn": 4,
-                        "startOffset": 7327,
-                        "endColumn": 61,
-                        "endOffset": 7384
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1229,14 +780,7 @@
                     "endOffset": 8514
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml",
-                    "position": {
-                        "startLine": 96,
-                        "startColumn": 4,
-                        "startOffset": 7449,
-                        "endColumn": 78,
-                        "endOffset": 7523
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\values\\base_strings.xml"
                 }
             },
             {
@@ -1244,17 +788,17 @@
                     "startLine": 75,
                     "startColumn": 4,
                     "startOffset": 8519,
-                    "endColumn": 84,
-                    "endOffset": 8599
+                    "endColumn": 52,
+                    "endOffset": 8567
                 },
                 "from": {
                     "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 10,
-                        "startColumn": 1,
-                        "startOffset": 288,
-                        "endColumn": 81,
-                        "endOffset": 368
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 508,
+                        "endColumn": 52,
+                        "endOffset": 556
                     }
                 }
             },
@@ -1262,18 +806,18 @@
                 "to": {
                     "startLine": 76,
                     "startColumn": 4,
-                    "startOffset": 8604,
-                    "endColumn": 59,
-                    "endOffset": 8659
+                    "startOffset": 8572,
+                    "endColumn": 69,
+                    "endOffset": 8637
                 },
                 "from": {
                     "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 11,
+                        "startLine": 12,
                         "startColumn": 4,
-                        "startOffset": 374,
-                        "endColumn": 59,
-                        "endOffset": 429
+                        "startOffset": 435,
+                        "endColumn": 69,
+                        "endOffset": 500
                     }
                 }
             },
@@ -1281,42 +825,50 @@
                 "to": {
                     "startLine": 77,
                     "startColumn": 4,
-                    "startOffset": 8664,
-                    "endLine": 83,
-                    "endColumn": 12,
-                    "endOffset": 8950
+                    "startOffset": 8642,
+                    "endColumn": 84,
+                    "endOffset": 8722
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 6,
-                        "startColumn": 4,
-                        "startOffset": 192,
-                        "endLine": 12,
-                        "endColumn": 12,
-                        "endOffset": 484
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
                 "to": {
-                    "startLine": 84,
+                    "startLine": 78,
                     "startColumn": 4,
-                    "startOffset": 8955,
-                    "endLine": 86,
-                    "endColumn": 12,
-                    "endOffset": 9110
+                    "startOffset": 8727,
+                    "endColumn": 59,
+                    "endOffset": 8782
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\styles.xml",
-                    "position": {
-                        "startLine": 15,
-                        "startColumn": 4,
-                        "startOffset": 525,
-                        "endLine": 17,
-                        "endColumn": 12,
-                        "endOffset": 682
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 79,
+                    "startColumn": 4,
+                    "startOffset": 8787,
+                    "endLine": 85,
+                    "endColumn": 12,
+                    "endOffset": 9073
+                },
+                "from": {
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\styles.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 86,
+                    "startColumn": 4,
+                    "startOffset": 9078,
+                    "endLine": 88,
+                    "endColumn": 12,
+                    "endOffset": 9233
+                },
+                "from": {
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\styles.xml"
                 }
             }
         ]

@@ -19,7 +19,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class 	DatabaseHelper extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
 	
 	private static final String DATABASE_NAME = "field_work.db";
 	private static final int DATABASE_VERSION = 3;
@@ -187,11 +187,14 @@ public class 	DatabaseHelper extends SQLiteOpenHelper {
 	public List<Operation> readOperations(){
 		return DatabaseHelper.readOperations(this);
 	}
+
+
 	public static List<Operation> readOperations(DatabaseHelper dbHelper){
 		List<Operation> operations = new ArrayList<Operation>();
 		SQLiteDatabase database = dbHelper.getReadableDatabase();
 
 		Cursor cursor = database.query(TableOperations.TABLE_NAME, TableOperations.COLUMNS, null, null, null, null, null);
+
 		while (cursor.moveToNext()) {
 			operations.add(TableOperations.cursorToOperation(cursor));
 		}
@@ -201,7 +204,26 @@ public class 	DatabaseHelper extends SQLiteOpenHelper {
 		dbHelper.close();
 		return operations;
 	}
-	
+	public  List<Operation> readFarmers(){
+		List<Operation> operations = new ArrayList<Operation>();
+		SQLiteDatabase database = getReadableDatabase();
+
+		Cursor c = database.query(TableOperations.TABLE_NAME, null, null, null, null, null, null);
+
+		if( c.moveToFirst()) {
+			do {
+				Operation m = new Operation();
+				m.setName(c.getString(c.getColumnIndex(TableOperations.COL_NAME)));
+				operations.add(m);
+			}while(c.moveToNext());
+			c.close();
+			database.close();
+			//dbHelper.close();
+		}
+
+
+		return operations;
+	}
 	
 	
 	//TODO delete worker (only called by mainactivity after views are updated from isDeleted)

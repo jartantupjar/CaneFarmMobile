@@ -118,22 +118,22 @@ public final class R {
 	public static final class id {
 		public static final int adjust_height = 0x7f0c0000;
 		public static final int adjust_width = 0x7f0c0001;
-		public static final int atkSlider = 0x7f0c0056;
+		public static final int atkSlider = 0x7f0c0058;
 		public static final int auto = 0x7f0c000a;
 		public static final int dark = 0x7f0c000b;
-		public static final int edit_field_chkDone = 0x7f0c002d;
-		public static final int edit_field_chkPlanned = 0x7f0c0027;
-		public static final int edit_field_chkStarted = 0x7f0c002a;
-		public static final int edit_field_label_chkDone = 0x7f0c002e;
-		public static final int edit_field_label_chkPlanned = 0x7f0c0028;
-		public static final int edit_field_label_chkStarted = 0x7f0c002b;
-		public static final int edit_field_layStatus = 0x7f0c0025;
-		public static final int edit_field_layStatusDone = 0x7f0c002c;
-		public static final int edit_field_layStatusPlanned = 0x7f0c0026;
-		public static final int edit_field_layStatusStarted = 0x7f0c0029;
-		public static final int edit_field_layTitle = 0x7f0c0020;
-		public static final int fragment_slider_content_container = 0x7f0c0038;
-		public static final int fragment_slider_tab_container = 0x7f0c0037;
+		public static final int edit_field_chkDone = 0x7f0c002e;
+		public static final int edit_field_chkPlanned = 0x7f0c0028;
+		public static final int edit_field_chkStarted = 0x7f0c002b;
+		public static final int edit_field_label_chkDone = 0x7f0c002f;
+		public static final int edit_field_label_chkPlanned = 0x7f0c0029;
+		public static final int edit_field_label_chkStarted = 0x7f0c002c;
+		public static final int edit_field_layStatus = 0x7f0c0026;
+		public static final int edit_field_layStatusDone = 0x7f0c002d;
+		public static final int edit_field_layStatusPlanned = 0x7f0c0027;
+		public static final int edit_field_layStatusStarted = 0x7f0c002a;
+		public static final int edit_field_layTitle = 0x7f0c0021;
+		public static final int fragment_slider_content_container = 0x7f0c0039;
+		public static final int fragment_slider_tab_container = 0x7f0c0038;
 		public static final int hybrid = 0x7f0c0003;
 		public static final int icon_only = 0x7f0c0007;
 		public static final int light = 0x7f0c000c;
@@ -148,9 +148,9 @@ public final class R {
 		public static final int google_play_services_version = 0x7f0a0000;
 	}
 	public static final class layout {
-		public static final int fragment_slider_layout = 0x7f030004;
-		public static final int view_color_options = 0x7f03000c;
-		public static final int view_job_status = 0x7f03000d;
+		public static final int fragment_slider_layout = 0x7f030005;
+		public static final int view_color_options = 0x7f03000e;
+		public static final int view_job_status = 0x7f03000f;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f05001e;

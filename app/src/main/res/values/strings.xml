@@ -10,4 +10,7 @@
     
 	<string name="trello_perm_desc">Let apps access your trello synced data</string>
     <string name="trello_perm_label">Trello Access</string>
+    <string name="title_activity_select_farmer">selectFarmer</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

@@ -551,7 +551,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 		this.syncHelper.onResume(this); //Startup autosync if it is on
 		
-		SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE  | Context.MODE_MULTI_PROCESS);
+		SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
 		
 		Boolean syncOccured = false;
 		//Didn't do a full reload, check if sync occurred while we were gone.
@@ -1056,7 +1056,19 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			Log.d("MainActivity", "Showing map view");
 			setState(STATE_DEFAULT);
 			closeKeyboard();
-		} else if(item.getItemId() == R.id.main_menu_help){
+
+		}
+		else if(item.getItemId()==R.id.main_menu_sMain){
+	Log.d("MainActivity", "go to main menu");
+			Intent m= new Intent();
+			m.setClass(getBaseContext(),selectFarmer.class);
+			startActivity(m);
+
+
+
+
+
+		}else if(item.getItemId() == R.id.main_menu_help){
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);
 	        alert.setTitle("Help");
 	        WebView wv = new WebView(this);
