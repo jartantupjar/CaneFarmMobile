@@ -13,4 +13,5 @@
     <string name="title_activity_select_farmer">selectFarmer</string>
 
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_farmer_menu">FarmerMenu</string>
 </resources>

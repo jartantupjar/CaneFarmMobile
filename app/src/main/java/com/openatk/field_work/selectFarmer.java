@@ -5,11 +5,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.openatk.field_work.db.DatabaseHelper;
+import com.openatk.field_work.db.TableWorkers;
 import com.openatk.field_work.models.Operation;
+import com.openatk.field_work.models.Worker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +22,7 @@ public class selectFarmer extends Activity {
     ListView lvFarmers;
     farmerAdapter farmerAdapter;
     DatabaseHelper dbHelper;
-    List<Operation> farmList;
+    List<Worker> farmList;
 
 
 
@@ -39,6 +43,28 @@ public class selectFarmer extends Activity {
 
         farmerAdapter.addAll(farmList);
         lvFarmers.setAdapter(farmerAdapter);
+
+        lvFarmers.setOnItemClickListener(fMenu);
+    }
+AdapterView.OnItemClickListener fMenu = new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+Worker farmer= (Worker) adapterView.getItemAtPosition(i);
+        Intent m= new Intent();
+        m.setClass(getBaseContext(),FarmerMenu.class);
+        m.putExtra(TableWorkers.COL_ID, farmer.getId());
+        startActivity(m);
+
+    }
+};
+    @Override
+    protected void onResume() {
+        super.onResume();
+        farmList=dbHelper.readFarmers();
+        farmerAdapter.clear();
+        farmerAdapter.addAll(farmList);
+        lvFarmers.setAdapter(farmerAdapter);
+
     }
 
     @Override

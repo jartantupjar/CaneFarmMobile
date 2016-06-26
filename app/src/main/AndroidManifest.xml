@@ -86,6 +86,10 @@
             android:name=".selectFarmer"
             android:label="@string/title_activity_select_farmer" >
         </activity>
+        <activity
+            android:name=".FarmerMenu"
+            android:label="@string/title_activity_farmer_menu" >
+        </activity>
     </application>
 
 </manifest>

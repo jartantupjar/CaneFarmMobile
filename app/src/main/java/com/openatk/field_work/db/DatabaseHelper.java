@@ -204,7 +204,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		dbHelper.close();
 		return operations;
 	}
-	public  List<Operation> readFarmers(){
+	//todo reactivate this code
+	/*public  List<Operation> readFarmers(){
 		List<Operation> operations = new ArrayList<Operation>();
 		SQLiteDatabase database = getReadableDatabase();
 
@@ -224,8 +225,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		return operations;
 	}
-	
-	
+	*/
+	public  List<Worker> readFarmers() {
+		List<Worker> worker = new ArrayList<Worker>();
+		SQLiteDatabase database = getReadableDatabase();
+
+		Cursor c = database.query(TableWorkers.TABLE_NAME, null, null, null, null, null, null);
+
+		if (c.moveToFirst()) {
+			do {
+				Worker m = new Worker();
+				m.setId(c.getInt(c.getColumnIndex(TableWorkers.COL_ID)));
+				m.setName(c.getString(c.getColumnIndex(TableWorkers.COL_NAME)));
+				worker.add(m);
+			} while (c.moveToNext());
+			c.close();
+			database.close();
+			//dbHelper.close();
+		}
+		return worker;
+	}
+
 	//TODO delete worker (only called by mainactivity after views are updated from isDeleted)
 
 	

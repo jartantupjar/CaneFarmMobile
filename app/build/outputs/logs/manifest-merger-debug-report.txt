@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:2:1-91:12
+ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:2:1-95:12
 	xmlns:android
 		ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:2:11-69
 	package
@@ -115,7 +115,7 @@ ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidMa
 	android:name
 		ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:37:30-85
 application
-ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:39:5-89:19
+ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:39:5-93:19
 MERGED from [com.google.android.gms:play-services-maps:8.4.0] C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.4.0\AndroidManifest.xml:27:5-20
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:23.0.0] C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\AndroidManifest.xml:22:5-20
@@ -200,3 +200,9 @@ ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidMa
 		ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:87:13-65
 	android:name
 		ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:86:13-41
+activity#com.openatk.field_work.FarmerMenu
+ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:89:9-92:20
+	android:label
+		ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:91:13-63
+	android:name
+		ADDED from C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\src\main\AndroidManifest.xml:90:13-39

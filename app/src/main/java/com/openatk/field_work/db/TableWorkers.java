@@ -88,7 +88,7 @@ public class TableWorkers {
 			String remote_id = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_REMOTE_ID));
 			Date dateNameChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME_CHANGED)));
 			String name = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME));
-			Boolean deleted = cursor.getInt(cursor.getColumnIndex(TableWorkers.COL_DELETED)) == 1 ? true : false;;
+			Boolean deleted = cursor.getInt(cursor.getColumnIndex(TableWorkers.COL_DELETED)) == 1 ? true : false;
 			Date dateDeletedChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableWorkers.COL_DELETED_CHANGED)));;
 			
 			Worker worker = new Worker(id, remote_id, dateNameChanged, name, deleted, dateDeletedChanged);

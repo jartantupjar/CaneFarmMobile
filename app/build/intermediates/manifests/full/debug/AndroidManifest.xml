@@ -86,6 +86,10 @@
             android:name="com.openatk.field_work.selectFarmer"
             android:label="@string/title_activity_select_farmer" >
         </activity>
+        <activity
+            android:name="com.openatk.field_work.FarmerMenu"
+            android:label="@string/title_activity_farmer_menu" >
+        </activity>
     </application>
 
 </manifest>

@@ -3,6 +3,11 @@ package com.openatk.field_work.models;
 import java.util.Date;
 
 public class Worker {
+
+	static final String COLUMN_ID="_id";
+
+
+
 	private Integer id = null;
 	private String remote_id = null;
 	private Date dateNameChanged = null;

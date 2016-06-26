@@ -792,14 +792,7 @@
                     "endOffset": 8567
                 },
                 "from": {
-                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml",
-                    "position": {
-                        "startLine": 14,
-                        "startColumn": 4,
-                        "startOffset": 508,
-                        "endColumn": 52,
-                        "endOffset": 556
-                    }
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
                 }
             },
             {
@@ -807,17 +800,17 @@
                     "startLine": 76,
                     "startColumn": 4,
                     "startOffset": 8572,
-                    "endColumn": 69,
-                    "endOffset": 8637
+                    "endColumn": 65,
+                    "endOffset": 8633
                 },
                 "from": {
                     "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml",
                     "position": {
-                        "startLine": 12,
+                        "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 435,
-                        "endColumn": 69,
-                        "endOffset": 500
+                        "startOffset": 562,
+                        "endColumn": 65,
+                        "endOffset": 623
                     }
                 }
             },
@@ -825,9 +818,9 @@
                 "to": {
                     "startLine": 77,
                     "startColumn": 4,
-                    "startOffset": 8642,
-                    "endColumn": 84,
-                    "endOffset": 8722
+                    "startOffset": 8638,
+                    "endColumn": 69,
+                    "endOffset": 8703
                 },
                 "from": {
                     "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
@@ -837,9 +830,9 @@
                 "to": {
                     "startLine": 78,
                     "startColumn": 4,
-                    "startOffset": 8727,
-                    "endColumn": 59,
-                    "endOffset": 8782
+                    "startOffset": 8708,
+                    "endColumn": 84,
+                    "endOffset": 8788
                 },
                 "from": {
                     "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
@@ -849,10 +842,22 @@
                 "to": {
                     "startLine": 79,
                     "startColumn": 4,
-                    "startOffset": 8787,
-                    "endLine": 85,
+                    "startOffset": 8793,
+                    "endColumn": 59,
+                    "endOffset": 8848
+                },
+                "from": {
+                    "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\strings.xml"
+                }
+            },
+            {
+                "to": {
+                    "startLine": 80,
+                    "startColumn": 4,
+                    "startOffset": 8853,
+                    "endLine": 86,
                     "endColumn": 12,
-                    "endOffset": 9073
+                    "endOffset": 9139
                 },
                 "from": {
                     "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\styles.xml"
@@ -860,12 +865,12 @@
             },
             {
                 "to": {
-                    "startLine": 86,
+                    "startLine": 87,
                     "startColumn": 4,
-                    "startOffset": 9078,
-                    "endLine": 88,
+                    "startOffset": 9144,
+                    "endLine": 89,
                     "endColumn": 12,
-                    "endOffset": 9233
+                    "endOffset": 9299
                 },
                 "from": {
                     "file": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\values\\styles.xml"

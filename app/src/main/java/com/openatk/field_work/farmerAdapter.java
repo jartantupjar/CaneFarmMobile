@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.openatk.field_work.models.Operation;
+import com.openatk.field_work.models.Worker;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,13 +18,14 @@ import java.util.List;
 /**
  * Created by ndrs on 6/25/2016.
  */
-public class farmerAdapter extends ArrayAdapter<Operation> {
-    ArrayList<Operation> farmerList;
+// TODO CHANGE IT BACK TO OPERATION
+public class farmerAdapter extends ArrayAdapter<Worker> {
+    ArrayList<Worker> farmerList;
 
 
-    public farmerAdapter(Context context, int resource, List<Operation> objects) {
+    public farmerAdapter(Context context, int resource, List<Worker> objects) {
         super(context, resource);
-        farmerList=(ArrayList<Operation>) objects;
+        farmerList=(ArrayList<Worker>) objects;
     }
 
     @Override
@@ -34,8 +36,8 @@ public class farmerAdapter extends ArrayAdapter<Operation> {
             convertView=inflater.inflate(R.layout.list_view_farmer,parent,false);
         }
 
-        TextView tvBookmark= (TextView) convertView.findViewById(R.id.tv_farmer);
-        tvBookmark.setText(farmerList.get(position).getName());
+        TextView tvFarmer= (TextView) convertView.findViewById(R.id.tv_farmer);
+        tvFarmer.setText(farmerList.get(position).getName());
 
         return convertView;
     }
