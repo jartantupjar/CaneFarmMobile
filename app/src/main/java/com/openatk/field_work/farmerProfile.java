@@ -1,6 +1,7 @@
 package com.openatk.field_work;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,6 +14,13 @@ import android.widget.Spinner;
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.TableWorkers;
 import com.openatk.field_work.models.Worker;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
+
+import java.io.IOException;
 
 public class farmerProfile extends Activity {
 
@@ -22,7 +30,10 @@ Worker worker;
     DatabaseHelper dbHelper;
     EditText name,address,phone;
     Button save;
-
+     private Worker nworker;
+    private String ipAddress = "192.168.15.4:8080";
+    private String webApp="SRA";
+    private String baseUrl = "http://" + ipAddress +"/" + webApp +"/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +88,7 @@ Worker worker;
     View.OnClickListener saveprofile=new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Worker nworker= new Worker();
+             nworker= new Worker();
 
             nworker.setName(name.getText().toString());
             nworker.setAddress(address.getText().toString());
@@ -88,11 +99,41 @@ Worker worker;
             nworker.setEducation(TableWorkers.educationtoInt(education.getSelectedItem().toString()));
             nworker.setId(farmerId);
 
-            TableWorkers.updateWorker(dbHelper,nworker);
+            TableWorkers.updateWorker(dbHelper, nworker);
+
+            new EditWorkerHelper().execute();
 
 
         }
     };
+
+    private class EditWorkerHelper extends AsyncTask<String, Void, String> {
+
+
+
+        @Override
+        protected String doInBackground(String... strings) {
+            Response response;
+            String result = null;
+            OkHttpClient client = new OkHttpClient();
+            RequestBody postRequestBody = new FormEncodingBuilder()
+                    .add("username", nworker.getName())
+                    .add("address", nworker.getAddress())
+                    .add("cell_num", nworker.getPhone())
+                    .add("civil", nworker.getCivil())
+                    .add("gender", nworker.getSex())
+                    .add("education", nworker.getEducation()).build();
+            Request request = new Request.Builder().url(baseUrl + "EditOwnerMobile").post(postRequestBody).build();
+            try {
+                response = client.newCall(request).execute();
+                result = response.body().string();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return result;
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

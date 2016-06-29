@@ -1,5 +1,6 @@
 package com.openatk.field_work;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -20,6 +21,11 @@ import com.openatk.field_work.models.Field;
 import com.openatk.field_work.models.Job;
 import com.openatk.field_work.models.Operation;
 import com.openatk.field_work.models.Worker;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -31,6 +37,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
@@ -56,6 +63,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
 
 public class FragmentJob extends Fragment implements
 		OnCheckedChangeListener, OnClickListener, OnItemSelectedListener, DatePickerListener {
@@ -93,7 +101,13 @@ public class FragmentJob extends Fragment implements
 	private MyTextWatcher etCommentTextWatcher;
 	
 	private boolean retained = false;
-	
+
+	private Worker newWorker;
+
+	private String ipAddress = "192.168.15.4:8080";
+	private String webApp="SRA";
+	private String baseUrl = "http://" + ipAddress +"/" + webApp +"/";
+
 	// Interface for sending data
 	public interface FragmentJobListener {
 		public void FragmentJob_Init(); //This -> Listener
@@ -589,7 +603,7 @@ public class FragmentJob extends Fragment implements
 								String name = userInput.getText().toString();
 								if (name.isEmpty() == false) {
 									// Create new worker
-									Worker newWorker = new Worker(name);
+									newWorker = new Worker(name);
 									newWorker.setDateNameChanged(new Date());
 									newWorker.setDeleted(false);
 									newWorker.setDateDeletedChanged(new Date());
@@ -597,8 +611,11 @@ public class FragmentJob extends Fragment implements
 									TableWorkers.updateWorker(dbHelper, newWorker);
 									//Tell mainactivity to trigger a remote sync
 									listener.FragmentJob_TriggerSync();
+									new CreateWorkerHelper().execute();
 									loadWorkerList();
-									selectWorkerInSpinner(name);									
+									selectWorkerInSpinner(name);
+
+
 								}
 							}
 						})
@@ -614,6 +631,28 @@ public class FragmentJob extends Fragment implements
 
 		// show it
 		alertDialog.show();
+	}
+
+	private class CreateWorkerHelper extends AsyncTask<String, Void, String>{
+
+
+
+		@Override
+		protected String doInBackground(String... strings) {
+			Response response;
+			String result = null;
+			OkHttpClient client = new OkHttpClient();
+			RequestBody postRequestBody = new FormEncodingBuilder().add("username", newWorker.getName()).build();
+			Request request = new Request.Builder().url(baseUrl+"CreateNewOwnerMobile").post(postRequestBody).build();
+			try {
+				response = client.newCall(request).execute();
+				result = response.body().string();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
 	}
 
 	private void loadWorkerList(){

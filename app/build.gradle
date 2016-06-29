@@ -22,5 +22,5 @@ dependencies {
     compile project(':LibTrello')
     compile project(':OpenATKLib')
     compile 'com.squareup.okio:okio:1.8.0'
-    compile 'com.squareup.okhttp3:okhttp:3.3.1'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
 }
