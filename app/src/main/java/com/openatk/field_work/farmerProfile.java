@@ -33,6 +33,10 @@ Worker worker;
         phone= (EditText) findViewById(R.id.tv_Phone);
         save=(Button) findViewById(R.id.btnSave);
 
+        sex = (Spinner) findViewById(R.id.sex);
+        civil = (Spinner) findViewById(R.id.civil);
+        education = (Spinner) findViewById(R.id.education);
+
         farmerId= getIntent().getExtras().getInt(TableWorkers.COL_ID);
         worker=TableWorkers.FindWorkerById(dbHelper, farmerId);
 
@@ -40,24 +44,31 @@ Worker worker;
         address.setText(worker.getAddress());
     phone.setText(worker.getPhone());
 
+        String[] sgender;
+        sgender=TableWorkers.InttoGender(worker.getSex());
+        ArrayAdapter<String> gadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, sgender);
+        sex.setAdapter(gadapter);
 
-        sex = (Spinner) findViewById(R.id.sex);
-        civil = (Spinner) findViewById(R.id.civil);
-        education = (Spinner) findViewById(R.id.education);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.gender, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sex.setAdapter(adapter);
+      //  ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+        //        R.array.gender, android.R.layout.simple_spinner_item);
 
-        adapter = ArrayAdapter.createFromResource(this,
-                R.array.civil, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        civil.setAdapter(adapter);
+        String[] scivil;
+        scivil=TableWorkers.inttoCivil(worker.getCivil());
+        ArrayAdapter<String> cadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, scivil);
+        civil.setAdapter(cadapter);
 
-        adapter = ArrayAdapter.createFromResource(this,
-                R.array.education, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        education.setAdapter(adapter);
+       // ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+     //           R.array.civil, android.R.layout.simple_spinner_item);
+    //    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+      //  civil.setAdapter(adapter);
+        String[] seducation;
+        seducation=TableWorkers.inttoEducation(worker.getEducation());
+        ArrayAdapter<String> eadapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, seducation);
+        education.setAdapter(eadapter);
+      //  adapter = ArrayAdapter.createFromResource(this,
+        //        R.array.education, android.R.layout.simple_spinner_item);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+       // education.setAdapter(adapter);
 
         save.setOnClickListener(saveprofile);
 
@@ -71,6 +82,10 @@ Worker worker;
             nworker.setName(name.getText().toString());
             nworker.setAddress(address.getText().toString());
             nworker.setPhone(phone.getText().toString());
+
+          nworker.setSex(TableWorkers.gendertoInt(sex.getSelectedItem().toString()));
+            nworker.setCivil(TableWorkers.civiltoInt(civil.getSelectedItem().toString()));
+            nworker.setEducation(TableWorkers.educationtoInt(education.getSelectedItem().toString()));
             nworker.setId(farmerId);
 
             TableWorkers.updateWorker(dbHelper,nworker);

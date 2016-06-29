@@ -247,4 +247,84 @@ public class TableWorkers {
 		dbHelper.close();
 		return true;
 	}
-}
+	public static String gendertoInt(String gender){
+		String realgender;
+		if(gender=="male"){
+			realgender="0";
+		}else{
+	realgender="1";
+		}
+		return realgender;
+	}
+	public static String[] InttoGender(String gender){
+		String[] realgender;
+		if(gender.equalsIgnoreCase("0")){
+			realgender=new String[]{"male","female"};
+		}else{
+			realgender=new String[]{"female","male"};
+		}
+		return realgender;
+	}
+
+	public static String civiltoInt(String status){
+		String realstatus;
+
+		if(status.equalsIgnoreCase("married")) realstatus="1";
+		else if(status.equalsIgnoreCase("separated")) realstatus="2";
+		else if (status.equalsIgnoreCase("widowed")) realstatus="3";
+		else realstatus="0";
+
+		return realstatus;
+	}
+	public static String[] inttoCivil(String civil){
+		String[] realcivil;
+		if(civil.equalsIgnoreCase("0")){
+			realcivil=new String[]{"single","married","separated","widowed"};
+		}else if(civil.equalsIgnoreCase("1")){
+			realcivil=new String[]{"married","single","separated","widowed"};
+		}
+		else if(civil.equalsIgnoreCase("2")){
+			realcivil=new String[]{"separated","single","married","widowed"};
+		}
+		else realcivil=new String[]{"widowed","single","married","separated"};
+		return realcivil;
+	}
+
+	public static String educationtoInt(String education){
+		String realeducation;
+		if(education.equalsIgnoreCase("Elem")) realeducation="0";
+		else if(education.equalsIgnoreCase("HS-Undergrad")) realeducation="1";
+		else if(education.equalsIgnoreCase("HS-Grad")) realeducation="2";
+		else if(education.equalsIgnoreCase("College-Undergrad")) realeducation="3";
+		else if(education.equalsIgnoreCase("College-Grad")) realeducation="4";
+		else if(education.equalsIgnoreCase("Vocational")) realeducation="5";
+		else realeducation="6";
+		return realeducation;
+	}
+	public static String[] inttoEducation(String civil){
+		String[] realcivil;
+		if(civil.equalsIgnoreCase("0")){
+			realcivil=new String[]{"Elem","HS-Undergrad","HS-Grad","College-Undergrad","College-Grad","Vocational","none"};
+		}else if(civil.equalsIgnoreCase("1")){
+			realcivil=new String[]{"HS-Undergrad","Elem","HS-Grad","College-Undergrad","College-Grad","Vocational","none"};
+		}
+		else if(civil.equalsIgnoreCase("2")){
+			realcivil=new String[]{"HS-Grad","Elem","HS-Undergrad","College-Undergrad","College-Grad","Vocational","none"};
+		}
+		else if(civil.equalsIgnoreCase("3")){
+			realcivil=new String[]{"College-Undergrad","Elem","HS-Undergrad","HS-Grad","College-Grad","Vocational","none"};
+		}
+		else if(civil.equalsIgnoreCase("4")){
+			realcivil=new String[]{"College-Grad","Elem","HS-Undergrad","HS-Grad","College-Undergrad","Vocational","none"};
+		}
+		else if(civil.equalsIgnoreCase("5")){
+			realcivil=new String[]{"Vocational","Elem","HS-Undergrad","HS-Grad","College-Undergrad","College-Grad","none"};
+		}
+		else realcivil=new String[]{"none","Elem","HS-Undergrad","HS-Grad","College-Undergrad","College-Grad","Vocational"};
+		return realcivil;
+	}
+
+
+	}
+
+
