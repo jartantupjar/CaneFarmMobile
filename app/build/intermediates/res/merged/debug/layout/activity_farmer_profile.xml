@@ -1,0 +1,152 @@
+ <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.openatk.field_work.farmerProfile">
+
+
+
+     <ScrollView
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:orientation="vertical"
+             android:paddingBottom="30dp"
+             android:id="@+id/linearLayout2"
+             android:weightSum="1">
+             <ImageView
+                 android:layout_width="123dp"
+                 android:layout_height="123dp"
+                 android:id="@+id/imageView"
+
+                 android:src="@drawable/ic_launcher"
+
+                 android:layout_columnSpan="2"
+
+                 android:layout_alignRight="@+id/linearLayout2"
+                 android:layout_alignEnd="@+id/linearLayout2"
+                 android:layout_gravity="right" />
+             <LinearLayout
+                 android:layout_width="fill_parent"
+                 android:orientation="horizontal"
+                 android:layout_height="wrap_content">
+             <TextView android:text="Name:" android:layout_width="wrap_content"
+                 android:layout_height="63dp"
+                 android:textSize="25sp"
+                 />
+                 <EditText
+                     android:id="@+id/tv_name"
+                     android:layout_width="fill_parent"
+                     android:layout_height="wrap_content" />
+
+
+             </LinearLayout>
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:orientation="horizontal"
+             android:layout_height="wrap_content">
+             <TextView android:text="Sex: " android:layout_width="wrap_content"
+                 android:layout_height="63dp"
+                 android:textSize="25sp"
+                  />
+             <Spinner
+                 android:layout_width="200dp"
+                 android:id="@+id/sex"
+                 android:layout_height="wrap_content">
+
+             </Spinner>
+             </LinearLayout>
+
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:orientation="horizontal"
+             android:layout_height="wrap_content">
+             <TextView android:text="Civil Status:" android:layout_width="wrap_content"
+                 android:layout_height="63dp"
+                 android:textSize="25sp"
+
+                  />
+             <Spinner
+                 android:layout_width="200dp"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/civil">
+
+             </Spinner>
+             </LinearLayout>
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:orientation="horizontal"
+             android:layout_height="wrap_content">
+             <TextView android:text="Address:" android:layout_width="wrap_content"
+                 android:layout_height="63dp"
+                 android:textSize="25sp"
+              />
+             <EditText
+                 android:layout_width="wrap_content"
+                 android:layout_height="100dp"
+                 android:inputType="textMultiLine"
+                 android:ems="10"
+                 android:id="@+id/tv_Address"
+                 android:layout_weight="1" />
+
+         </LinearLayout>
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:orientation="horizontal"
+             android:layout_height="wrap_content">
+             <TextView android:text="Phone No. " android:layout_width="wrap_content"
+                 android:layout_height="63dp"
+                 android:textSize="25sp"
+                />
+             <EditText
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:id="@+id/tv_Phone"/>
+             </LinearLayout>
+         <LinearLayout
+             android:layout_width="fill_parent"
+             android:orientation="horizontal"
+             android:layout_height="wrap_content">
+             <TextView android:text="Education: " android:layout_width="wrap_content"
+                 android:layout_height="63dp"
+                 android:textSize="25sp"
+                  />
+             <Spinner
+                 android:layout_width="200dp"
+                 android:id="@+id/education"
+                 android:layout_height="wrap_content">
+
+             </Spinner>
+         </LinearLayout>
+             <LinearLayout
+                 android:layout_width="fill_parent"
+                 android:orientation="horizontal"
+                 android:layout_height="fill_parent">
+                 <RelativeLayout
+                     android:layout_width="fill_parent"
+                     android:layout_height="fill_parent"
+android:layout_gravity="center">
+                     <Button
+                         android:text="Save"
+                         android:id="@+id/btnSave"
+                         android:layout_height="wrap_content"
+                         android:layout_width="200dp"
+                         android:layout_marginLeft="70dp"/>
+                 </RelativeLayout>
+
+
+             </LinearLayout>
+
+
+         </LinearLayout>
+     </ScrollView>
+
+
+
+
+ </RelativeLayout>
