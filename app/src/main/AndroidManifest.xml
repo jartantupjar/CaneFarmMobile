@@ -90,6 +90,10 @@
             android:name=".FarmerMenu"
             android:label="@string/title_activity_farmer_menu" >
         </activity>
+        <activity
+            android:name=".farmerProfile"
+            android:label="@string/title_activity_farmer_profile" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,9 +1,12 @@
 package com.openatk.field_work;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -17,7 +20,7 @@ public class FarmerMenu extends Activity {
     Worker worker;
     int farmerId;
     DatabaseHelper dbHelper;
-
+    Button btnProf;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +30,23 @@ public class FarmerMenu extends Activity {
         Toast.makeText(getBaseContext(),Integer.toString(farmerId), Toast.LENGTH_SHORT).show();
          dbHelper= new DatabaseHelper(getBaseContext());
         tvFarmer=(TextView)findViewById(R.id.nFarm);
+        btnProf=(Button)findViewById(R.id.btnProf);
+        btnProf.setOnClickListener(startProf);
 
       worker=TableWorkers.FindWorkerById(dbHelper,farmerId);
 
         tvFarmer.setText(worker.getName());
 
     }
+    View.OnClickListener startProf= new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            Intent i = new Intent();
+            i.setClass(getBaseContext(),farmerProfile.class);
+            i.putExtra(TableWorkers.COL_ID, farmerId);
+            startActivity(i);
+        }
+    };
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

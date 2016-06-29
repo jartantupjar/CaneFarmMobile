@@ -90,6 +90,10 @@
             android:name="com.openatk.field_work.FarmerMenu"
             android:label="@string/title_activity_farmer_menu" >
         </activity>
+        <activity
+            android:name="com.openatk.field_work.farmerProfile"
+            android:label="@string/title_activity_farmer_profile" >
+        </activity>
     </application>
 
 </manifest>

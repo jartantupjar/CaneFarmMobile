@@ -16,6 +16,16 @@ public class Worker {
 	private Boolean deleted = null;
 	private Date dateDeletedChanged = null;
 
+
+	private String address="";
+	private String sex = "";
+	private String civil="";
+	private String education = "";
+	private String phone="";
+
+
+
+	//todo check if i have to add details of TableFarmerDetails inside Worker()
 	public Worker() {
 		this.remote_id = null;
 		this.dateNameChanged = null;
@@ -42,6 +52,24 @@ public class Worker {
 		this.remote_id = remote_id;
 		this.dateNameChanged = dateNameChanged;
 		this.name = name;
+		this.deleted = deleted;
+		this.dateDeletedChanged = dateDeletedChanged;
+	}
+
+	public Worker(Integer id, String remote_id, Date dateNameChanged, String name, String address,
+				  String sex, String civil, String education, String phone, Boolean deleted, Date dateDeletedChanged) {
+
+		super();
+		this.id = id;
+		this.remote_id = remote_id;
+		this.dateNameChanged = dateNameChanged;
+		this.name = name;
+		this.address= address;
+		this.sex=sex;
+		this.civil=civil;
+		this.education=education;
+		this.phone=phone;
+
 		this.deleted = deleted;
 		this.dateDeletedChanged = dateDeletedChanged;
 	}
@@ -91,7 +119,46 @@ public class Worker {
 	public String toString() {
 		return this.getName();
 	}
-	
-	
 
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getSex() {
+		return sex;
+	}
+
+	public void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	public String getCivil() {
+		return civil;
+	}
+
+	public void setCivil(String civil) {
+		this.civil = civil;
+	}
+
+	public String getEducation() {
+		return education;
+	}
+
+	public void setEducation(String education) {
+		this.education = education;
+	}
+
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 }

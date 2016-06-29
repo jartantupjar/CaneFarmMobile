@@ -52,6 +52,10 @@
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\fragment_edit_job_popup.xml"
     },
     {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_farmer_profile.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\activity_farmer_profile.xml"
+    },
+    {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\view_job_status.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\Field-Work\\OpenATKLib\\unspecified\\res\\layout\\view_job_status.xml"
     },

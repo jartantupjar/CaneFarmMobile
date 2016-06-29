@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="civil">
+        <item>Single</item>
+        <item>Married</item>
+        <item>Separated</item>
+        <item>Widowed</item>
+    </string-array>
+    <string-array name="education">
+        <item>Elem</item>
+        <item>HS Undergrad</item>
+        <item>HS Grad</item>
+        <item>College Undergrad</item>
+        <item>College Grad</item>
+        <item>Vocational</item>
+        <item>None</item>
+    </string-array>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
     <string-array name="labelMenu">
         <item>Disc 2012</item>
         <item>Chisel 2012</item>
@@ -75,6 +94,7 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_farmer_menu">FarmerMenu</string>
+    <string name="title_activity_farmer_profile">farmerProfile</string>
     <string name="title_activity_select_farmer">selectFarmer</string>
     <string name="trello_perm_desc">Let apps access your trello synced data</string>
     <string name="trello_perm_label">Trello Access</string>

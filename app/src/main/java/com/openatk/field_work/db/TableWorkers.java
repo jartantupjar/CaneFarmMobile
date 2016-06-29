@@ -2,8 +2,7 @@ package com.openatk.field_work.db;
 
 import java.util.Date;
 
-import com.openatk.field_work.models.Field;
-import com.openatk.field_work.models.Operation;
+
 import com.openatk.field_work.models.Worker;
 
 import android.content.ContentValues;
@@ -21,11 +20,23 @@ public class TableWorkers {
 	public static final String COL_NAME = "name";
 	public static final String COL_NAME_CHANGED = "name_changed";
 
+
+	public static final String COL_ADDRESS = "address";
+	//public static final String COL_ADDRESS_CHANGED = "address_changed";
+	public static final String COL_PHONE="phone";
+
+	public static final String  COL_SEX ="sex";
+
+	public static final String COL_CIVIL="civil";
+
+	public static final String COL_EDUCATION="education";
+
+
 	public static final String COL_DELETED = "deleted";
 	public static final String COL_DELETED_CHANGED = "deleted_changed";
 	
-	public static String[] COLUMNS = { COL_ID, COL_REMOTE_ID, COL_NAME, COL_NAME_CHANGED, 
-		COL_DELETED, COL_DELETED_CHANGED };
+	public static String[] COLUMNS = { COL_ID, COL_REMOTE_ID, COL_NAME, COL_NAME_CHANGED, COL_ADDRESS,COL_SEX,COL_CIVIL,COL_EDUCATION,COL_PHONE,
+			COL_DELETED, COL_DELETED_CHANGED };
 
 	// Database creation SQL statement
 	private static final String DATABASE_CREATE = "create table " 
@@ -35,6 +46,13 @@ public class TableWorkers {
 	      + COL_REMOTE_ID + " text default ''," 
 	      + COL_NAME + " text," 
 	      + COL_NAME_CHANGED + " text,"
+
+			+ COL_ADDRESS +" text,"
+			+ COL_SEX +" int,"
+			+ COL_CIVIL+" int,"
+			+ COL_EDUCATION+" int,"
+			+ COL_PHONE+" text,"
+
 	      + COL_DELETED + " integer default 0," 
 	      + COL_DELETED_CHANGED + " text" 
 	      + ");";
@@ -53,15 +71,17 @@ public class TableWorkers {
     		case 2: //V2
     			//Nothing changed in this table
     		case 3:
-    			Log.d("TableWorkers - onUpgrade", "upgarding to v3");
+    			Log.d("TableWorkers - onUpgrade", "to v3");
     			database.beginTransaction();
     			try {
-        			database.execSQL("create table backup(_id, remote_id, name)");
-        			database.execSQL("insert into backup select _id, remote_id, name from workers");
-        			database.execSQL("drop table workers");
+        	//		database.execSQL("create table backup(_id, remote_id, name)");
+        	//		database.execSQL("insert into backup select _id, remote_id, name from workers");
+        	//		database.execSQL("drop table workers");
         			database.execSQL(DATABASE_CREATE);
-        			database.execSQL("insert into " + TABLE_NAME + " (_id, remote_id, name) select _id, remote_id, name from backup");
-        			database.execSQL("drop table backup");
+					//orig code
+        			//database.execSQL("insert into " + TABLE_NAME + " (_id, remote_id, name) select _id, remote_id, name from backup");
+
+        		//	database.execSQL("drop table backup");
         			database.setTransactionSuccessful();
     			} finally {
     				database.endTransaction();
@@ -88,10 +108,18 @@ public class TableWorkers {
 			String remote_id = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_REMOTE_ID));
 			Date dateNameChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME_CHANGED)));
 			String name = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME));
+
+			 String address=cursor.getString(cursor.getColumnIndex(TableWorkers.COL_ADDRESS));
+			 String sex = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_SEX));
+			 String civil=cursor.getString(cursor.getColumnIndex(TableWorkers.COL_CIVIL));
+			 String education = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_EDUCATION));
+			 String phone=cursor.getString(cursor.getColumnIndex(TableWorkers.COL_PHONE));
+
+
 			Boolean deleted = cursor.getInt(cursor.getColumnIndex(TableWorkers.COL_DELETED)) == 1 ? true : false;
 			Date dateDeletedChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableWorkers.COL_DELETED_CHANGED)));;
 			
-			Worker worker = new Worker(id, remote_id, dateNameChanged, name, deleted, dateDeletedChanged);
+			Worker worker = new Worker(id, remote_id, dateNameChanged, name,address,sex,civil,education,phone,deleted, dateDeletedChanged);
 			return worker;
 		} else {
 			return null;
@@ -152,7 +180,13 @@ public class TableWorkers {
 		
 		if(worker.getDateNameChanged() != null) values.put(TableWorkers.COL_NAME_CHANGED, DatabaseHelper.dateToStringUTC(worker.getDateNameChanged()));
 		if(worker.getName() != null) values.put(TableWorkers.COL_NAME, worker.getName());
-		
+		//todo check if this is necessary
+		if(worker.getAddress() != null) values.put(TableWorkers.COL_ADDRESS, worker.getAddress());
+		if(worker.getSex() != null) values.put(TableWorkers.COL_SEX, worker.getSex());
+		if(worker.getCivil() != null) values.put(TableWorkers.COL_CIVIL, worker.getCivil());
+		if(worker.getEducation() != null) values.put(TableWorkers.COL_EDUCATION, worker.getEducation());
+		if(worker.getPhone() != null) values.put(TableWorkers.COL_PHONE, worker.getPhone());
+
 		if(worker.getDeleted() != null) values.put(TableWorkers.COL_DELETED, (worker.getDeleted() == false ? 0 : 1));
 		if(worker.getDateDeletedChanged() != null) values.put(TableWorkers.COL_DELETED_CHANGED, DatabaseHelper.dateToStringUTC(worker.getDateDeletedChanged()));
 

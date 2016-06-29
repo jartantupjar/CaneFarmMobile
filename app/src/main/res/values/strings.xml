@@ -14,4 +14,27 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_farmer_menu">FarmerMenu</string>
+    <string name="title_activity_farmer_profile">farmerProfile</string>
+
+    <string-array name="gender">
+        <item >Male</item>
+        <item >Female</item>
+    </string-array>
+
+    <string-array name="civil">
+        <item >Single</item>
+        <item >Married</item>
+        <item >Separated</item>
+        <item >Widowed</item>
+    </string-array>
+    <string-array name="education">
+        <item >Elem</item>
+        <item >HS Undergrad</item>
+        <item >HS Grad</item>
+        <item >College Undergrad</item>
+        <item >College Grad</item>
+        <item >Vocational</item>
+        <item >None</item>
+    </string-array>
+
 </resources>

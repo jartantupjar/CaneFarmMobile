@@ -23,7 +23,7 @@ public class selectFarmer extends Activity {
     farmerAdapter farmerAdapter;
     DatabaseHelper dbHelper;
     List<Worker> farmList;
-
+    Worker farmer;
 
 
 
@@ -34,6 +34,19 @@ public class selectFarmer extends Activity {
 
         dbHelper = new DatabaseHelper(getBaseContext());
         farmList=dbHelper.readFarmers();
+       /* if(farmList.get(0).getAddress().isEmpty()) {
+
+
+            Worker m = new Worker();
+            m.setId(1);
+            m.setAddress("hongkong");
+            m.setCivil("Married");
+            m.setSex("Male");
+            m.setEducation("HS");
+            m.setMngmt("Owned");
+            TableWorkers.updateWorker(dbHelper, m);
+        }
+        */
         lvFarmers=(ListView) findViewById(R.id.lv_farmers);
 
 
@@ -44,12 +57,15 @@ public class selectFarmer extends Activity {
         farmerAdapter.addAll(farmList);
         lvFarmers.setAdapter(farmerAdapter);
 
+
+
+
         lvFarmers.setOnItemClickListener(fMenu);
     }
 AdapterView.OnItemClickListener fMenu = new AdapterView.OnItemClickListener() {
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-Worker farmer= (Worker) adapterView.getItemAtPosition(i);
+ farmer= (Worker) adapterView.getItemAtPosition(i);
         Intent m= new Intent();
         m.setClass(getBaseContext(),FarmerMenu.class);
         m.putExtra(TableWorkers.COL_ID, farmer.getId());
