@@ -23,8 +23,8 @@ public class TableJobs {
 	public static final String COL_FIELD_NAME = "field_name";
 	public static final String COL_FIELD_NAME_CHANGED = "field_name_changed";
 
-	public static final String COL_OPERATION_ID = "operation_id";
-	public static final String COL_OPERATION_ID_CHANGED = "operation_id_changed";
+	public static final String COL_WORKER_ID = "worker_id";
+	public static final String COL_WORKER_ID_CHANGED = "worker_id_changed";
 
 	public static final String COL_DATE_OF_OPERATION = "date_of_operation";
 	public static final String COL_DATE_OF_OPERATION_CHANGED = "date_of_operation_changed";
@@ -43,7 +43,7 @@ public class TableJobs {
 
 
 	public static String[] COLUMNS = { COL_ID, COL_REMOTE_ID, COL_FIELD_NAME, COL_FIELD_NAME_CHANGED,
-		COL_OPERATION_ID, COL_OPERATION_ID_CHANGED, COL_DATE_OF_OPERATION, 
+		COL_WORKER_ID, COL_WORKER_ID_CHANGED, COL_DATE_OF_OPERATION,
 		COL_DATE_OF_OPERATION_CHANGED, COL_WORKER_NAME, COL_WORKER_NAME_CHANGED, 
 		COL_STATUS, COL_STATUS_CHANGED, COL_COMMENTS, COL_COMMENTS_CHANGED,
 		COL_DELETED, COL_DELETED_CHANGED };
@@ -56,10 +56,10 @@ public class TableJobs {
 	      + COL_REMOTE_ID + " text default ''," 
 	      + COL_FIELD_NAME + " text," 
 	      + COL_FIELD_NAME_CHANGED + " text,"
-	      + COL_OPERATION_ID + " integer,"
-	      + COL_OPERATION_ID_CHANGED + " text,"
+	      + COL_WORKER_ID + " integer,"
+	      + COL_WORKER_ID_CHANGED + " text,"
 	      + COL_DATE_OF_OPERATION + " text,"
-	      + COL_DATE_OF_OPERATION_CHANGED + " text,"
+	     + COL_DATE_OF_OPERATION_CHANGED + " text,"
 	      + COL_WORKER_NAME + " text,"
 	      + COL_WORKER_NAME_CHANGED + " text,"
 	      + COL_STATUS + " integer,"
@@ -126,8 +126,8 @@ public class TableJobs {
 			String fieldName = cursor.getString(cursor.getColumnIndex(TableJobs.COL_FIELD_NAME));
 			Date dateFieldNameChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableJobs.COL_FIELD_NAME_CHANGED)));
 
-			Integer operationId = cursor.getInt(cursor.getColumnIndex(TableJobs.COL_OPERATION_ID));
-			Date dateOperationIdChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableJobs.COL_OPERATION_ID_CHANGED)));
+			Integer operationId = cursor.getInt(cursor.getColumnIndex(TableJobs.COL_WORKER_ID));
+			Date dateOperationIdChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableJobs.COL_WORKER_ID_CHANGED)));
 
 			Date dateOfOperation = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableJobs.COL_DATE_OF_OPERATION)));
 			Date dateDateOfOperationChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableJobs.COL_DATE_OF_OPERATION_CHANGED)));
@@ -163,7 +163,7 @@ public class TableJobs {
 		SQLiteDatabase database = dbHelper.getReadableDatabase();
 		// Find job
 		Job theJob = null;
-		String where = TableJobs.COL_FIELD_NAME + "= ? AND " + TableJobs.COL_OPERATION_ID + " = " + Integer.toString(idOperation) + " AND " + TableJobs.COL_DELETED + " = 0";
+		String where = TableJobs.COL_FIELD_NAME + "= ? AND " + TableJobs.COL_WORKER_ID + " = " + Integer.toString(idOperation) + " AND " + TableJobs.COL_DELETED + " = 0";
 		Cursor cursor = database.query(TableJobs.TABLE_NAME, TableJobs.COLUMNS, where, new String[]{name}, null, null, null);
 		if (cursor.moveToFirst()) {
 			theJob = TableJobs.cursorToJob(cursor);
@@ -246,8 +246,8 @@ public class TableJobs {
 		if(job.getDateOfOperation() != null) values.put(TableJobs.COL_DATE_OF_OPERATION, DatabaseHelper.dateToStringUTC(job.getDateOfOperation()));
 		if(job.getDateDateOfOperationChanged() != null) values.put(TableJobs.COL_DATE_OF_OPERATION_CHANGED, DatabaseHelper.dateToStringUTC(job.getDateDateOfOperationChanged()));
 		
-		if(job.getOperationId() != null) values.put(TableJobs.COL_OPERATION_ID, job.getOperationId());
-		if(job.getDateOperationIdChanged() != null) values.put(TableJobs.COL_OPERATION_ID_CHANGED, DatabaseHelper.dateToStringUTC(job.getDateOperationIdChanged()));
+		if(job.getWorkerId() != null) values.put(TableJobs.COL_WORKER_ID, job.getWorkerId());
+		if(job.getDateOperationIdChanged() != null) values.put(TableJobs.COL_WORKER_ID_CHANGED, DatabaseHelper.dateToStringUTC(job.getDateOperationIdChanged()));
 		
 		if(job.getWorkerName() != null) values.put(TableJobs.COL_WORKER_NAME, job.getWorkerName());
 		if(job.getDateWorkerNameChanged() != null) values.put(TableJobs.COL_WORKER_NAME_CHANGED, DatabaseHelper.dateToStringUTC(job.getDateWorkerNameChanged()));
@@ -324,7 +324,7 @@ public class TableJobs {
 	public static boolean deleteAllWithOperationId(DatabaseHelper dbHelper, Integer operationId){
 		//Deleted all jobs in the db
 		//Used by MyTrelloContentProvider
-		String where = TableJobs.COL_OPERATION_ID + " = " + Integer.toString(operationId);
+		String where = TableJobs.COL_WORKER_ID + " = " + Integer.toString(operationId);
 		SQLiteDatabase database = dbHelper.getWritableDatabase();
 		database.delete(TableJobs.TABLE_NAME, where, null);
 		database.close();

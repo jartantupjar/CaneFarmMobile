@@ -15,7 +15,7 @@ public class Job {
 	private String fieldName = null;
 	private Date dateFieldNameChanged = null;
 
-	private Integer operationId = null;
+	private Integer workerId = null;
 	private Date dateOperationIdChanged = null;
 
 	private Date dateOfOperation = null;
@@ -37,7 +37,7 @@ public class Job {
 	
 	public Job(){
 		//Used for updating
-		this.operationId = null;
+		this.workerId = null;
 		this.status = null;
 		this.deleted = null;
 		this.comments = null;
@@ -50,7 +50,7 @@ public class Job {
 			this.remote_id = null;
 			this.fieldName = null;
 			this.dateFieldNameChanged = null;
-			this.operationId = null;
+			this.workerId = null;
 			this.dateOperationIdChanged = null;
 			this.dateOfOperation = null;
 			this.dateDateOfOperationChanged = null;
@@ -73,7 +73,7 @@ public class Job {
 		this.dateDeletedChanged = new Date();
 		this.comments = "";
 		this.dateCommentsChanged = new Date();
-		this.operationId = operationId;
+		this.workerId = operationId;
 		this.dateOperationIdChanged = new Date();
 		this.fieldName = fieldName;
 		this.dateFieldNameChanged = new Date();
@@ -88,7 +88,7 @@ public class Job {
 		super();
 		this.id = id;
 		this.remote_id = remote_id;
-		this.operationId = operationId;
+		this.workerId = operationId;
 		this.dateOperationIdChanged = dateOperationIdChanged;
 		this.dateOfOperation = dateOfOperation;
 		this.dateDateOfOperationChanged = dateDateOfOperationChanged;
@@ -116,11 +116,11 @@ public class Job {
 	public void setRemote_id(String remote_id) {
 		this.remote_id = remote_id;
 	}
-	public Integer getOperationId() {
-		return operationId;
+	public Integer getWorkerId() {
+		return workerId;
 	}
-	public void setOperationId(Integer operationId) {
-		this.operationId = operationId;
+	public void setWorkerId(Integer workerId) {
+		this.workerId = workerId;
 	}
 	public Date getDateOperationIdChanged() {
 		return dateOperationIdChanged;

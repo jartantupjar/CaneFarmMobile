@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.TableWorkers;
-import com.openatk.field_work.models.Operation;
+//import com.openatk.field_work.models.Operation;
 import com.openatk.field_work.models.Worker;
 
 import java.util.ArrayList;

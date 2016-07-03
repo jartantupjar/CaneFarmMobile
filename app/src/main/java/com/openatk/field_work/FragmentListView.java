@@ -142,7 +142,7 @@ public class FragmentListView extends Fragment implements OnClickListener {
 		int currentOperationId = listener.listViewGetCurrentOperationId();
 		
 		// Find job
-		String where = TableJobs.COL_OPERATION_ID + " = " + Integer.toString(currentOperationId) + " AND " + TableJobs.COL_DELETED + " = 0";
+		String where = TableJobs.COL_WORKER_ID + " = " + Integer.toString(currentOperationId) + " AND " + TableJobs.COL_DELETED + " = 0";
 		
 		if(this.searchText.isEmpty() == false){
 			where = where + " AND " + TableJobs.COL_FIELD_NAME + " LIKE '%" + this.searchText + "%'";

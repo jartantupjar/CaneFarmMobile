@@ -34,6 +34,8 @@ Worker worker;
     private String ipAddress = "192.168.15.4:8080";
     private String webApp="SRA";
     private String baseUrl = "http://" + ipAddress +"/" + webApp +"/";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

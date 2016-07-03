@@ -3,7 +3,7 @@ package com.openatk.field_work.db;
 import java.util.Date;
 
 import com.openatk.field_work.models.Job;
-import com.openatk.field_work.models.Operation;
+//import com.openatk.field_work.models.Operation;
 
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -11,7 +11,7 @@ import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-public class TableOperations {
+/*public class TableOperations {
 	// Database table
 	public static final String TABLE_NAME = "operations";
 	public static final String COL_ID = "_id";
@@ -217,3 +217,4 @@ public class TableOperations {
 		return true;
 	}
 }
+*/

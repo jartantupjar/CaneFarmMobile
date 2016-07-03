@@ -10,7 +10,7 @@ import java.util.TimeZone;
 
 import com.openatk.field_work.models.Field;
 import com.openatk.field_work.models.Job;
-import com.openatk.field_work.models.Operation;
+//import com.openatk.field_work.models.Operation;
 import com.openatk.field_work.models.Worker;
 
 import android.content.ContentValues;
@@ -40,7 +40,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		TableFields.onCreate(database);
 		TableJobs.onCreate(database);
 		TableWorkers.onCreate(database);
-		TableOperations.onCreate(database);
+	//	TableOperations.onCreate(database);
 	}
 
 	// Method is called during an upgrade of the database,
@@ -50,7 +50,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		TableFields.onUpgrade(database, oldVersion, newVersion);
 		TableJobs.onUpgrade(database, oldVersion, newVersion);
 		TableWorkers.onUpgrade(database, oldVersion, newVersion);
-		TableOperations.onUpgrade(database, oldVersion, newVersion);
+		//TableOperations.onUpgrade(database, oldVersion, newVersion);
 	}
 	/*
 	 * Takes in a date and returns it in a string format
@@ -142,13 +142,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		dbHelper.close();
 		return jobs;
 	}
+
 	public List<Job> readJobsByOperationId(int operationId){
 		return DatabaseHelper.readJobsByOperationId(this, operationId);
 	}
 	public static List<Job> readJobsByOperationId(DatabaseHelper dbHelper, int operationId){
 		List<Job> jobs = new ArrayList<Job>();
 		SQLiteDatabase database = dbHelper.getReadableDatabase();
-		String where = TableJobs.COL_OPERATION_ID + " = " + Integer.toString(operationId);
+		String where = TableJobs.COL_WORKER_ID + " = " + Integer.toString(operationId);
 		Cursor cursor = database.query(TableJobs.TABLE_NAME, TableJobs.COLUMNS, where, null, null, null, null);
 		while (cursor.moveToNext()) {
 			jobs.add(TableJobs.cursorToJob(cursor));
@@ -184,7 +185,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	
-	public List<Operation> readOperations(){
+	/*public List<Operation> readOperations(){
 		return DatabaseHelper.readOperations(this);
 	}
 
@@ -204,6 +205,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		dbHelper.close();
 		return operations;
 	}
+
+	*/
 	//todo reactivate this code
 	/*public  List<Operation> readFarmers(){
 		List<Operation> operations = new ArrayList<Operation>();

@@ -64,6 +64,8 @@
 	        android:id="@+id/edit_field_layStatusPlanned"
 		    android:layout_width="wrap_content"
 		    android:layout_height="wrap_content"
+
+
 		    android:layout_marginRight="10dp">
 		    <CheckBox 
 		    	android:id="@+id/edit_field_chkPlanned"
@@ -72,6 +74,7 @@
 		    	android:layout_alignParentTop="true"
 		    	android:layout_centerInParent="true"
 		    	android:button="@drawable/checkbox_planned"
+
 		        />
 		    <TextView
 		        android:id="@+id/edit_field_label_chkPlanned"

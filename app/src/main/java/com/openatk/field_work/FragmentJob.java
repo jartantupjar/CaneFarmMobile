@@ -14,12 +14,12 @@ import java.util.concurrent.Callable;
 
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.TableJobs;
-import com.openatk.field_work.db.TableOperations;
+//import com.openatk.field_work.db.TableOperations;
 import com.openatk.field_work.db.TableWorkers;
 import com.openatk.field_work.listeners.DatePickerListener;
 import com.openatk.field_work.models.Field;
 import com.openatk.field_work.models.Job;
-import com.openatk.field_work.models.Operation;
+//import com.openatk.field_work.models.Operation;
 import com.openatk.field_work.models.Worker;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.OkHttpClient;
@@ -72,7 +72,7 @@ public class FragmentJob extends Fragment implements
 	
 	private Field currentField = null;
 	private Job currentJob = null;
-	private Operation currentOperation = null;
+	private Worker currentOperation = null;
 
 	private TextView tvName;
 	private TextView tvAcres;
@@ -97,6 +97,10 @@ public class FragmentJob extends Fragment implements
 	private RelativeLayout layout;
 	private RelativeLayout layInfo1;
 	private RelativeLayout layInfo2;
+
+	private RelativeLayout layPlanned;
+	private RelativeLayout layStarted;
+	private RelativeLayout layDone;
 
 	private MyTextWatcher etCommentTextWatcher;
 	
@@ -134,6 +138,12 @@ public class FragmentJob extends Fragment implements
 		layout = (RelativeLayout) view.findViewById(R.id.edit_field_layout);
 		layInfo1 = (RelativeLayout) view.findViewById(R.id.edit_field_layInfo1);
 		layInfo2 = (RelativeLayout) view.findViewById(R.id.edit_field_layInfo2);
+
+		layPlanned= (RelativeLayout) view.findViewById(R.id.edit_field_layStatusPlanned);
+		layStarted= (RelativeLayout) view.findViewById(R.id.edit_field_layStatusStarted);
+		layDone= (RelativeLayout) view.findViewById(R.id.edit_field_layStatusDone);
+
+
 		tvName = (TextView) view.findViewById(R.id.edit_field_tvName);
 		tvAcres = (TextView) view.findViewById(R.id.edit_field_tvAcres);
 		tvAcresLabel = (TextView) view.findViewById(R.id.edit_field_label_acres);
@@ -235,6 +245,10 @@ public class FragmentJob extends Fragment implements
 		} else {
 			this.layInfo1.setVisibility(View.VISIBLE);
 			this.layInfo2.setVisibility(View.VISIBLE);
+
+
+
+
 			
 			if(job.getDateOfOperation() == null) job.setDateOfOperation(new Date());
 			
@@ -246,18 +260,31 @@ public class FragmentJob extends Fragment implements
 				chkPlanned.setChecked(false);
 				chkDone.setChecked(false);
 				chkStarted.setChecked(false);
+
 				if(job.getStatus() == Job.STATUS_NOT_PLANNED){
 					//Hide comment, data, and operator until they make a job
 					this.layInfo1.setVisibility(View.INVISIBLE);
-					this.layInfo2.setVisibility(View.INVISIBLE);	
+					this.layInfo2.setVisibility(View.INVISIBLE);
+					this.layPlanned.setVisibility(View.VISIBLE);
+					this.layStarted.setVisibility(View.VISIBLE);
+					this.layDone.setVisibility(View.VISIBLE);
 				} else if(job.getStatus() == Job.STATUS_PLANNED){
 					chkPlanned.setChecked(true);
+					this.layDone.setVisibility(View.GONE);
+					this.layPlanned.setVisibility(View.VISIBLE);
+					this.layStarted.setVisibility(View.VISIBLE);
 				} else if (job.getStatus() == Job.STATUS_STARTED){
 					chkStarted.setChecked(true);
+					this.layPlanned.setVisibility(View.GONE);
+					this.layStarted.setVisibility(View.VISIBLE);
+					this.layDone.setVisibility(View.VISIBLE);
 				} else if (job.getStatus() == Job.STATUS_DONE){
 					chkDone.setChecked(true);
+					this.layStarted.setVisibility(View.GONE);
+					this.layPlanned.setVisibility(View.VISIBLE);
+					this.layDone.setVisibility(View.VISIBLE);
 				}
-				
+
 				chkPlanned.setOnCheckedChangeListener(this);
 				chkStarted.setOnCheckedChangeListener(this);
 				chkDone.setOnCheckedChangeListener(this);
@@ -332,8 +359,8 @@ public class FragmentJob extends Fragment implements
 		currentField = field;
 	}
 	
-	public void updateOperation(Operation operation) {
-		this.currentOperation = operation;
+	public void updateOperation(Worker worker) {
+		this.currentOperation = worker;
 	}
 	
 	@Override
@@ -418,7 +445,7 @@ public class FragmentJob extends Fragment implements
 				currentJob = new Job(this.currentOperation.getId(), currentField.getName());
 				currentJob.setFieldName(currentField.getName());
 				currentJob.setDateFieldNameChanged(new Date());
-				currentJob.setOperationId(this.currentOperation.getId());
+				currentJob.setWorkerId(this.currentOperation.getId());
 				currentJob.setDateOperationIdChanged(new Date());
 				
 				currentJob.setDateOfOperation(new Date());
@@ -457,12 +484,22 @@ public class FragmentJob extends Fragment implements
 				if (currentJob.getStatus() == Job.STATUS_PLANNED) {
 					chkDone.setChecked(false);
 					chkStarted.setChecked(false);
+					this.layDone.setVisibility(View.GONE);
+					this.layStarted.setVisibility(View.VISIBLE);
+					this.layPlanned.setVisibility(View.VISIBLE);
 				} else if (currentJob.getStatus() == Job.STATUS_STARTED) {
 					chkPlanned.setChecked(false);
 					chkDone.setChecked(false);
+					this.layPlanned.setVisibility(View.GONE);
+					this.layDone.setVisibility(View.VISIBLE);
+					this.layStarted.setVisibility(View.VISIBLE);
+
 				} else if (currentJob.getStatus() == Job.STATUS_DONE) {
 					chkPlanned.setChecked(false);
 					chkStarted.setChecked(false);
+					this.layStarted.setVisibility(View.GONE);
+					this.layDone.setVisibility(View.VISIBLE);
+					this.layPlanned.setVisibility(View.VISIBLE);
 				}
 				
 				//Save in db
@@ -476,14 +513,27 @@ public class FragmentJob extends Fragment implements
 			}
 			this.layInfo1.setVisibility(View.VISIBLE);
 			this.layInfo2.setVisibility(View.VISIBLE);
+
+	//		this.layStarted.setVisibility(View.VISIBLE);
+	//		this.layPlanned.setVisibility(View.VISIBLE);
+	//		this.layDone.setVisibility(View.VISIBLE);
 		} else {
 			//Stay checked if we pressed the same button over again
 			if (buttonView.getId() == R.id.edit_field_chkPlanned && currentJob.getStatus() == Job.STATUS_PLANNED) {
 				chkPlanned.setChecked(true);
+				this.layPlanned.setVisibility(View.VISIBLE);
+				this.layStarted.setVisibility(View.VISIBLE);
+				this.layDone.setVisibility(View.GONE);
 			} else if (buttonView.getId() == R.id.edit_field_chkStarted && currentJob.getStatus() == Job.STATUS_STARTED) {
 				chkStarted.setChecked(true);
+				this.layPlanned.setVisibility(View.GONE);
+				this.layStarted.setVisibility(View.VISIBLE);
+				this.layDone.setVisibility(View.VISIBLE);
 			} else if (buttonView.getId() == R.id.edit_field_chkDone && currentJob.getStatus() == Job.STATUS_DONE) {
 				chkDone.setChecked(true);
+				this.layStarted.setVisibility(View.GONE);
+				this.layDone.setVisibility(View.VISIBLE);
+				this.layPlanned.setVisibility(View.VISIBLE);
 			}
 		}
 	}

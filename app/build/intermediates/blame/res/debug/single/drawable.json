@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
-    },
-    {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\checkbox_started.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\checkbox_started.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light.xml",
@@ -40,12 +40,12 @@
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_dark.xml"
     },
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_view_job_content.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\list_view_job_content.xml"
-    },
-    {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\checkbox_planned.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\checkbox_planned.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_view_job_content.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\list_view_job_content.xml"
     },
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_view_job_topbar_selected.xml",
@@ -56,12 +56,12 @@
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\list_view_container.xml"
     },
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_bottom_corners.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\rounded_bottom_corners.xml"
-    },
-    {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_view_job_topbar.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\list_view_job_topbar.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_bottom_corners.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\rounded_bottom_corners.xml"
     },
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_view_category_started.xml",
@@ -84,11 +84,11 @@
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_view_category_done.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\list_view_category_done.xml"
-    },
-    {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_plus_signin_btn_text_light.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\list_view_category_done.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable\\list_view_category_done.xml"
     }
 ]

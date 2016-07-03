@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.openatk.field_work.models.Operation;
+//import com.openatk.field_work.models.Operation;
 import com.openatk.field_work.models.Worker;
 
 import java.util.ArrayList;

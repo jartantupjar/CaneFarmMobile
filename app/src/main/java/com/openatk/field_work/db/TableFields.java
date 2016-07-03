@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.openatk.field_work.models.Field;
-import com.openatk.field_work.models.Operation;
+//import com.openatk.field_work.models.Operation;
 import com.openatk.field_work.models.Worker;
 
 import android.content.ContentValues;

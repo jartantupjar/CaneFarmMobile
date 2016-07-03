@@ -55,19 +55,17 @@ import com.openatk.field_work.FragmentListView.ListViewListener;
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.TableFields;
 import com.openatk.field_work.db.TableJobs;
-import com.openatk.field_work.db.TableOperations;
+//import com.openatk.field_work.db.TableOperations;
 import com.openatk.field_work.db.TableWorkers;
 import com.openatk.field_work.listeners.DatePickerListener;
 import com.openatk.field_work.models.Field;
 import com.openatk.field_work.models.Job;
-import com.openatk.field_work.models.Operation;
+//import com.openatk.field_work.models.Operation;
 import com.openatk.field_work.models.Worker;
 import com.openatk.field_work.views.FieldView;
 import com.openatk.field_work.views.RelativeLayoutKeyboardDetect;
 import com.openatk.field_work.views.RelativeLayoutKeyboardDetect.KeyboardChangeListener;
-import com.openatk.libtrello.TrelloContentProvider;
-import com.openatk.libtrello.TrelloSyncHelper;
-import com.openatk.libtrello.TrelloSyncInfo;
+
 import com.openatk.openatklib.atkmap.ATKMap;
 import com.openatk.openatklib.atkmap.ATKSupportMapFragment;
 import com.openatk.openatklib.atkmap.listeners.ATKMapClickListener;
@@ -124,8 +122,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	private int mCurrentState;
 	private boolean keyboardIsShowing = false;
 
-	private List<Operation> operationsList = new ArrayList<Operation>();;
-	private ArrayAdapter<Operation> spinnerMenuAdapter = null;
+	private List<Worker> operationsList = new ArrayList<Worker>();;
+	private ArrayAdapter<Worker> spinnerMenuAdapter = null;
 	private Spinner spinnerMenu = null;
 
 	FragmentJob fragmentJob = null;
@@ -137,9 +135,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	private Bundle savedInstanceState;
 	
 	private FieldView currentFieldView;	
-	private Operation currentOperation;
+	private Worker currentOperation;
 	
-	private TrelloSyncHelper syncHelper;
+	//private TrelloSyncHelper syncHelper;
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -147,7 +145,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		setContentView(R.layout.activity_main);
 		
 		dbHelper = new DatabaseHelper(this);
-		syncHelper = new TrelloSyncHelper();
+	//	syncHelper = new TrelloSyncHelper();
 		
 		//Get fragments
 		FragmentManager fm = getSupportFragmentManager();
@@ -227,7 +225,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 
 		// Specify a SpinnerAdapter to populate the dropdown list.
-		spinnerMenuAdapter = new ArrayAdapter<Operation>(this, R.layout.operation_list_item, operationsList);
+		spinnerMenuAdapter = new ArrayAdapter<Worker>(this, R.layout.operation_list_item, operationsList);
 		spinnerMenu.setAdapter(spinnerMenuAdapter);
 		
 		
@@ -329,7 +327,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE);
 		int operationId = prefs.getInt("currentOperationId", -1);
 		if(operationId != -1){
-			currentOperation = TableOperations.FindOperationById(dbHelper, operationId);
+			currentOperation = TableWorkers.FindWorkerById(dbHelper, operationId);
 			if(currentOperation != null) selectCurrentOperationInSpinner();
 		}
 		spinnerMenu.setOnItemSelectedListener(this);
@@ -412,7 +410,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				if(currentOperation == null){
 					Log.d("updateOperation", "current op null");
 					fview.update(fview.getField(), null);
-				} else if(fview.getJob() == null || fview.getJob().getOperationId() != currentOperation.getId()){
+				} else if(fview.getJob() == null || fview.getJob().getWorkerId() != currentOperation.getId()){
 					Boolean found = false;
 					Iterator<Job> jobIterator = jobs.iterator();
 				    while(jobIterator.hasNext()){
@@ -471,7 +469,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			//Update existing field view
 			if(job == null) job = fieldView.getJob();
 			if(job != null && job.getDeleted() == true) job = null;
-			if(job != null && job.getOperationId() != this.currentOperation.getId()) job = null;
+			if(job != null && job.getWorkerId() != this.currentOperation.getId()) job = null;
 			fieldView.update(field, job);
 			if(field.getDeleted()){
 				fieldViews.remove(fieldView);
@@ -533,7 +531,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		editor.commit();
 		LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReciever);
 		
-		syncHelper.onPause();
+		//syncHelper.onPause();
 	}
 
 	@Override
@@ -549,7 +547,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReciever, new IntentFilter(MainActivity.INTENT_WORKER_DELETED));
 		LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReciever, new IntentFilter(MainActivity.INTENT_EVERYTHING_DELETED));
 
-		this.syncHelper.onResume(this); //Startup autosync if it is on
+		//this.syncHelper.onResume(this); //Startup autosync if it is on
 		
 		SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
 		
@@ -590,7 +588,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		editor.commit();
 		if(syncOccured) {
 			//Sync again in case this is a new organization
-			this.syncHelper.sync(this);
+		//	this.syncHelper.sync(this);
 		}
 		//drawHazards();
 	}
@@ -667,7 +665,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 						}
 						if(intent.getIntExtra("oldOperationId", -1) != -1) {
 							Integer oldOpId = intent.getIntExtra("oldOperationId", -1);
-							if(currentOperation != null && oldOpId == currentOperation.getId() && theJob.getOperationId() != currentOperation.getId()){
+							if(currentOperation != null && oldOpId == currentOperation.getId() && theJob.getWorkerId() != currentOperation.getId()){
 								//Update job of fieldview, job now belongs to another operation, no longer in our active one, look for other jobs for this field
 								Field theField = TableFields.FindFieldByName(dbHelper, theJob.getFieldName());
 								
@@ -680,7 +678,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 								if(theField != null) updateFieldView(theField, job);
 							}
 						}
-						if(theJob.getOperationId() != null && currentOperation != null && theJob.getOperationId() == currentOperation.getId()){
+						if(theJob.getWorkerId() != null && currentOperation != null && theJob.getWorkerId() == currentOperation.getId()){
 							Field theField = TableFields.FindFieldByName(dbHelper, theJob.getFieldName());
 							if(theField != null){
 								Log.d("MainActivity", "Set fieldview to new job");
@@ -690,7 +688,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 							}
 						}
 					}
-					if(theJob.getOperationId() != null && currentOperation != null && theJob.getOperationId() == currentOperation.getId()) updateFragmentJob();
+					if(theJob.getWorkerId() != null && currentOperation != null && theJob.getWorkerId() == currentOperation.getId()) updateFragmentJob();
 				}
 			} else if(intent.getAction().contentEquals(MainActivity.INTENT_JOB_DELETED)){
 				Log.d("MainActivity BroadcastReceiver", "INTENT_JOB_DELETED");
@@ -716,13 +714,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				//Find operation in db and add it to the list, update name if its a name update
 				int id = intent.getIntExtra("id", -1);
 				if(id != -1){
-					Operation operation = TableOperations.FindOperationById(dbHelper, id);
+					Worker worker = TableWorkers.FindWorkerById(dbHelper, id);
 					//Check if it is a new operation, update name if it isn't
 					boolean newOp = true;
 					for(int i=0; i<operationsList.size(); i++){
 						if(operationsList.get(i).getId() != null && id == operationsList.get(i).getId()){
 							//Update name in list
-							operationsList.set(i, operation);
+							operationsList.set(i, worker);
 							if (spinnerMenuAdapter != null) spinnerMenuAdapter.notifyDataSetChanged();
 							newOp = false;
 							break;
@@ -731,12 +729,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 					if(newOp){
 						//If it was previously empty add "New Operation" to the list
 						if(operationsList.size() == 0) {
-							Operation newOperationButton = new Operation();
+							Worker newOperationButton = new Worker();
 							newOperationButton.setName("New Operation");
 							operationsList.add(newOperationButton);
 						}
 						//Add the operation to the list
-						operationsList.add(operation);
+						operationsList.add(worker);
 						if (spinnerMenuAdapter != null) spinnerMenuAdapter.notifyDataSetChanged();
 					}
 				}
@@ -803,7 +801,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				}
 			} else if(intent.getAction().contentEquals(MainActivity.INTENT_EVERYTHING_DELETED)){
 				//Organization or board has changed, delete everything
-				TableOperations.deleteAll(dbHelper);
+			//	TableOperations.deleteAll(dbHelper);
 				TableFields.deleteAll(dbHelper);
 				TableJobs.deleteAll(dbHelper);
 				TableWorkers.deleteAll(dbHelper);
@@ -828,24 +826,24 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	
 	public void loadOperations() {	
 		SQLiteDatabase database = dbHelper.getReadableDatabase();
-		Cursor cursor = database.query(TableOperations.TABLE_NAME, TableOperations.COLUMNS, null, null, null, null, null);
+		Cursor cursor = database.query(TableWorkers.TABLE_NAME,TableWorkers.COLUMNS, null, null, null, null, null);
 		while (cursor.moveToNext()) {
-			Operation operation = TableOperations.cursorToOperation(cursor);
-			if (operation != null) operationsList.add(operation);
+			Worker worker = TableWorkers.cursorToWorker(cursor);
+			if (worker != null) operationsList.add(worker);
 		} 
 		cursor.close();
 		database.close();
 		dbHelper.close();
 		
-		List<Operation> operations = dbHelper.readOperations();
+		List<Worker> workers = dbHelper.readWorkers();
 		operationsList.clear();
-		operationsList.addAll(operations);
-				
-		if(operations.isEmpty() == false){
+		operationsList.addAll(workers);
+				//todo this is where it adds operation sets new
+		if(workers.isEmpty() == false){
 			//Add the "New Operation" button
-			Operation operation = new Operation();
-			operation.setName("New Operation");
-			operationsList.add(operation);
+			Worker worker = new Worker();
+			worker.setName("New Operation");
+			operationsList.add(worker);
 		} else {
 			//Dont display any operations
 			//Hide?
@@ -890,8 +888,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 								String name = userInput.getText().toString();
 								if (name.isEmpty() == false) {
 									
-									Operation newOp = new Operation(name);
-									TableOperations.updateOperation(dbHelper, newOp); //Add operation to db
+									Worker newOp = new Worker(name);
+									TableWorkers.updateWorker(dbHelper, newOp); //Add operation to db
 									currentOperation = newOp;
 
 									Log.d("MainActivity - createOperation", currentOperation.getName());
@@ -950,7 +948,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		boolean installed = TrelloContentProvider.isInstalled();
+		//boolean installed = TrelloContentProvider.isInstalled();
 		
 		if(this.fragmentAddField != null && this.fragmentAddField.isHidden() == false) {
 			if(mCurrentState == STATE_LIST_VIEW){
@@ -977,14 +975,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			menu.findItem(R.id.main_menu_map_view).setVisible(true);
 			
 			menu.findItem(R.id.main_menu_add).setVisible(true);
-			if(installed) {
+		/*	if(installed) {
 				menu.findItem(R.id.main_menu_sync).setVisible(true);
 				menu.findItem(R.id.main_menu_autosync).setVisible(true);
 			} else {
 				menu.findItem(R.id.main_menu_sync).setVisible(false);
 				menu.findItem(R.id.main_menu_autosync).setVisible(false);
 			}
-			
+		*/
 			menu.findItem(R.id.main_menu_current_location).setVisible(false);
 		} else {
 			Log.d("MainActivity", "pInflating main menu");
@@ -992,14 +990,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			menu.findItem(R.id.main_menu_map_view).setVisible(false);
 			
 			menu.findItem(R.id.main_menu_add).setVisible(true);
-			if(installed) {
+			/*if(installed) {
 				menu.findItem(R.id.main_menu_sync).setVisible(true);
 				menu.findItem(R.id.main_menu_autosync).setVisible(true);
 			} else {
 				menu.findItem(R.id.main_menu_sync).setVisible(false);
 				menu.findItem(R.id.main_menu_autosync).setVisible(false);
 			}
-			
+			*/
 			menu.findItem(R.id.main_menu_current_location).setVisible(true);
 		}	
 		
@@ -1046,7 +1044,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			editor.commit();
 			drawHazards();*/
 		} else if (item.getItemId() == R.id.main_menu_sync) {
-			this.syncHelper.sync(this);
+		//	this.syncHelper.sync(this);
 		} else if (item.getItemId() == R.id.main_menu_list_view) {
 			// Show list view
 			Log.d("MainActivity", "Showing list view");
@@ -1094,10 +1092,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				.setIcon(android.R.drawable.ic_dialog_alert)
 				.setPositiveButton("Close", null).show();
 		} else if(item.getItemId() == R.id.main_menu_autosync){
-			TrelloSyncInfo syncInfo = syncHelper.getSyncInfo(getApplicationContext());
+			//TrelloSyncInfo syncInfo = syncHelper.getSyncInfo(getApplicationContext());
 			
 			int selected = -1;
-			if(syncInfo != null){
+			/*if(syncInfo != null){
 				if(syncInfo.getAutoSync() != null && syncInfo.getAutoSync() == false){
 					selected = 0;
 				} else if(syncInfo.getInterval() != null) {
@@ -1108,6 +1106,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 					if(syncInfo.getInterval() == 60*30) selected = 4;
 				}
 			}
+			*/
+
 			String[] options = { 
 					"Never", "1 min", "5 min", "10 min", "30 min"
 				};
@@ -1116,22 +1116,22 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 						Integer devAutoSyncOnTrigger = 0;
 						public void onClick(DialogInterface dialog, int which) {
 							if(which == 0){
-								syncHelper.autoSyncOff(getApplicationContext());
+			//					syncHelper.autoSyncOff(getApplicationContext());
 							} else if(which == 1) {
-								syncHelper.autoSyncOn(getApplicationContext(), 60);
+			//					syncHelper.autoSyncOn(getApplicationContext(), 60);
 							} else if(which == 2) {
-								syncHelper.autoSyncOn(getApplicationContext(), 60*5);
+			//					syncHelper.autoSyncOn(getApplicationContext(), 60*5);
 							} else if(which == 3) {
-								syncHelper.autoSyncOn(getApplicationContext(), 60*10);
+			//					syncHelper.autoSyncOn(getApplicationContext(), 60*10);
 							} else if(which == 4) {
-								syncHelper.autoSyncOn(getApplicationContext(), 60*30);
+			//					syncHelper.autoSyncOn(getApplicationContext(), 60*30);
 								devAutoSyncOnTrigger++;
 								if(devAutoSyncOnTrigger > 9){
 									if(devAutoSyncOnTrigger % 2 == 0){
-										syncHelper.devAutoSyncOn(getApplicationContext(), 3);
+			//							syncHelper.devAutoSyncOn(getApplicationContext(), 3);
 										Toast.makeText(getApplicationContext(), "Presentation auto sync on, every 3 seconds.", Toast.LENGTH_SHORT).show();
 									} else {
-										syncHelper.devAutoSyncOff(getApplicationContext());
+			//							syncHelper.devAutoSyncOff(getApplicationContext());
 										Toast.makeText(getApplicationContext(), "Presentation auto sync off.", Toast.LENGTH_SHORT).show();
 									}
 								}
@@ -1416,7 +1416,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				
 				//Add or update in list view
 				if (this.fragmentListView != null) this.fragmentListView.getData();
-				this.syncHelper.autoSyncDelayed(this);
+			//	this.syncHelper.autoSyncDelayed(this);
 			}
 			
 			this.currentFieldView = fieldview;
@@ -1464,16 +1464,16 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
 		
 		// Spinner selected item
-		Operation operation = (Operation) parent.getItemAtPosition(pos);
-		if (operation.getId() == null) {
+		Worker worker = (Worker) parent.getItemAtPosition(pos);
+		if (worker.getId() == null) {
 			// Create new operation
 			selectCurrentOperationInSpinner(); // Go back to original for now,
 												// in case cancel
 			createOperation(null);
 		} else {
-			if(currentOperation == null || currentOperation.getId() != operation.getId()) hideFragmentJob(true);
+			if(currentOperation == null || currentOperation.getId() != worker.getId()) hideFragmentJob(true);
 			
-			currentOperation = operation;
+			currentOperation = worker;
 			
 			// Save this choice in preferences for next open
 			SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE);
@@ -1605,13 +1605,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		}
 		
 		//Remote sync jobs, they have changed...
-		this.syncHelper.autoSyncDelayed(this);
+		//this.syncHelper.autoSyncDelayed(this);
 	}
 
 	@Override
 	public void FragmentJob_TriggerSync() {
 		//Trigger a sync
-		this.syncHelper.autoSyncDelayed(this);
+	//	this.syncHelper.autoSyncDelayed(this);
 	}
 
 // This code is the one that sends you to the clicked polygon in the fragment list

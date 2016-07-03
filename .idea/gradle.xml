@@ -9,7 +9,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/LibTrello" />
             <option value="$PROJECT_DIR$/OpenATKLib" />
             <option value="$PROJECT_DIR$/app" />
           </set>

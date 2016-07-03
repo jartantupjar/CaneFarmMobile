@@ -2,7 +2,7 @@ package com.openatk.field_work.models;
 import java.util.Date;
 
 
-public class Operation {
+/*public class Operation {
 	private Integer id = null;
 	private String remote_id = null;
 	private String name = "";
@@ -107,3 +107,4 @@ public class Operation {
 	
 	
 }
+*/
