@@ -6,7 +6,9 @@ import java.util.Date;
 
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.TableFields;
+import com.openatk.field_work.models.BaseField;
 import com.openatk.field_work.models.Field;
+import com.openatk.field_work.views.BaseFieldView;
 import com.openatk.field_work.views.FieldView;
 import com.openatk.openatklib.atkmap.listeners.ATKPolygonDrawListener;
 import com.openatk.openatklib.atkmap.views.ATKPolygonView;
@@ -33,27 +35,41 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
-public class FragmentAddField extends Fragment implements OnClickListener, OnCheckedChangeListener, ATKPolygonDrawListener {
+public class FragmentAddField extends Fragment implements OnClickListener, OnCheckedChangeListener, ATKPolygonDrawListener, RadioGroup.OnCheckedChangeListener {
 
 	private EditText name;
 	private EditText acres;
 	private CheckBox autoAcres;
+	private RadioGroup radioGroup;
+	private RadioButton radioBase;
+	private RadioButton radioField;
 	private FragmentAddFieldListener listener;
 	private float autoAcresValue;
 	
 	private View layout;
-	
+	private boolean ifBase;
+
 	private FieldView fieldview;
+
+
+	private BaseFieldView baseFieldView;
 	public boolean keyboardShowing = false;
 	
 	private static float DECIMAL_ACRES_LIMIT = 3.0f;
-	
+
+
+
+
 	// Interface for receiving data
 	public interface FragmentAddFieldListener {
 		public void FragmentAddField_Undo(); //This -> Listener
 		public void FragmentAddField_Init(); //This -> Listener
 		public void FragmentAddField_Done(FieldView field);  //This -> Listener
+		public void FragmentAddBase_Init();
+		public void FragmentAddBase_Done(BaseFieldView base);
 	}
 
 	@Override
@@ -68,6 +84,10 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 		name = (EditText) view.findViewById(R.id.add_field_name);
 		acres = (EditText) view.findViewById(R.id.add_field_etAcres);
 		autoAcres = (CheckBox) view.findViewById(R.id.add_field_chkAutoAcres);
+
+		radioGroup=(RadioGroup) view.findViewById(R.id.radiogroup);
+		radioBase=(RadioButton)view.findViewById(R.id.rbtnBase);
+		radioField=(RadioButton)view.findViewById(R.id.rbtnJob);
 
 		layout.setOnClickListener(this);
 		
@@ -105,14 +125,17 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 		butDelete.setOnClickListener(this);
 		
 		autoAcres.setOnCheckedChangeListener(this);
+		radioGroup.setOnCheckedChangeListener(this);
 		return view;
 	}
+
 
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
 		listener.FragmentAddField_Init();
+		listener.FragmentAddBase_Init();
 	}
 
 	public void init(FieldView fieldView) {
@@ -145,6 +168,40 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 		}
 	}
 
+	public void init(BaseFieldView baseView) {
+		if(baseView != null) {
+			this.baseFieldView = baseView;
+			BaseField baseField = baseView.getBaseField();
+
+			if (baseField != null && baseField.getId() != null && baseField.getId() != -1) {
+				name.setText(baseField.getName());
+				String strAcres;
+				if(baseField.gettAcres() < DECIMAL_ACRES_LIMIT){
+					DecimalFormat df = new DecimalFormat("#.#");
+					strAcres = df.format(baseField.gettAcres());
+				} else {
+					DecimalFormat df = new DecimalFormat("#");
+					strAcres = df.format(baseField.gettAcres());
+				}
+				acres.setText(strAcres + " ha");
+				autoAcres.setChecked(false); //TODO only turn off if calculated acres != fields acres
+				acres.setEnabled(true);
+			} else {
+				//New field
+				name.setText("");
+				acres.setText("");
+				autoAcres.setChecked(true);
+				acres.setEnabled(false);
+			}
+
+			this.baseFieldView.getPolygonView().setOnDrawListener(this);
+		}
+
+
+	}
+
+
+
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -164,6 +221,7 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 	@Override
 	public void onClick(View v) {
 		if (v.getId() == R.id.add_field_done) {
+
 			Float fltAcres = 0.00f;
 			String strAcres = acres.getText().toString();
 			strAcres = strAcres.replace(" ", "");
@@ -171,11 +229,28 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 			if (strAcres.length() > 0) {
 				fltAcres = Float.parseFloat(strAcres);
 			}
-			
-			this.fieldview.getField().setAcres(fltAcres);
-			this.fieldview.getField().setName(name.getText().toString().trim());
-			fieldview.getPolygonView().setOnDrawListener(null);
-			listener.FragmentAddField_Done(this.fieldview);
+			int selected=radioGroup.getCheckedRadioButtonId();
+
+		//	if(radioBase.getId()==selected){
+				if(this.baseFieldView!=null) {
+					this.baseFieldView.getBase().settAcres(fltAcres);
+					this.baseFieldView.getBase().setName(name.getText().toString().trim());
+					baseFieldView.getPolygonView().setOnDrawListener(null);
+					listener.FragmentAddBase_Done(this.baseFieldView);
+					this.baseFieldView=null;
+				}
+			//}else {
+			else if(this.fieldview!=null) {
+					this.fieldview.getField().setAcres(fltAcres);
+					this.fieldview.getField().setName(name.getText().toString().trim());
+					fieldview.getPolygonView().setOnDrawListener(null);
+					listener.FragmentAddField_Done(this.fieldview);
+					this.fieldview=null;
+				}
+
+		//	}
+
+
 		} else if (v.getId() == R.id.add_field_undo) {
 			listener.FragmentAddField_Undo();
 		} else if (v.getId() == R.id.add_field_delete) {
@@ -206,7 +281,11 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 //			this.acres.setText(Integer.toString(newAcres) + " ha");
 //		}
 //	}
-
+@Override
+public void onCheckedChanged(RadioGroup radioGroup, int i) {
+if(radioGroup.getId() == R.id.rbtnBase) ifBase=true;
+else ifBase=false;
+}
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 		if(buttonView.getId() == R.id.add_field_chkAutoAcres){

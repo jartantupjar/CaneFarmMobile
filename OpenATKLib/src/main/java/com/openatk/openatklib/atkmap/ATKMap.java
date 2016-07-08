@@ -371,6 +371,28 @@ public class ATKMap implements ATKTouchableWrapperListener {
 		}
 		return this.polygonDrawing;
 	}
+	public ATKPolygonView completePolygon(int fillcolor){
+		//Complete drawing of current polygon
+		if(this.isDrawingPolygon == false) return null;
+		this.polygonDrawing.setFillColor(fillcolor);
+		this.polygonDrawing.setStrokeColor(colorStrokeCompletePolygonDrawing);
+		//Remove all points
+		for (Iterator<ATKPointView> iter = this.pointsPolygonDrawing.iterator(); iter.hasNext();) {
+			ATKPointView point = iter.next();
+			point.remove(); //Remove from map
+			iter.remove(); //Remove from list
+		}
+		ATKPolygonView toReturn = this.polygonDrawing;
+		//Add if not already there
+		if(this.getPolygonView(this.polygonDrawing.getAtkPolygon().id) == null){
+			this.polygons.add(this.polygonDrawing);
+		}
+		this.polygonDrawing = null;
+		this.pointSelectedPolygonDrawing = null;
+		this.isDrawingPolygon = false;
+		return toReturn;
+	}
+//duplicate of complete polygon *basepolygoncreator TEST
 	public ATKPolygonView completePolygon(){
 		//Complete drawing of current polygon
 		if(this.isDrawingPolygon == false) return null;
@@ -392,6 +414,7 @@ public class ATKMap implements ATKTouchableWrapperListener {
 		this.isDrawingPolygon = false;
 		return toReturn;
 	}
+
 	public boolean zoomTo(ATKPolygon polygon){
 		return this.zoomTo(polygon, true);
 	}

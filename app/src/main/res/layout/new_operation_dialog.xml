@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="22sp"
-        android:text="New Operation"
+        android:text="New Farmer"
 	    />
 	<RelativeLayout
     	android:layout_width="match_parent"
@@ -31,7 +31,7 @@
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:textSize="15sp"
-	        android:hint="eg. (Tillage 2013)"
+			android:hint="eg. (Hank)"
 	        android:layout_alignParentRight="true"
 	        android:layout_toRightOf="@+id/new_operation_dialog_label"
 	        android:layout_marginLeft="8dp"

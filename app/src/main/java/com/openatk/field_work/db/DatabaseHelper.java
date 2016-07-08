@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import com.openatk.field_work.models.BaseField;
 import com.openatk.field_work.models.Field;
 import com.openatk.field_work.models.Job;
 //import com.openatk.field_work.models.Operation;
@@ -38,6 +39,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	@Override
 	public void onCreate(SQLiteDatabase database) {
 		TableFields.onCreate(database);
+		TableBaseField.onCreate(database);
 		TableJobs.onCreate(database);
 		TableWorkers.onCreate(database);
 	//	TableOperations.onCreate(database);
@@ -110,6 +112,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public List<Field> readFields(){
 		return DatabaseHelper.readFields(this);
 	}
+	public static List<BaseField> readBaseFields(DatabaseHelper dbHelper){
+		List<BaseField> base = new ArrayList<BaseField>();
+		SQLiteDatabase database = dbHelper.getReadableDatabase();
+
+		Cursor cursor = database.query(TableBaseField.TABLE_NAME, TableBaseField.COLUMNS, null, null, null, null, null);
+		while (cursor.moveToNext()) {
+			base.add(TableBaseField.cursorToBaseField(cursor));
+		}
+		cursor.close();
+		
+		database.close();
+		dbHelper.close();
+		return base;
+	}
+	public List<BaseField> readBaseFields(){
+		return DatabaseHelper.readBaseFields(this);
+	}
 	public static List<Field> readFields(DatabaseHelper dbHelper){
 		List<Field> fields = new ArrayList<Field>();
 		SQLiteDatabase database = dbHelper.getReadableDatabase();
@@ -119,12 +138,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			fields.add(TableFields.cursorToField(cursor));
 		}
 		cursor.close();
-		
+
 		database.close();
 		dbHelper.close();
 		return fields;
 	}
-	
+
 	public List<Job> readJobs(){
 		return DatabaseHelper.readJobs(this);
 	}
@@ -267,6 +286,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			return null;
 		}
 	}*/
+
 	
 	
 }

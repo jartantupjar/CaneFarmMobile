@@ -11,7 +11,7 @@
 		android:layout_height="wrap_content"
 		android:layout_marginTop="7dp"
 		android:text="Draw your field by tapping the map above."
-		android:textSize="25sp"
+		android:textSize="20sp"
 		android:layout_centerInParent="true"
 		android:layout_alignParentTop="true"
         />
@@ -24,26 +24,56 @@
 	    android:layout_below="@+id/add_field_caption"
 	    android:weightSum="100"
 	    android:layout_marginTop="10dp">
-        <Space 
-            android:layout_width="0dp" 
-            android:layout_height="wrap_content" 
-            android:layout_weight="20" /> 
+
 		<EditText 
 		        android:id="@+id/add_field_name"
 		        android:layout_width="0dp"
 		        android:layout_height="wrap_content"
 		        android:hint="Field Name"
-		        android:layout_weight="60"
+		        android:layout_weight="90"
 		        android:textSize="22sp"
 		        android:inputType="textVisiblePassword"
 		        android:digits="0123456789QWERTYUIOPASDFGHJKLZXCVBNMzxcvbnmasdfgjhjklqwertyuiop!@#$%^*()_[]}{'/?., "
 		        />
-		<Space 
-            android:layout_width="0dp" 
-            android:layout_height="wrap_content" 
-            android:layout_weight="20" /> 
+
+
+
+     </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/chkboxField"
+        android:gravity="center"
+        android:layout_below="@+id/add_field_lay_row1">
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/radiogroup"
+            android:orientation="horizontal">
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Field Update"
+                android:textSize="15sp"
+                android:id="@+id/rbtnJob"
+
+
+                android:checked="true"
+                />
+            <RadioButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="New Base"
+                android:textSize="15sp"
+              android:layout_marginLeft="30dp"
+                android:id="@+id/rbtnBase"
+
+
+                />
+        </RadioGroup>
+
     </LinearLayout>
-    
     
     <ImageButton 
         android:id="@+id/add_field_done"
@@ -52,7 +82,7 @@
         android:layout_height="48dp"
         android:contentDescription=""
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/add_field_lay_row1"
+        android:layout_below="@+id/chkboxField"
         android:background="@drawable/check_ok"
         />
     <ImageButton 
@@ -62,7 +92,7 @@
         android:layout_height="48dp"
         android:contentDescription=""
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/add_field_lay_row1"
+        android:layout_below="@+id/chkboxField"
         android:background="@drawable/trash"
         />
     <ImageButton 
@@ -73,7 +103,7 @@
         android:contentDescription=""
         android:layout_marginRight="14dp"
         android:layout_toLeftOf="@+id/add_field_delete"
-        android:layout_below="@+id/add_field_lay_row1"
+        android:layout_below="@+id/chkboxField"
         android:background="@drawable/delete_vertex"
         />
 
@@ -83,7 +113,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_toRightOf="@+id/add_field_done"
 	    android:layout_toLeftOf="@+id/add_field_undo"
-	    android:layout_below="@+id/add_field_lay_row1"
+	    android:layout_below="@+id/chkboxField"
 	    android:gravity="center"
 	    android:layout_marginTop="20dp">
 		

@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"/>
+            android:layout_marginTop="10dp"/>
         <Button
             android:text="Crop Validation"
             android:layout_width="wrap_content"
@@ -68,7 +68,16 @@
             android:layout_alignRight="@+id/btnMSurvey"
             android:layout_alignLeft="@+id/btnMSurvey"
             android:layout_alignStart="@+id/btnMSurvey" />
-
+        <Button
+            android:text="Farm Details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnEsrvy"
+            android:layout_marginTop="30dp"
+            android:id="@+id/frmDetails"
+            android:layout_alignRight="@+id/btnEsrvy"
+            android:layout_alignLeft="@+id/btnEsrvy"
+            android:layout_alignStart="@+id/btnEsrvy" />
 
     </RelativeLayout>
 

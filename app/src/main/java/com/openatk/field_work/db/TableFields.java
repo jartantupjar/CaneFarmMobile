@@ -245,7 +245,7 @@ public class TableFields {
 		
 		if(field.getDateNameChanged() != null) values.put(TableFields.COL_NAME_CHANGED, DatabaseHelper.dateToStringUTC(field.getDateNameChanged()));
 		if(field.getName() != null) values.put(TableFields.COL_NAME, field.getName());
-		Log.d("TableFields - updateField", "FieldName:" + field.getName());
+		Log.d("TableFields", "FieldName:" + field.getName());
 		
 		if(field.getAcres() != null) values.put(TableFields.COL_ACRES, field.getAcres());
 		if(field.getDateAcresChanged() != null) values.put(TableFields.COL_ACRES_CHANGED, DatabaseHelper.dateToStringUTC(field.getDateAcresChanged()));

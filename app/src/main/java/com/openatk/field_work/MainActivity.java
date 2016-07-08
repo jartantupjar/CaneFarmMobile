@@ -16,6 +16,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -53,15 +54,18 @@ import com.openatk.field_work.FragmentAddField.FragmentAddFieldListener;
 import com.openatk.field_work.FragmentJob.FragmentJobListener;
 import com.openatk.field_work.FragmentListView.ListViewListener;
 import com.openatk.field_work.db.DatabaseHelper;
+import com.openatk.field_work.db.TableBaseField;
 import com.openatk.field_work.db.TableFields;
 import com.openatk.field_work.db.TableJobs;
 //import com.openatk.field_work.db.TableOperations;
 import com.openatk.field_work.db.TableWorkers;
 import com.openatk.field_work.listeners.DatePickerListener;
+import com.openatk.field_work.models.BaseField;
 import com.openatk.field_work.models.Field;
 import com.openatk.field_work.models.Job;
 //import com.openatk.field_work.models.Operation;
 import com.openatk.field_work.models.Worker;
+import com.openatk.field_work.views.BaseFieldView;
 import com.openatk.field_work.views.FieldView;
 import com.openatk.field_work.views.RelativeLayoutKeyboardDetect;
 import com.openatk.field_work.views.RelativeLayoutKeyboardDetect.KeyboardChangeListener;
@@ -88,8 +92,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	public static final String INTENT_OPERATION_DELETED = "com.openatk.fieldwork.operation.DELETED";
 	public static final String INTENT_WORKER_DELETED = "com.openatk.fieldwork.worker.DELETED";
 	
-	public static final String INTENT_ALL_WORKERS_DELETED = "com.openatk.fieldwork.workers.DELETED";
-	public static final String INTENT_ALL_FIELDS_DELETED = "com.openatk.fieldwork.fields.DELETED";
+
 	
 	public static final String INTENT_EVERYTHING_DELETED = "com.openatk.fieldwork.everything.DELETED";
 
@@ -134,7 +137,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 	private Bundle savedInstanceState;
 	
-	private FieldView currentFieldView;	
+	private FieldView currentFieldView;
+
+	private List<BaseFieldView> baseViews = new ArrayList<BaseFieldView>();
+	private BaseFieldView currentBaseView;
+
 	private Worker currentOperation;
 	
 	//private TrelloSyncHelper syncHelper;
@@ -241,11 +248,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
+
+		//gets currentfieldview id to save on next open
 		if(currentFieldView != null) outState.putInt("currentField", currentFieldView.getFieldId());	
 		outState.putInt("currentViewState", mCurrentState);	
 		super.onSaveInstanceState(outState);
 	}
-
+	//Creates a new map if necessary sets up initial longitude and latitude
 	private void setUpMapIfNeeded() {
 		if (map == null) {
 			//TODO IDK if we need this, check beginning of onCreate
@@ -285,15 +294,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				//Old map we need to get all our data from it
 				//Get the FieldViews from ATKMap
 				List<ATKPolygonView> polygonViews =  map.getPolygonViews();
-				for(int i=0; i<polygonViews.size(); i++){
-					FieldView fieldView = (FieldView) polygonViews.get(i).getData();
-					this.fieldViews.add(fieldView);
-					Log.d("setUpMapIfNeeded", "selected field:" + Integer.toString(selectedField));
-					Log.d("setUpMapIfNeeded", "fieldView:" + Integer.toString(fieldView.getFieldId()));
-					if(fieldView.getFieldId() == selectedField){
-						this.currentFieldView = fieldView;
-					}
-				}
+//				for(int i=0; i<polygonViews.size(); i++){
+//					FieldView fieldView = (FieldView) polygonViews.get(i).getData();
+//					this.fieldViews.add(fieldView);
+//					Log.d("setUpMapIfNeeded", "selected field:" + Integer.toString(selectedField));
+//					Log.d("setUpMapIfNeeded", "fieldView:" + Integer.toString(fieldView.getFieldId()));
+//					if(fieldView.getFieldId() == selectedField){
+//						this.currentFieldView = fieldView;
+//					}
+//				}
 			}
 		}
 		Log.d("setUpMapIfNeeded", "map was setup");
@@ -314,10 +323,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 		map.setMyLocationEnabled(true);
 
+
+		createBaseFieldViews();
 		createFieldViews();
 	}
 	
-	
+	// loads the worker list on top left
 	private void updateCurrentOperation(){
 		// Load operations from database
 		loadOperations();
@@ -348,10 +359,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		if(currentOperation == null) {
 			jobs = new ArrayList<Job>(); //No jobs
 		} else {
+			//todo has code for getting current operation ID
 			jobs = dbHelper.readJobsByOperationId(this.currentOperation.getId());
 		}
 
-		//Now create fieldviews jobs to fields
+		// links fieldviews to jobs using FOR loop
 
 			for(int i=0; i<fields.size(); i++){
 			Field field = fields.get(i);
@@ -396,47 +408,109 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		    fieldViews.add(newFieldView);
 		}
 	}
-	private void updateOperation(){
-		if(fieldViews != null){
-			List<Job> jobs; 
-			if(currentOperation == null) {
+
+	private void createBaseFieldViews(){
+		createBaseFieldViews(null);
+	}
+	// this method shows all Baseviews in map
+	private void createBaseFieldViews(Integer selectedBaseFieldViewId){
+		//Read database and get all the fields and make the FieldViews
+		baseViews.clear();
+
+		//Read all the basefields
+		List<BaseField> basefields = dbHelper.readBaseFields();
+
+		// links basefieldviews to jobs using FOR loop
+
+		for(int i=0; i<basefields.size(); i++){
+			BaseField base = basefields.get(i);
+
+			//Find the job for this field
+			int state = BaseFieldView.STATE_NORMAL;
+			if(currentBaseView != null && base.getId() == currentBaseView.getBaseFieldId()){
+				state = BaseFieldView.STATE_SELECTED;
+
+			}
+		//	Toast.makeText(getBaseContext(), base.getName()+base.getDateUpdated()+"workerId"+base.getWorker_Id(), Toast.LENGTH_SHORT).show();
+
+
+			//Finally, create our new FieldView
+			BaseFieldView newBaseFieldView = new BaseFieldView(state, base, map);
+
+			if(selectedBaseFieldViewId != null){
+				if(newBaseFieldView.getBaseFieldId() == selectedBaseFieldViewId){
+					currentBaseView = newBaseFieldView;
+				}
+			}
+			baseViews.add(newBaseFieldView);
+		}
+	}
+
+
+
+// todo updates operation and creates a new field/updates it
+	private void updateOperation() {
+		if (fieldViews != null) {
+			List<Job> jobs;
+			if (currentOperation == null) {
 				jobs = new ArrayList<Job>(); //No jobs
 			} else {
 				jobs = dbHelper.readJobsByOperationId(this.currentOperation.getId());
 			}
-						
-			for(int i=0; i<this.fieldViews.size(); i++){
+
+			for (int i = 0; i < this.fieldViews.size(); i++) {
 				FieldView fview = fieldViews.get(i);
-				if(currentOperation == null){
+				if (currentOperation == null) {
 					Log.d("updateOperation", "current op null");
 					fview.update(fview.getField(), null);
-				} else if(fview.getJob() == null || fview.getJob().getWorkerId() != currentOperation.getId()){
+				} else if (fview.getJob() == null || fview.getJob().getWorkerId() != currentOperation.getId()) {
 					Boolean found = false;
 					Iterator<Job> jobIterator = jobs.iterator();
-				    while(jobIterator.hasNext()){
-				    	Job curJob = jobIterator.next();
-				    	if(curJob.getDeleted() == true){
-				    		jobIterator.remove();
-				    		continue;
-				    	}
-				    	if(curJob.getFieldName() != null && curJob.getFieldName().contentEquals(fview.getField().getName())){
-				    		//Found a match, link it then remove from array so its faster next time
-				    		fview.update(fview.getField(), curJob);
-				    		jobIterator.remove(); //Remove from jobs arraylist
-				    		found = true;
-				    		break;
-				    	}
-				    }
+					while (jobIterator.hasNext()) {
+						Job curJob = jobIterator.next();
+						if (curJob.getDeleted() == true) {
+							jobIterator.remove();
+							continue;
+						}
+						if (curJob.getFieldName() != null && curJob.getFieldName().contentEquals(fview.getField().getName())) {
+							//Found a match, link it then remove from array so its faster next time
+							fview.update(fview.getField(), curJob);
+							jobIterator.remove(); //Remove from jobs arraylist
+							found = true;
+							break;
+						}
+					}
 					Log.d("updateOperation", "Found:" + Boolean.toString(found));
 
-				    if(found == false){
-				    	//No job for this field with this operation
+					if (found == false) {
+						//No job for this field with this operation
 						fview.update(fview.getField(), null);
-				    }
+					}
 				}
 			}
 		}
+		//todo check if this is necessary to create or update the base fields
+	if(baseViews!=null){
+			for (int i = 0; i < this.baseViews.size(); i++) {
+			BaseFieldView bview = baseViews.get(i);
+			if (currentOperation == null) {
+				Log.d("updateOperation", "current op null");
+				bview.update(bview.getBaseField());
+
+
+			} else if (bview.getBase().getWorker_Id() == null | bview.getBase().getWorker_Id() != currentOperation.getId()) {
+				//No base for this operation
+				bview.update(bview.getBaseField());
+
+			} else if (bview.getBase().getWorker_Id() == currentOperation.getId()) {
+				Log.d("updateOperation", "BaseViewFound:" + Boolean.toString(true));
+				bview.update(bview.getBaseField(), true);
+			}
+		}
+
 	}
+	}
+
 	private FieldView updateFieldView(Field field){
 		return this.updateFieldView(field, null);
 	}
@@ -567,9 +641,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			}
 			
 			this.currentFieldView = null;
-			
+
+			//todo check if this is necessary for basefield
 			//Reload all fields from the db
+			this.createBaseFieldViews();
+
 			this.createFieldViews(selectedField);
+
+
 		
 			//Reload the operations
 			this.updateCurrentOperation();
@@ -593,7 +672,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		//drawHazards();
 	}
 	
-	
+	// related to something - updates almost everything in here related to remote db?
 	private BroadcastReceiver broadcastReciever = new BroadcastReceiver() {
 		@Override
 		public void onReceive(Context context, Intent intent) {
@@ -818,6 +897,13 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 					fieldViews.get(i).update(field, null);
 				}
 				fieldViews.clear();
+				for(int i=0; i<baseViews.size();i++){
+					BaseField bfield = baseViews.get(i).getBaseField();
+					//bfield.setDeleted(true);
+					baseViews.get(i).update(bfield);
+				}
+				baseViews.clear();
+
 			}
 		}
 	};
@@ -857,7 +943,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		if (spinnerMenuAdapter != null && currentOperation != null && actionBar != null) {
 			for (int i = 0; i < spinnerMenuAdapter.getCount(); i++) {
 				if (spinnerMenuAdapter.getItem(i).getId() == this.currentOperation.getId()) {
-					Log.d("MainActivity - selectCurrentOperationInSpinner", "Found");
+					Log.d("selectCurrentOperationInSpinner", "Found");
 					spinnerMenu.setSelection(i);
 					currentOperation = spinnerMenuAdapter.getItem(i);
 					this.updateOperation();
@@ -1019,7 +1105,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			} else {
 				addFieldMapView();
 			}
-		} else if (item.getItemId() == R.id.main_menu_current_location) {
+		}  else if (item.getItemId() == R.id.main_menu_sync) {
+			// Check if have an operation
+			if (operationsList.isEmpty()) {
+				// Show dialog to create operation
+				createOperation(new Callable<Void>() {
+					public Void call() {
+						//Do this after we create an operation
+						return addBaseFieldMapView();
+					}
+				});
+			} else {
+				addBaseFieldMapView();
+			}
+		}else if (item.getItemId() == R.id.main_menu_current_location) {
 			Location myLoc = map.getMyLocation();
 			if(myLoc == null){
 				Toast.makeText(this, "Still searching for your location", Toast.LENGTH_SHORT).show();
@@ -1043,8 +1142,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			editor.putBoolean("showingHazards",showingHazards);
 			editor.commit();
 			drawHazards();*/
-		} else if (item.getItemId() == R.id.main_menu_sync) {
-		//	this.syncHelper.sync(this);
 		} else if (item.getItemId() == R.id.main_menu_list_view) {
 			// Show list view
 			Log.d("MainActivity", "Showing list view");
@@ -1059,12 +1156,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		else if(item.getItemId()==R.id.main_menu_sMain){
 	Log.d("MainActivity", "go to main menu");
 			Intent m= new Intent();
-			m.setClass(getBaseContext(),selectFarmer.class);
+			m.setClass(getBaseContext(), selectFarmer.class);
 			startActivity(m);
-
-
-
-
 
 		}else if(item.getItemId() == R.id.main_menu_help){
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);
@@ -1164,7 +1257,23 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		showFragmentAddField(true);
 		return null;
 	}
+	private Void addBaseFieldMapView() {
+		// Add field (Polygon)
 
+		//Allow the user to draw a polygon on the map
+		ATKPolygonView polygonBeingDrawn = map.drawPolygon(ID_FIELD_DRAWING);
+		//Set some settings for what it should appear like when being drawn
+		polygonBeingDrawn.setFillColor(0.7f, 0, 255, 0); //Opacity, Red, Green, Blue
+
+		BaseField newField = new BaseField();
+		newField.setId(-1);
+
+
+		this.currentBaseView = new BaseFieldView(BaseFieldView.STATE_SELECTED, newField, polygonBeingDrawn, map);
+
+		showFragmentAddField(true);
+		return null;
+	}
 	private Void setState(int newState) {
 		setState(newState, true);
 		return null;
@@ -1296,6 +1405,151 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		this.invalidateOptionsMenu();
 	}
 
+	public void FragmentAddBase_Init(){
+		if(this.currentBaseView == null) Log.w("FragmentAddBase_Init", "currentBaseView is null");
+		if(fragmentAddField != null) fragmentAddField.init(this.currentBaseView);
+	}
+//check for errors
+	@Override
+	public void FragmentAddBase_Done(BaseFieldView baseFieldView) {
+		//Check if we deleted the field b4 we made it, ie. add field, immediately delete.
+		BaseField bfield = baseFieldView.getBase();
+		closeKeyboard();
+//todo if statement has missing isdeleted method vv down here
+//		if(bfield == null || bfield.getId() == -1 ){
+//			Log.w("FragmentAddField_Done", "Deleted a  baseField before we were done making it.");
+//			ATKPolygonView polygon = map.completePolygon();
+//			map.removePolygon(polygon.getAtkPolygon());
+//			this.hideFragmentAddField(true);
+//			this.currentFieldView = null;
+//			return;
+//		}
+
+		// Check if field name is valid and doesn't exist already
+		if (bfield.getName().trim().length() == 0) {
+			// Tell them to input a name
+			// TODO add this message to R.strings
+			Toast.makeText(this, "Field name cannot be blank.", Toast.LENGTH_LONG).show();
+		} else {
+
+			// Check if field name already exists in db
+			BaseField oldField = null;
+			if(bfield.getId() != -1) oldField = TableBaseField.FindFieldById(this.dbHelper, bfield.getId());
+
+			if(oldField == null){
+				//New field
+				bfield.setId(null); //Make sure null, so it creates the field again if it was deleted when we were editing it.
+				if(TableBaseField.FindBaseFieldByName(this.dbHelper, bfield.getName()) != null){
+					Toast.makeText(this,"A field with this name already exists. Field names must be unique.", Toast.LENGTH_LONG).show();
+					return;
+				}
+			} else {
+				bfield.setId(oldField.getId());
+			}
+
+			ATKPolygonView polygon = map.completePolygon(Color.DKGRAY);
+			bfield.setBoundary(polygon.getAtkPolygon().boundary);
+			Log.d("FragmentAddField_Done", "boundary size:" + Integer.toString(bfield.getBoundary().size()));
+
+			//Setup values to add or update
+			BaseField toUpdate = new BaseField(null);
+
+			Boolean changes = false;
+			if(oldField == null || oldField.getName().contentEquals(bfield.getName()) == false) {
+				toUpdate.setName(bfield.getName());
+				toUpdate.setDateUpdated(new Date());
+				changes = true;
+
+//todo *** do this method for baseField required***
+//				if(oldField != null) {
+//					//Update all the jobs with this field name to the new field name
+//					TableJobs.updateJobsWithFieldName(dbHelper, oldField.getName(), field.getName());
+//				}
+			}
+
+			if(oldField == null || oldField.gettAcres() != bfield.gettAcres()) {
+				toUpdate.settAcres(bfield.gettAcres());
+				toUpdate.setDateUpdated(new Date());
+				changes = true;
+			}
+			if(oldField == null ||  oldField.getBoundary().equals(bfield.getBoundary()) == false){
+				toUpdate.setBoundary(bfield.getBoundary());
+				changes = true;
+			}
+
+
+			if(changes){
+				// Save this field to the db
+				toUpdate.setId(bfield.getId()); //Set it's id if it has one
+				selectCurrentOperationInSpinner();
+				toUpdate.setWorker_Id(this.currentOperation.getId());
+				toUpdate.setDateUpdated(new Date());
+				bfield.setWorker_Id(this.currentOperation.getId());
+				bfield.setDateUpdated(new Date());
+				Boolean deleted = false;
+			/*	if(bfield.getDeleted() == true){
+					//Delete from db if hasn't synced to cloud yet. Otherwise we have to mark it as deleted in db so cloud will delete it on next sync
+					deleted = TableFields.deleteFieldIfNotSynced(dbHelper, oldField);
+				}*/
+				if (deleted == false) {
+					Log.d("FragmentAddField_Done", "Saving Field to local db. Name: " + toUpdate.getName());
+					if(toUpdate.getId() != null) Log.d("FragmentAddField_Done", "Saving Field to local db. id:" + Integer.toString(bfield.getId()));
+
+				//	Toast.makeText(getBaseContext(),toUpdate.getWorker_Id(),Toast.LENGTH_SHORT);
+					TableBaseField.updateField(dbHelper, toUpdate);
+					if(toUpdate.getId() != null) bfield.setId(toUpdate.getId()); //Update id of fieldview field if was insert
+				}
+
+				if(oldField == null){
+					//More efficient, use this polygon so we don't have to delete and redraw
+					//Finally, create our new FieldView
+					polygon.getAtkPolygon().id = bfield.getId();
+					baseFieldView.update(bfield);
+					baseViews.add(baseFieldView);
+				} else {
+					//Go ahead and update the field on the map, we were editing
+					baseFieldView.update(bfield);
+
+					//todo bfield getdeleted see if necessary
+//					if(bfield.getDeleted() == true){
+//						Log.d("FragmentAddField_Done", "Deleted field, removing from fieldViews.");
+//						this.removeFieldView(baseFieldView);
+//						fieldview = null;
+//					}
+				}
+
+				//Add or update in list view
+				if (this.fragmentListView != null) this.fragmentListView.getData();
+				//	this.syncHelper.autoSyncDelayed(this);
+			}
+
+			this.currentBaseView = baseFieldView;
+			this.hideFragmentAddField(false);
+			// Check to see if we have any operations
+//			if(bfield.getDeleted()){
+//				this.hideFragmentAddField(true);
+//			} else {
+//				if(operationsList.isEmpty() == false) {
+//					// Check if any operation selected
+//					if (currentOperation != null) {
+//						//showFragmentJob(true);
+//					} else {
+//						// Make them select an operation
+//						// TODO popup list??
+//					}
+//				} else {
+//					// Add an operation
+//					createOperation(new Callable<Void>() {
+//						public Void call() {
+//							return showFragmentJob(true);
+//						}
+//					});
+//				}
+	//		}
+		}
+	}
+
+	//initializes the add field fragment with an empty  currentFieldView is empty
 	@Override
 	public void FragmentAddField_Init() {
 		//Send data to FragmentAddField
@@ -1445,9 +1699,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		}
 	}
 
-	
-
-	
 	@Override
 	public Integer listViewGetCurrentOperationId() {
 		if(currentOperation == null) return -1;
@@ -1501,6 +1752,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		}
 		if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
 		currentFieldView = null;
+		if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+		currentBaseView=null;
 		if(this.fragmentJob != null) this.hideFragmentJob(true);
 	}
 
@@ -1520,18 +1773,56 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		
 		if(this.currentOperation != null){
 			//Select field view that was clicked
-			FieldView clicked = (FieldView) polygonView.getData();
-			clicked.setState(FieldView.STATE_SELECTED);
-			
-			if(currentFieldView != clicked){
-				if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
-				currentFieldView = clicked;
+
+
+			try {
+
+				BaseFieldView clicked=(BaseFieldView)polygonView.getData();
+				if(this.fragmentJob != null)	hideFragmentJob(true);
+                boolean checkEx=false;
+                for(int i=0;i<baseViews.size();i++){
+                    if(baseViews.get(i).getBase().getId()==clicked.getBase().getId()) {
+                        if (baseViews.get(i).getBase().getWorker_Id() != currentOperation.getId())checkEx = true;
+                    }
+                }
+                if(checkEx==true){
+                    Toast.makeText(getBaseContext(),"This Base belongs to another farmer",Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    clicked.setState(BaseFieldView.STATE_SELECTED);
+                    Toast.makeText(getBaseContext(), clicked.getBase().getName()+clicked.getBase().getDateUpdated()+"workerId"+clicked.getBase().getWorker_Id(), Toast.LENGTH_SHORT).show();
+                    if (currentBaseView != clicked) {
+                        if (currentBaseView != null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+                        currentBaseView = clicked;
+                    }
+                    if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
+                    currentFieldView = null;
+                }
+
+
+			} catch (Exception e) {
+
+				FieldView clicked = (FieldView) polygonView.getData();
+
+				clicked.setState(FieldView.STATE_SELECTED);
+				Toast.makeText(getBaseContext(), clicked.getField().getName()+clicked.getField().getAcres(), Toast.LENGTH_SHORT).show();
+
+				if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+				currentBaseView=null;
+
+				if (currentFieldView != clicked) {
+					if (currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
+					currentFieldView = clicked;
+				}
+
+
+				updateFragmentJob();
+
+				//Bring up fragmentJob if not already
+				this.showFragmentJob(true);
+
 			}
-		
-			updateFragmentJob();
-			
-			//Bring up fragmentJob if not already
-			this.showFragmentJob(true);
+
 		} else {
 			createOperation(new Callable<Void>() {
 				public Void call() {
@@ -1548,6 +1839,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		//Update info in fragmentJob if already up
 		Job curJob = null;
 		Field curField = null;
+		//added currentBaseview=null check if necessary
+		if(currentBaseView!=null)currentBaseView=null;
 		if(currentFieldView != null){
 			curJob = currentFieldView.getJob();
 			curField = currentFieldView.getField();
