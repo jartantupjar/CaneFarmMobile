@@ -1145,6 +1145,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		} else if (item.getItemId() == R.id.main_menu_list_view) {
 			// Show list view
 			Log.d("MainActivity", "Showing list view");
+            //todo require adding of bases in list and removing of fields that dont belong to the select farmer
 			setState(STATE_LIST_VIEW);
 		}  else if (item.getItemId() == R.id.main_menu_map_view) {
 			// Show map view
@@ -1242,7 +1243,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 	private Void addFieldMapView() {
 		// Add field (Polygon)
-		
+
+		if(this.currentBaseView!=null)this.currentBaseView.setState(BaseFieldView.STATE_NORMAL); this.currentBaseView=null;
+		if(this.currentFieldView!=null)this.currentFieldView.setState(FieldView.STATE_NORMAL);this.currentFieldView=null;
 		//Allow the user to draw a polygon on the map
 		ATKPolygonView polygonBeingDrawn = map.drawPolygon(ID_FIELD_DRAWING);
 		//Set some settings for what it should appear like when being drawn
@@ -1259,7 +1262,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	}
 	private Void addBaseFieldMapView() {
 		// Add field (Polygon)
-
+		if(this.currentBaseView!=null)this.currentBaseView.setState(BaseFieldView.STATE_NORMAL); this.currentBaseView=null;
+		if(this.currentFieldView!=null)this.currentFieldView.setState(FieldView.STATE_NORMAL);this.currentFieldView=null;
 		//Allow the user to draw a polygon on the map
 		ATKPolygonView polygonBeingDrawn = map.drawPolygon(ID_FIELD_DRAWING);
 		//Set some settings for what it should appear like when being drawn
@@ -1440,7 +1444,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				//New field
 				bfield.setId(null); //Make sure null, so it creates the field again if it was deleted when we were editing it.
 				if(TableBaseField.FindBaseFieldByName(this.dbHelper, bfield.getName()) != null){
-					Toast.makeText(this,"A field with this name already exists. Field names must be unique.", Toast.LENGTH_LONG).show();
+				//	Toast.makeText(this,"A field with this name already exists. Field names must be unique.", Toast.LENGTH_LONG).show();
 					return;
 				}
 			} else {
@@ -1554,7 +1558,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	public void FragmentAddField_Init() {
 		//Send data to FragmentAddField
 		if(this.currentFieldView == null) Log.w("FragmentAddField_Init", "currentFieldView is null");
-		if(fragmentAddField != null) fragmentAddField.init(this.currentFieldView);
+		if(fragmentAddField != null&&currentOperation!=null) fragmentAddField.init(this.currentFieldView,currentOperation.getId());
 	}
 	@Override
 	public void FragmentAddField_Undo() {
@@ -1739,7 +1743,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 	@Override
 	public void onNothingSelected(AdapterView<?> arg0) {
-		// Spinner, select disappear, selection removed from adapter TODO
+		// Spinner, select disappear, selection removed from adapter
 		Log.d("MainMenu - onNothingSelected", "Nothing selected");
 	}
 	
@@ -1773,8 +1777,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		
 		if(this.currentOperation != null){
 			//Select field view that was clicked
-
-
 			try {
 
 				BaseFieldView clicked=(BaseFieldView)polygonView.getData();
@@ -1787,10 +1789,16 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
                 }
                 if(checkEx==true){
                     Toast.makeText(getBaseContext(),"This Base belongs to another farmer",Toast.LENGTH_SHORT).show();
+					if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
+					currentFieldView = null;
+					if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+					currentBaseView=null;
+					if(this.fragmentJob != null) this.hideFragmentJob(true);
                 }
                 else{
-                    clicked.setState(BaseFieldView.STATE_SELECTED);
-                    Toast.makeText(getBaseContext(), clicked.getBase().getName()+clicked.getBase().getDateUpdated()+"workerId"+clicked.getBase().getWorker_Id(), Toast.LENGTH_SHORT).show();
+                    //todo not allow selecting if job belongs to another BASE / Location
+					clicked.setState(BaseFieldView.STATE_SELECTED);
+                   // Toast.makeText(getBaseContext(), clicked.getBase().getName()+clicked.getBase().getDateUpdated()+"workerId"+clicked.getBase().getWorker_Id(), Toast.LENGTH_SHORT).show();
                     if (currentBaseView != clicked) {
                         if (currentBaseView != null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
                         currentBaseView = clicked;

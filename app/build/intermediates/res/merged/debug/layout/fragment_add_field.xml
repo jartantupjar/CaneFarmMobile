@@ -45,6 +45,7 @@
         android:layout_alignParentLeft="true"
         android:id="@+id/chkboxField"
         android:gravity="center"
+        android:visibility="gone"
         android:layout_below="@+id/add_field_lay_row1">
         <RadioGroup
             android:layout_width="wrap_content"
@@ -74,15 +75,62 @@
         </RadioGroup>
 
     </LinearLayout>
-    
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_marginTop="10dp"
+        android:id="@+id/spinnrHolder"
+
+        android:gravity="center"
+        android:layout_below="@+id/chkboxField">
+        <TextView
+            android:id="@+id/edit_field_tvCalendar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textSize="14sp"
+            android:text="Today"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            />
+    <Spinner
+        android:id="@+id/edit_field_spinBases"
+        android:layout_below="@+id/chkboxField"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="0dp"
+        android:textSize="14sp"
+        android:background="@android:drawable/btn_dropdown"
+        />
+    <Button
+        android:id="@+id/edit_field_butNewOperator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textSize="14sp"
+        android:visibility="gone"
+        android:text="Select Base"
+        android:singleLine="true"
+        android:layout_alignParentRight="true"
+        android:background="@android:drawable/btn_dropdown"
+        />
+</LinearLayout>
     <ImageButton 
         android:id="@+id/add_field_done"
         android:layout_marginTop="16dp"
+        android:layout_marginLeft="10dp"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:contentDescription=""
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/chkboxField"
+        android:layout_below="@+id/spinnrHolder"
         android:background="@drawable/check_ok"
         />
     <ImageButton 
@@ -92,7 +140,7 @@
         android:layout_height="48dp"
         android:contentDescription=""
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/chkboxField"
+        android:layout_below="@+id/spinnrHolder"
         android:background="@drawable/trash"
         />
     <ImageButton 
@@ -103,7 +151,7 @@
         android:contentDescription=""
         android:layout_marginRight="14dp"
         android:layout_toLeftOf="@+id/add_field_delete"
-        android:layout_below="@+id/chkboxField"
+        android:layout_below="@+id/spinnrHolder"
         android:background="@drawable/delete_vertex"
         />
 
@@ -113,7 +161,7 @@
 	    android:layout_height="wrap_content"
 	    android:layout_toRightOf="@+id/add_field_done"
 	    android:layout_toLeftOf="@+id/add_field_undo"
-	    android:layout_below="@+id/chkboxField"
+	    android:layout_below="@+id/spinnrHolder"
 	    android:gravity="center"
 	    android:layout_marginTop="20dp">
 		

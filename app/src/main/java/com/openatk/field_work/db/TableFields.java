@@ -27,15 +27,19 @@ public class TableFields {
 	public static final String COL_ACRES = "acres";
 	public static final String COL_ACRES_CHANGED = "acres_changed";
 
+	public static final String COL_BASE_ID="base_id";
+
 	public static final String COL_BOUNDARY = "boundary";
 	public static final String COL_BOUNDARY_CHANGED = "boundary_changed";
+
+
 
 	public static final String COL_DELETED = "deleted";
 	public static final String COL_DELETED_CHANGED = "deleted_changed";
 
 
 	public static String[] COLUMNS = { COL_ID, COL_REMOTE_ID, COL_NAME, 
-		COL_NAME_CHANGED, COL_ACRES, COL_ACRES_CHANGED, COL_BOUNDARY, 
+		COL_NAME_CHANGED, COL_ACRES, COL_ACRES_CHANGED, COL_BASE_ID, COL_BOUNDARY,
 		COL_BOUNDARY_CHANGED, COL_DELETED, COL_DELETED_CHANGED };
 	
 	// Database creation SQL statement
@@ -48,6 +52,7 @@ public class TableFields {
 	      + COL_NAME_CHANGED + " text,"
 	      + COL_ACRES + " integer default 0,"
 	      + COL_ACRES_CHANGED + " text,"
+	      + COL_BASE_ID + " integer,"
 	      + COL_BOUNDARY + " text,"
 	      + COL_BOUNDARY_CHANGED + " text,"
 	      + COL_DELETED + " integer default 0,"
@@ -125,6 +130,8 @@ public class TableFields {
 			Float acres = cursor.getFloat(cursor.getColumnIndex(TableFields.COL_ACRES));
 			Date dateAcresChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableFields.COL_ACRES_CHANGED)));
 
+			Integer baseId = cursor.getInt(cursor.getColumnIndex(TableFields.COL_BASE_ID));
+
 			Boolean deleted = cursor.getInt(cursor.getColumnIndex(TableFields.COL_DELETED)) == 1 ? true : false;
 			Date dateDeleted = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableFields.COL_DELETED_CHANGED)));
 			
@@ -132,7 +139,7 @@ public class TableFields {
 			Date dateBoundaryChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableFields.COL_BOUNDARY_CHANGED)));
 			
 			Field newField = new Field(id, remote_id, name,
-					dateNameChanged, acres, dateAcresChanged,
+					dateNameChanged, acres, dateAcresChanged,baseId,
 				    deleted, dateDeleted, boundary, dateBoundaryChanged);
 			
 			return newField;
@@ -250,6 +257,7 @@ public class TableFields {
 		if(field.getAcres() != null) values.put(TableFields.COL_ACRES, field.getAcres());
 		if(field.getDateAcresChanged() != null) values.put(TableFields.COL_ACRES_CHANGED, DatabaseHelper.dateToStringUTC(field.getDateAcresChanged()));
 
+		if(field.getBaseId()!=null) values.put(TableFields.COL_BASE_ID,field.getBaseId());
 		
 		if(field.getBoundary() != null) values.put(TableFields.COL_BOUNDARY, TableFields.BoundaryToString(field.getBoundary()));
 		if(field.getDateBoundaryChanged() != null) values.put(TableFields.COL_BOUNDARY_CHANGED, DatabaseHelper.dateToStringUTC(field.getDateBoundaryChanged()));

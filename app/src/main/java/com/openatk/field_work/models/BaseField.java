@@ -172,4 +172,8 @@ public class BaseField {
     public void setHarvestDate(Date harvestDate) {
         this.harvestDate = harvestDate;
     }
+
+    public String toString() {
+        return this.getName();
+    }
 }

@@ -17,6 +17,8 @@ public class Field {
 	private Float acres = 0.0f;
 	private Date dateAcresChanged = null;
 
+	private Integer baseId=null;
+
 	private Boolean deleted = null;
 	private Date dateDeleted = null;
 	
@@ -34,6 +36,7 @@ public class Field {
 			this.name = null;
 			this.dateNameChanged = null;
 			this.acres = null;
+			this.baseId=null;
 			this.dateAcresChanged = null;
 			this.deleted = null;
 			this.dateDeleted = null;
@@ -44,8 +47,8 @@ public class Field {
 	
 	
 	public Field(Integer id, String remote_id, String name,
-			Date dateNameChanged, Float acres, Date dateAcresChanged,
-			Boolean deleted, Date dateDeleted, List<LatLng> boundary,
+			Date dateNameChanged, Float acres, Date dateAcresChanged
+			,Integer baseId,Boolean deleted, Date dateDeleted, List<LatLng> boundary,
 			Date dateBoundaryChanged) {
 		super();
 		this.id = id;
@@ -54,6 +57,7 @@ public class Field {
 		this.dateNameChanged = dateNameChanged;
 		this.acres = acres;
 		this.dateAcresChanged = dateAcresChanged;
+		this.baseId=baseId;
 		this.deleted = deleted;
 		this.dateDeleted = dateDeleted;
 		this.boundary = boundary;
@@ -169,4 +173,11 @@ public class Field {
 	}
 
 
+	public Integer getBaseId() {
+		return baseId;
+	}
+
+	public void setBaseId(Integer baseId) {
+		this.baseId = baseId;
+	}
 }
