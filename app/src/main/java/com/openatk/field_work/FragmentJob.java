@@ -108,7 +108,7 @@ public class FragmentJob extends Fragment implements
 
 	private Worker newWorker;
 
-	private String ipAddress = "192.168.15.4:8080";
+	private String ipAddress = "192.168.8.102:8080";
 	private String webApp="SRA";
 	private String baseUrl = "http://" + ipAddress +"/" + webApp +"/";
 

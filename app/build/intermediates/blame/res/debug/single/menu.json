@@ -1,11 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\menu\\add_field.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\menu\\add_field.xml"
+    },
+    {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_farmer_menu.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\menu\\menu_farmer_menu.xml"
     },
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\menu\\add_field.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\menu\\add_field.xml"
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\menu\\menu_base_details.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\menu\\menu_base_details.xml"
     },
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\menu\\main.xml",

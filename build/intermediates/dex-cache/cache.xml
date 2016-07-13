@@ -1,3 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8e673cdfadd8f2d98fdb2fda2285c30f6e449782">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-8.4.0_9ea4494d2cd228adcb6a094272f5810a0e4df928.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0_1f7fd6c292e513679d35cdbb581a738574b0bc57.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="fef2b3e4b6b1b0e5fe7b69fa137a5fa55a3182ab">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-8.4.0_57589029d93c8b0c5384876628301710607b0234.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\Field-Work\OpenATKLib\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="584cfbf2ed9b19c2c6b42089c45b9b790a38eafe">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\Field-Work-OpenATKLib-unspecified_22e4f0081cee6b62cda12e642af1a28216fd71a7.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp\okhttp\2.7.5\7a15a7db50f86c4b64aa3367424a60e3a325b8f1\okhttp-2.7.5.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="7a15a7db50f86c4b64aa3367424a60e3a325b8f1">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\okhttp-2.7.5_0faf0c96a5d791ddc50c6dd8a20235bbd0192ecf.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.4.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="04de44f90606c77f3b28cf44861f306290505aac">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-maps-8.4.0_049fb79646731ae21058d4c33107c5e71e01caf4.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.0.0_b34df7bb51c8050aefe0b92f575b699805f70229.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_a5924d2fc35588c3523a5e9ea55d8912624318bf.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.2.4\a60a5e993c98c864010053cb901b7eab25306568\gson-2.2.4.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a60a5e993c98c864010053cb901b7eab25306568">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\gson-2.2.4_6db3c19e7b79ea4e22e8de9482bf47290414a9ed.jar" />
+    </item>
+    <item
+        jar="C:\Users\ndrs\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="C:\Users\ndrs\AndroidStudioProjects\Field-Work\app\build\intermediates\pre-dexed\debug\okio-1.8.0_e8dc78531246fc9d6e1d6385dceeef68c4353ea1.jar" />
+    </item>
+
+</items>

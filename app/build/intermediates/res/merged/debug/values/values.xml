@@ -93,6 +93,7 @@
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_base_details">BaseDetails</string>
     <string name="title_activity_farmer_menu">FarmerMenu</string>
     <string name="title_activity_farmer_profile">farmerProfile</string>
     <string name="title_activity_select_farmer">selectFarmer</string>

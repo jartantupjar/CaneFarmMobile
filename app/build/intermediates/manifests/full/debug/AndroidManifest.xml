@@ -92,6 +92,10 @@
             android:name="com.openatk.field_work.farmerProfile"
             android:label="@string/title_activity_farmer_profile" >
         </activity>
+        <activity
+            android:name="com.openatk.field_work.BaseDetails"
+            android:label="@string/title_activity_base_details" >
+        </activity>
     </application>
 
 </manifest>

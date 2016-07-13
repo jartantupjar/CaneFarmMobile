@@ -36,5 +36,6 @@
         <item >Vocational</item>
         <item >None</item>
     </string-array>
+    <string name="title_activity_base_details">BaseDetails</string>
 
 </resources>

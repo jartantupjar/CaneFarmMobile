@@ -1094,6 +1094,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.main_menu_add) {
 			// Check if have an operation
+            boolean checkEx=false;
+            for(int i=0;i<baseViews.size();i++){
+if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=true;
+            }
 			if (operationsList.isEmpty()) {
 				// Show dialog to create operation
 				createOperation(new Callable<Void>() {
@@ -1102,7 +1106,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 						return addFieldMapView();
 					}
 				});
-			} else {
+			} else if (checkEx==false) Toast.makeText(getBaseContext(),"You have no base",Toast.LENGTH_SHORT).show();
+            else {
 				addFieldMapView();
 			}
 		}  else if (item.getItemId() == R.id.main_menu_sync) {
@@ -1642,6 +1647,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			if(changes){
 				// Save this field to the db
 				toUpdate.setId(field.getId()); //Set it's id if it has one
+				toUpdate.setBaseId(field.getBaseId());
 				
 				Boolean deleted = false;
 				if(field.getDeleted() == true){
@@ -1655,7 +1661,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 					TableFields.updateField(dbHelper, toUpdate);
 					if(toUpdate.getId() != null) field.setId(toUpdate.getId()); //Update id of fieldview field if was insert
 				}
-				
+				Toast.makeText(getBaseContext(),"baseId of created field"+field.getBaseId(),Toast.LENGTH_SHORT).show();
 				if(oldField == null){
 					//More efficient, use this polygon so we don't have to delete and redraw
 				    //Finally, create our new FieldView
@@ -1797,6 +1803,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
                 }
                 else{
                     //todo not allow selecting if job belongs to another BASE / Location
+
 					clicked.setState(BaseFieldView.STATE_SELECTED);
                    // Toast.makeText(getBaseContext(), clicked.getBase().getName()+clicked.getBase().getDateUpdated()+"workerId"+clicked.getBase().getWorker_Id(), Toast.LENGTH_SHORT).show();
                     if (currentBaseView != clicked) {
@@ -1812,23 +1819,45 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 				FieldView clicked = (FieldView) polygonView.getData();
 
-				clicked.setState(FieldView.STATE_SELECTED);
-				Toast.makeText(getBaseContext(), clicked.getField().getName()+clicked.getField().getAcres(), Toast.LENGTH_SHORT).show();
+				boolean checkEx=false;
+				for(int i=0;i<fieldViews.size();i++){
+					if(fieldViews.get(i).getField().getId()==clicked.getField().getId()) {
+                            for(int b=0;b<baseViews.size();b++){
+                                if(baseViews.get(b).getBase().getWorker_Id()!= currentOperation.getId()
+                                        && baseViews.get(b).getBaseFieldId()==clicked.getField().getBaseId())checkEx = true;
 
-				if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
-				currentBaseView=null;
-
-				if (currentFieldView != clicked) {
-					if (currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
-					currentFieldView = clicked;
+                            }
+					}
 				}
+				if(checkEx==true){
+					Toast.makeText(getBaseContext(),"This Field belongs to another farmer",Toast.LENGTH_SHORT).show();
+					if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
+					currentFieldView = null;
+					if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+					currentBaseView=null;
+					if(this.fragmentJob != null) this.hideFragmentJob(true);
+				}else {
 
 
-				updateFragmentJob();
+					clicked.setState(FieldView.STATE_SELECTED);
+					Toast.makeText(getBaseContext(), clicked.getField().getName() + clicked.getField().getAcres() + "bazeid" + clicked.getField().getBaseId(), Toast.LENGTH_SHORT).show();
 
-				//Bring up fragmentJob if not already
-				this.showFragmentJob(true);
+					if (currentBaseView != null)
+						currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+					currentBaseView = null;
 
+					if (currentFieldView != clicked) {
+						if (currentFieldView != null)
+							currentFieldView.setState(FieldView.STATE_NORMAL);
+						currentFieldView = clicked;
+					}
+
+
+					updateFragmentJob();
+
+					//Bring up fragmentJob if not already
+					this.showFragmentJob(true);
+				}
 			}
 
 		} else {
