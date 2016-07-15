@@ -238,7 +238,7 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 
         List<BaseField> bases = dbHelper.readBaseFields();
         if (bases.isEmpty() == false) {
-            Log.d("loadWorkerList", "Have workers");
+            Log.d("loadWorkerList", "Has workers");
 
             spinBases.setVisibility(View.VISIBLE);
           //  butNewBase.setVisibility(View.GONE);
@@ -246,12 +246,12 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 //            BaseField baseField = new BaseField();
 //            baseField.setId(null);
 //            bases.add(baseField);
+			if(bases.size()==0)Log.d("loadBasesList","base size is ZERO");
+			for(int i =0; i<bases.size(); i++){
 
-            for(int i =0; i<bases.size(); i++){
-
-				if (bases.get(i).getWorker_Id() == id) basesList.add(bases.get(i));
+				if (bases.get(i).getWorker_Id() == id) basesList.add(bases.get(i)); Log.d("loadBasesList","added base"+bases.get(i).getName());
             }
-            if(spinBasesAdapter != null) spinBasesAdapter.notifyDataSetChanged();
+            if(spinBasesAdapter != null) spinBasesAdapter.notifyDataSetChanged();Log.d("loadBasesList","notifysetchanged the spinner");
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
             String toSelect = prefs.getString("defaultWorker", null);
            selectWorkerInSpinner(toSelect);
@@ -374,7 +374,7 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 		//	int selected=radioGroup.getCheckedRadioButtonId();
 
 		//	if(radioBase.getId()==selected){
-			if(this.fieldview!=null && spinBases.getVisibility()==View.VISIBLE ) {
+			if(this.fieldview!=null) {
 				this.fieldview.getField().setAcres(fltAcres);
 				this.fieldview.getField().setName(name.getText().toString().trim());
 				fieldview.getPolygonView().setOnDrawListener(null);
@@ -387,7 +387,6 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 					baseFieldView.getPolygonView().setOnDrawListener(null);
 					listener.FragmentAddBase_Done(this.baseFieldView);
 					this.baseFieldView=null;
-
 				}
 			//}else {
 

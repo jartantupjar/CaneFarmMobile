@@ -1416,7 +1416,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 
 	public void FragmentAddBase_Init(){
 		if(this.currentBaseView == null) Log.w("FragmentAddBase_Init", "currentBaseView is null");
-		if(fragmentAddField != null) fragmentAddField.init(this.currentBaseView);
+		else fragmentAddField.init(this.currentBaseView);
 	}
 //check for errors
 	@Override
@@ -1733,6 +1733,10 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 			createOperation(null);
 		} else {
 			if(currentOperation == null || currentOperation.getId() != worker.getId()) hideFragmentJob(true);
+			if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
+			currentFieldView = null;
+			if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+			currentBaseView=null;
 			
 			currentOperation = worker;
 			
