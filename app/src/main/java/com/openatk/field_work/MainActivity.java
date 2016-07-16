@@ -81,47 +81,47 @@ import com.openatk.openatklib.atkmap.views.ATKPolygonView;
 
 public class MainActivity extends FragmentActivity implements OnClickListener, FragmentAddFieldListener, FragmentJobListener, DatePickerListener,
 		OnItemSelectedListener, ListViewListener, ATKPointDragListener, ATKMapClickListener, ATKPolygonClickListener, ATKPointClickListener, KeyboardChangeListener {
-	
+
 	public static final String INTENT_FIELD_UPDATED = "com.openatk.fieldwork.field.UPDATED";
 	public static final String INTENT_JOB_UPDATED = "com.openatk.fieldwork.job.UPDATED";
 	public static final String INTENT_OPERATION_UPDATED = "com.openatk.fieldwork.operation.UPDATED";
 	public static final String INTENT_WORKER_UPDATED = "com.openatk.fieldwork.worker.UPDATED";
-	
+
 	public static final String INTENT_FIELD_DELETED = "com.openatk.fieldwork.field.DELETED";
 	public static final String INTENT_JOB_DELETED = "com.openatk.fieldwork.job.DELETED";
 	public static final String INTENT_OPERATION_DELETED = "com.openatk.fieldwork.operation.DELETED";
 	public static final String INTENT_WORKER_DELETED = "com.openatk.fieldwork.worker.DELETED";
-	
 
-	
+
+
 	public static final String INTENT_EVERYTHING_DELETED = "com.openatk.fieldwork.everything.DELETED";
 
 	public static final String PREF_GONE = "Gone";
 	public static final int PREF_GONE_HERE = 0;
 	public static final int PREF_GONE_NO_UPDATE = 1;
 	public static final Integer PREF_GONE_UPDATE = 2;
-	
-	
+
+
 	public static final int ID_FIELD_DRAWING = -100;
 
 	public static final int STATE_DEFAULT = 0;
 	public static final int STATE_LIST_VIEW = 1;
 
-	
+
 	private ATKMap map;
 	private UiSettings mapSettings;
 	private ATKSupportMapFragment atkMapFragment;
-	
-    //Startup position
- 	private static final float START_LAT = 40.428712f;
- 	private static final float START_LNG = -86.913819f;
- 	private static final float START_ZOOM = 17.0f;
+
+	//Startup position
+	private static final float START_LAT = 40.428712f;
+	private static final float START_LNG = -86.913819f;
+	private static final float START_ZOOM = 17.0f;
 
 	private ActionBar actionBar = null;
 	private EditText actionBarSearch = null;
 	private DatabaseHelper dbHelper;
 	private Menu menu;
-	
+
 	private int mCurrentState;
 	private boolean keyboardIsShowing = false;
 
@@ -132,48 +132,48 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	FragmentJob fragmentJob = null;
 	FragmentListView fragmentListView = null;
 	FragmentAddField fragmentAddField = null;
-	
+
 	private List<FieldView> fieldViews = new ArrayList<FieldView>();
 
 	private Bundle savedInstanceState;
-	
+
 	private FieldView currentFieldView;
 
 	private List<BaseFieldView> baseViews = new ArrayList<BaseFieldView>();
 	private BaseFieldView currentBaseView;
 
 	private Worker currentOperation;
-	
+
 	//private TrelloSyncHelper syncHelper;
-		
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		dbHelper = new DatabaseHelper(this);
-	//	syncHelper = new TrelloSyncHelper();
-		
+		//	syncHelper = new TrelloSyncHelper();
+
 		//Get fragments
 		FragmentManager fm = getSupportFragmentManager();
 		atkMapFragment = (ATKSupportMapFragment) fm.findFragmentById(R.id.map);
 		fragmentJob = (FragmentJob) fm.findFragmentByTag("edit_job");
 		fragmentAddField = (FragmentAddField) fm.findFragmentByTag("add_field");
-		
+
 		//Show and hide listview really fast. TODO is there a better way to do this
 		//I would like this to retain if possible...
 		fragmentListView = (FragmentListView) fm.findFragmentById(R.id.list_view);
 		FragmentTransaction ft = fm.beginTransaction();
 		ft.hide(fragmentListView); //TODO check state, are we in list view state? if so don't hide
 		ft.commit();
-		
+
 		if (savedInstanceState == null) {
 			// First incarnation of this activity.
 			atkMapFragment.setRetainInstance(true);
 			fragmentListView.setRetainInstance(true);
 			if(fragmentJob != null) fragmentJob.setRetainInstance(true);
 			if(fragmentAddField != null) fragmentAddField.setRetainInstance(true);
-			
+
 			fragmentJob = null;
 			fragmentAddField = null;
 		} else {
@@ -191,12 +191,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setDisplayUseLogoEnabled(false);
 		actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM,ActionBar.DISPLAY_SHOW_CUSTOM);
-		
+
 		LayoutInflater inflater = (LayoutInflater) this.getApplicationContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		View view = inflater.inflate(R.layout.action_bar, null);
-		
+
 		RelativeLayout item = (RelativeLayout) view.findViewById(R.id.action_bar_layout);
-		
+
 		spinnerMenu = (Spinner) view.findViewById(R.id.action_bar_operation_spinner);
 		actionBarSearch = (EditText) view.findViewById(R.id.action_bar_search_box);
 		actionBar.setCustomView(item, new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
@@ -217,14 +217,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			}
 
 			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count, int after) {				
+			public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 			}
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before, int count) {
-			}			
+			}
 		});
-		
+
 
 		// Get last selected items on rotate
 		this.savedInstanceState = savedInstanceState;
@@ -234,11 +234,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		// Specify a SpinnerAdapter to populate the dropdown list.
 		spinnerMenuAdapter = new ArrayAdapter<Worker>(this, R.layout.operation_list_item, operationsList);
 		spinnerMenu.setAdapter(spinnerMenuAdapter);
-		
-		
-		RelativeLayoutKeyboardDetect layout = (RelativeLayoutKeyboardDetect) this.findViewById(R.id.mainActivity); 
+
+
+		RelativeLayoutKeyboardDetect layout = (RelativeLayoutKeyboardDetect) this.findViewById(R.id.mainActivity);
 		layout.setListener(this);
- 		
+
 		setUpMapIfNeeded();
 		if(this.savedInstanceState != null){
 			int viewState = savedInstanceState.getInt("currentViewState", STATE_DEFAULT);
@@ -250,8 +250,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	protected void onSaveInstanceState(Bundle outState) {
 
 		//gets currentfieldview id to save on next open
-		if(currentFieldView != null) outState.putInt("currentField", currentFieldView.getFieldId());	
-		outState.putInt("currentViewState", mCurrentState);	
+		if(currentFieldView != null) outState.putInt("currentField", currentFieldView.getFieldId());
+		outState.putInt("currentViewState", mCurrentState);
 		super.onSaveInstanceState(outState);
 	}
 	//Creates a new map if necessary sets up initial longitude and latitude
@@ -260,31 +260,31 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			//TODO IDK if we need this, check beginning of onCreate
 			map = ((ATKSupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getAtkMap();
 		}
-		
+
 		if (atkMapFragment.getRetained() == false) {
 			Log.d("setUpMapIfNeeded", "New map need to set it up");
-			
+
 			//New map, we need to set it up
 			setUpMap();
-			
+
 			SharedPreferences prefs = this.getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE);
-    		Float startLat = prefs.getFloat("StartupLat", START_LAT);
-    		Float startLng = prefs.getFloat("StartupLng", START_LNG);
-    		Float startZoom = prefs.getFloat("StartupZoom", START_ZOOM);
-    		map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(startLat,startLng) , startZoom));
-    		
-    		//TODO do stuff for hazards
-    		//this.showingHazards = prefs.getBoolean("showingHazards", false);
+			Float startLat = prefs.getFloat("StartupLat", START_LAT);
+			Float startLng = prefs.getFloat("StartupLng", START_LNG);
+			Float startZoom = prefs.getFloat("StartupZoom", START_ZOOM);
+			map.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(startLat,startLng) , startZoom));
+
+			//TODO do stuff for hazards
+			//this.showingHazards = prefs.getBoolean("showingHazards", false);
 		} else {
 			Log.d("setUpMapIfNeeded", "Old map, get everything from it");
 
-			
+
 			//Get the current field and job
 			Integer selectedField = -100;
 			if(this.savedInstanceState != null){
 				selectedField = savedInstanceState.getInt("currentField", -100);
 			}
-			
+
 			SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE  | Context.MODE_MULTI_PROCESS);
 			//Check if sync occurred while we were gone.
 			if(prefs.getInt(MainActivity.PREF_GONE, MainActivity.PREF_GONE_NO_UPDATE) == MainActivity.PREF_GONE_UPDATE){
@@ -327,12 +327,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		createBaseFieldViews();
 		createFieldViews();
 	}
-	
+
 	// loads the worker list on top left
 	private void updateCurrentOperation(){
 		// Load operations from database
 		loadOperations();
-		
+
 		// Find current operation
 		currentOperation = null;
 		SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE);
@@ -355,7 +355,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		//Read all the fields
 		List<Field> fields = dbHelper.readFields();
 		//Read all the jobs for the current operation
-		List<Job> jobs; 
+		List<Job> jobs;
 		if(currentOperation == null) {
 			jobs = new ArrayList<Job>(); //No jobs
 		} else {
@@ -365,47 +365,47 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 		// links fieldviews to jobs using FOR loop
 
-			for(int i=0; i<fields.size(); i++){
+		for(int i=0; i<fields.size(); i++){
 			Field field = fields.get(i);
-			
+
 			//Find the job for this field
 			Job job = null;
 			Iterator<Job> jobIterator = jobs.iterator();
-		    while(jobIterator.hasNext()){
-		    	Job curJob = jobIterator.next();
-		    	if(curJob.getDeleted() == true){
-		    		jobIterator.remove();
-		    		continue;
-		    	}
-		    	if(curJob.getFieldName() != null && curJob.getFieldName().contentEquals(field.getName())){
-		    		//Found a match, link it then remove from array so its faster next time
-		    		job = curJob;
-		    		jobIterator.remove(); //Remove from jobs arraylist
-		    		break;
-		    	}
-		    	if(curJob.getFieldName() == null){
-		    		Log.w("MainActivity", "Have a job with a null field name");
-		    	}
-		    }
-		    
-		    int state = FieldView.STATE_NORMAL;
-		    if(currentFieldView != null && field.getId() == currentFieldView.getFieldId()){
-		    	state = FieldView.STATE_SELECTED;
-		    }
-		    
-		    if(job != null) {
-		    	//Setup a blank job for this field, it doesn't have one yet
-		    	Log.d("MainActivity", "Job Status:" + Integer.toString(job.getStatus()));
-		    }
-		    		    
-		    //Finally, create our new FieldView
-		    FieldView newFieldView = new FieldView(state, field, job, map);
-		    if(selectedFieldViewId != null){
-		    	if(newFieldView.getFieldId() == selectedFieldViewId){
-		    		currentFieldView = newFieldView;
-		    	}
-		    }
-		    fieldViews.add(newFieldView);
+			while(jobIterator.hasNext()){
+				Job curJob = jobIterator.next();
+				if(curJob.getDeleted() == true){
+					jobIterator.remove();
+					continue;
+				}
+				if(curJob.getFieldName() != null && curJob.getFieldName().contentEquals(field.getName())){
+					//Found a match, link it then remove from array so its faster next time
+					job = curJob;
+					jobIterator.remove(); //Remove from jobs arraylist
+					break;
+				}
+				if(curJob.getFieldName() == null){
+					Log.w("MainActivity", "Have a job with a null field name");
+				}
+			}
+
+			int state = FieldView.STATE_NORMAL;
+			if(currentFieldView != null && field.getId() == currentFieldView.getFieldId()){
+				state = FieldView.STATE_SELECTED;
+			}
+
+			if(job != null) {
+				//Setup a blank job for this field, it doesn't have one yet
+				Log.d("MainActivity", "Job Status:" + Integer.toString(job.getStatus()));
+			}
+
+			//Finally, create our new FieldView
+			FieldView newFieldView = new FieldView(state, field, job, map);
+			if(selectedFieldViewId != null){
+				if(newFieldView.getFieldId() == selectedFieldViewId){
+					currentFieldView = newFieldView;
+				}
+			}
+			fieldViews.add(newFieldView);
 		}
 	}
 
@@ -431,7 +431,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				state = BaseFieldView.STATE_SELECTED;
 
 			}
-		//	Toast.makeText(getBaseContext(), base.getName()+base.getDateUpdated()+"workerId"+base.getWorker_Id(), Toast.LENGTH_SHORT).show();
+			//	Toast.makeText(getBaseContext(), base.getName()+base.getDateUpdated()+"workerId"+base.getWorker_Id(), Toast.LENGTH_SHORT).show();
 
 
 			//Finally, create our new FieldView
@@ -448,7 +448,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 
 
-// todo updates operation and creates a new field/updates it
+	// todo updates operation and creates a new field/updates it
 	private void updateOperation() {
 		if (fieldViews != null) {
 			List<Job> jobs;
@@ -490,25 +490,25 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			}
 		}
 		//todo check if this is necessary to create or update the base fields
-	if(baseViews!=null){
+		if(baseViews!=null){
 			for (int i = 0; i < this.baseViews.size(); i++) {
-			BaseFieldView bview = baseViews.get(i);
-			if (currentOperation == null) {
-				Log.d("updateOperation", "current op null");
-				bview.update(bview.getBaseField());
+				BaseFieldView bview = baseViews.get(i);
+				if (currentOperation == null) {
+					Log.d("updateOperation", "current op null");
+					bview.update(bview.getBaseField());
 
 
-			} else if (bview.getBase().getWorker_Id() == null | bview.getBase().getWorker_Id() != currentOperation.getId()) {
-				//No base for this operation
-				bview.update(bview.getBaseField());
+				} else if (bview.getBase().getWorker_Id() == null | bview.getBase().getWorker_Id() != currentOperation.getId()) {
+					//No base for this operation
+					bview.update(bview.getBaseField());
 
-			} else if (bview.getBase().getWorker_Id() == currentOperation.getId()) {
-				Log.d("updateOperation", "BaseViewFound:" + Boolean.toString(true));
-				bview.update(bview.getBaseField(), true);
+				} else if (bview.getBase().getWorker_Id() == currentOperation.getId()) {
+					Log.d("updateOperation", "BaseViewFound:" + Boolean.toString(true));
+					bview.update(bview.getBaseField(), true);
+				}
 			}
-		}
 
-	}
+		}
 	}
 
 	private FieldView updateFieldView(Field field){
@@ -530,14 +530,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				}
 			}
 		}
-		
+
 		if(foundFieldView == false){
 			Log.d("updateFieldView", "FieldView not found, making a new field.");
-		    //Finally, create our new FieldView
-		    fieldView = new FieldView(FieldView.STATE_NORMAL, field, null, map);
-		    if(job == null) job = fieldView.getJob();
+			//Finally, create our new FieldView
+			fieldView = new FieldView(FieldView.STATE_NORMAL, field, null, map);
+			if(job == null) job = fieldView.getJob();
 			fieldView.update(field, job);
-		    fieldViews.add(fieldView);
+			fieldViews.add(fieldView);
 		} else {
 			Log.d("updateFieldView", "Updating existing fieldview");
 			//Update existing field view
@@ -586,16 +586,16 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	@Override
 	protected void onPause() {
 		super.onPause();
-        
-        CameraPosition myCam = map.getCameraPosition();
+
+		CameraPosition myCam = map.getCameraPosition();
 		if(myCam != null){
 			SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE  | Context.MODE_MULTI_PROCESS);
 			SharedPreferences.Editor editor = prefs.edit();
 			LatLng where = myCam.target;
 			editor.putFloat("StartupLat", (float) where.latitude);
-			editor.putFloat("StartupLng",(float) where.longitude); 
-			editor.putFloat("StartupZoom",(float) map.getCameraPosition().zoom); 
-			editor.putInt(MainActivity.PREF_GONE,MainActivity.PREF_GONE_NO_UPDATE); 
+			editor.putFloat("StartupLng",(float) where.longitude);
+			editor.putFloat("StartupZoom",(float) map.getCameraPosition().zoom);
+			editor.putInt(MainActivity.PREF_GONE,MainActivity.PREF_GONE_NO_UPDATE);
 			editor.commit();
 		}
 		//Set pref so everyone knows MainActivity is no longer here (listening)
@@ -604,7 +604,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		editor.putInt(MainActivity.PREF_GONE, MainActivity.PREF_GONE_NO_UPDATE);
 		editor.commit();
 		LocalBroadcastManager.getInstance(this).unregisterReceiver(broadcastReciever);
-		
+
 		//syncHelper.onPause();
 	}
 
@@ -622,9 +622,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		LocalBroadcastManager.getInstance(this).registerReceiver(broadcastReciever, new IntentFilter(MainActivity.INTENT_EVERYTHING_DELETED));
 
 		//this.syncHelper.onResume(this); //Startup autosync if it is on
-		
+
 		SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE | Context.MODE_MULTI_PROCESS);
-		
+
 		Boolean syncOccured = false;
 		//Didn't do a full reload, check if sync occurred while we were gone.
 		if(prefs.getInt(MainActivity.PREF_GONE, MainActivity.PREF_GONE_NO_UPDATE) == MainActivity.PREF_GONE_UPDATE){
@@ -632,14 +632,14 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			//Clear atkmaps data
 			Log.w("MainActivity - onResume", "Sync occured while we were gone. Reload everything.");
 			map.clear();
-			
+
 			//Get the current selected field if there is one
 			Integer selectedField = null;
 			if(this.savedInstanceState != null){
 				selectedField = savedInstanceState.getInt("currentField", -100);
 				if(selectedField == -100) selectedField = null;
 			}
-			
+
 			this.currentFieldView = null;
 
 			//todo check if this is necessary for basefield
@@ -649,29 +649,29 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			this.createFieldViews(selectedField);
 
 
-		
+
 			//Reload the operations
 			this.updateCurrentOperation();
-			
+
 			//Update fragmentJob if its up
 			this.updateFragmentJob();
-			
+
 			//Reload the list view data
 			if(this.fragmentListView != null) this.fragmentListView.getData();
 			syncOccured = true;
 		}
-		
+
 		//Set pref so everyone knows MainActivity is active
 		SharedPreferences.Editor editor = prefs.edit();
 		editor.putInt(MainActivity.PREF_GONE, MainActivity.PREF_GONE_HERE);
 		editor.commit();
 		if(syncOccured) {
 			//Sync again in case this is a new organization
-		//	this.syncHelper.sync(this);
+			//	this.syncHelper.sync(this);
 		}
 		//drawHazards();
 	}
-	
+
 	// related to something - updates almost everything in here related to remote db?
 	private BroadcastReceiver broadcastReciever = new BroadcastReceiver() {
 		@Override
@@ -708,7 +708,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 							}
 						}
 					}
-					
+
 					updateFieldView(theField, job);
 					updateFragmentJob();
 				}
@@ -720,7 +720,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 					Field theField = new Field();
 					theField.setId(id);
 					theField.setDeleted(true);
-						
+
 					updateFieldView(theField);
 					updateFragmentJob();
 				}
@@ -747,9 +747,9 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 							if(currentOperation != null && oldOpId == currentOperation.getId() && theJob.getWorkerId() != currentOperation.getId()){
 								//Update job of fieldview, job now belongs to another operation, no longer in our active one, look for other jobs for this field
 								Field theField = TableFields.FindFieldByName(dbHelper, theJob.getFieldName());
-								
+
 								Job job = null;
-								if(theField != null) job = TableJobs.FindJobByFieldName(dbHelper, theField.getName(), currentOperation.getId());								
+								if(theField != null) job = TableJobs.FindJobByFieldName(dbHelper, theField.getName(), currentOperation.getId());
 								if(job == null) {
 									job = new Job();
 									job.setDeleted(true); //So it clears status on fieldview
@@ -821,7 +821,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				//If it isn't currently selected remove it from the list, if it is selected then
 				//Show toast message, and select another if there is one
 				int id = intent.getIntExtra("id", -1);
-				
+
 				//Delete it from the list
 				int it = -1;
 				for(int i=0; i<operationsList.size(); i++){
@@ -833,11 +833,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				if(it != -1){
 					operationsList.remove(it);
 				}
-				
-				
+
+
 				if(currentOperation.getId() != null && currentOperation.getId() == id){
 					hideFragmentJob(true);
-					
+
 					Toast.makeText(getApplicationContext(), "Current operation was deleted remotely.", Toast.LENGTH_LONG).show();
 					currentOperation = null;
 					for(int i=0; i<operationsList.size(); i++){
@@ -880,7 +880,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				}
 			} else if(intent.getAction().contentEquals(MainActivity.INTENT_EVERYTHING_DELETED)){
 				//Organization or board has changed, delete everything
-			//	TableOperations.deleteAll(dbHelper);
+				//	TableOperations.deleteAll(dbHelper);
 				TableFields.deleteAll(dbHelper);
 				TableJobs.deleteAll(dbHelper);
 				TableWorkers.deleteAll(dbHelper);
@@ -890,7 +890,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				loadOperations(); //No operations left....
 				updateOperation();
 				hideFragmentJob(true);
-				
+
 				for(int i=0; i<fieldViews.size();i++){
 					Field field = fieldViews.get(i).getField();
 					field.setDeleted(true);
@@ -909,22 +909,22 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	};
 
 
-	
-	public void loadOperations() {	
+
+	public void loadOperations() {
 		SQLiteDatabase database = dbHelper.getReadableDatabase();
 		Cursor cursor = database.query(TableWorkers.TABLE_NAME,TableWorkers.COLUMNS, null, null, null, null, null);
 		while (cursor.moveToNext()) {
 			Worker worker = TableWorkers.cursorToWorker(cursor);
 			if (worker != null) operationsList.add(worker);
-		} 
+		}
 		cursor.close();
 		database.close();
 		dbHelper.close();
-		
+
 		List<Worker> workers = dbHelper.readWorkers();
 		operationsList.clear();
 		operationsList.addAll(workers);
-				//todo this is where it adds operation sets new
+		//todo this is where it adds operation sets new
 		if(workers.isEmpty() == false){
 			//Add the "New Operation" button
 			Worker worker = new Worker();
@@ -934,7 +934,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			//Dont display any operations
 			//Hide?
 		}
-		
+
 		if (spinnerMenuAdapter != null) spinnerMenuAdapter.notifyDataSetChanged();
 		selectCurrentOperationInSpinner();
 	}
@@ -973,7 +973,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 								// Create the operation
 								String name = userInput.getText().toString();
 								if (name.isEmpty() == false) {
-									
+
 									Worker newOp = new Worker(name);
 									TableWorkers.updateWorker(dbHelper, newOp); //Add operation to db
 									currentOperation = newOp;
@@ -1030,18 +1030,18 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		this.menu = menu;
 		return true;
 	}
-	
+
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
 		//boolean installed = TrelloContentProvider.isInstalled();
-		
+
 		if(this.fragmentAddField != null && this.fragmentAddField.isHidden() == false) {
 			if(mCurrentState == STATE_LIST_VIEW){
 				Log.d("MainActivity", "pInflating add field list view");
 				menu.findItem(R.id.main_menu_list_view).setVisible(false);
 				menu.findItem(R.id.main_menu_map_view).setVisible(true);
-				
+
 				menu.findItem(R.id.main_menu_add).setVisible(false);
 				menu.findItem(R.id.main_menu_sync).setVisible(false);
 				menu.findItem(R.id.main_menu_current_location).setVisible(false);
@@ -1049,17 +1049,17 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				Log.d("MainActivity", "pInflating add field map view");
 				menu.findItem(R.id.main_menu_list_view).setVisible(true);
 				menu.findItem(R.id.main_menu_map_view).setVisible(false);
-				
+
 				menu.findItem(R.id.main_menu_add).setVisible(false);
 				menu.findItem(R.id.main_menu_sync).setVisible(false);
-				
+
 				menu.findItem(R.id.main_menu_current_location).setVisible(true);
 			}
 		} else if(mCurrentState == STATE_LIST_VIEW){
 			Log.d("MainActivity", "pInflating list view");
 			menu.findItem(R.id.main_menu_list_view).setVisible(false);
 			menu.findItem(R.id.main_menu_map_view).setVisible(true);
-			
+
 			menu.findItem(R.id.main_menu_add).setVisible(true);
 		/*	if(installed) {
 				menu.findItem(R.id.main_menu_sync).setVisible(true);
@@ -1074,7 +1074,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			Log.d("MainActivity", "pInflating main menu");
 			menu.findItem(R.id.main_menu_list_view).setVisible(true);
 			menu.findItem(R.id.main_menu_map_view).setVisible(false);
-			
+
 			menu.findItem(R.id.main_menu_add).setVisible(true);
 			/*if(installed) {
 				menu.findItem(R.id.main_menu_sync).setVisible(true);
@@ -1085,8 +1085,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			}
 			*/
 			menu.findItem(R.id.main_menu_current_location).setVisible(true);
-		}	
-		
+		}
+
 		return super.onPrepareOptionsMenu(menu);
 	}
 
@@ -1094,10 +1094,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	public boolean onOptionsItemSelected(MenuItem item) {
 		if (item.getItemId() == R.id.main_menu_add) {
 			// Check if have an operation
-            boolean checkEx=false;
-            for(int i=0;i<baseViews.size();i++){
-if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=true;
-            }
 			if (operationsList.isEmpty()) {
 				// Show dialog to create operation
 				createOperation(new Callable<Void>() {
@@ -1106,8 +1102,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 						return addFieldMapView();
 					}
 				});
-			} else if (checkEx==false) Toast.makeText(getBaseContext(),"You have no base",Toast.LENGTH_SHORT).show();
-            else {
+			} else {
 				addFieldMapView();
 			}
 		}  else if (item.getItemId() == R.id.main_menu_sync) {
@@ -1150,7 +1145,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		} else if (item.getItemId() == R.id.main_menu_list_view) {
 			// Show list view
 			Log.d("MainActivity", "Showing list view");
-            //todo require adding of bases in list and removing of fields that dont belong to the select farmer
+			//todo require adding of bases in list and removing of fields that dont belong to the select farmer
 			setState(STATE_LIST_VIEW);
 		}  else if (item.getItemId() == R.id.main_menu_map_view) {
 			// Show map view
@@ -1160,18 +1155,18 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 
 		}
 		else if(item.getItemId()==R.id.main_menu_sMain){
-	Log.d("MainActivity", "go to main menu");
+			Log.d("MainActivity", "go to main menu");
 			Intent m= new Intent();
 			m.setClass(getBaseContext(), selectFarmer.class);
 			startActivity(m);
 
 		}else if(item.getItemId() == R.id.main_menu_help){
 			AlertDialog.Builder alert = new AlertDialog.Builder(this);
-	        alert.setTitle("Help");
-	        WebView wv = new WebView(this);
-	        wv.loadUrl("file:///android_asset/Help.html");
-	        wv.getSettings().setSupportZoom(true);
-	        wv.getSettings().setBuiltInZoomControls(true);
+			alert.setTitle("Help");
+			WebView wv = new WebView(this);
+			wv.loadUrl("file:///android_asset/Help.html");
+			wv.getSettings().setSupportZoom(true);
+			wv.getSettings().setBuiltInZoomControls(true);
 	        /*wv.setWebViewClient(new WebViewClient(){
 	            @Override
 	            public boolean shouldOverrideUrlLoading(WebView view, String url)
@@ -1180,19 +1175,19 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 	                return true;
 	            }
 	        });*/
-	        alert.setView(wv);
-	        alert.setNegativeButton("Close", null);
-	        alert.show();
+			alert.setView(wv);
+			alert.setNegativeButton("Close", null);
+			alert.show();
 		} else if(item.getItemId() == R.id.main_menu_legal){
 			CharSequence licence= "blahblahblah";
 			new AlertDialog.Builder(this)
-				.setTitle("Legal")
-				.setMessage(licence)
-				.setIcon(android.R.drawable.ic_dialog_alert)
-				.setPositiveButton("Close", null).show();
+					.setTitle("Legal")
+					.setMessage(licence)
+					.setIcon(android.R.drawable.ic_dialog_alert)
+					.setPositiveButton("Close", null).show();
 		} else if(item.getItemId() == R.id.main_menu_autosync){
 			//TrelloSyncInfo syncInfo = syncHelper.getSyncInfo(getApplicationContext());
-			
+
 			int selected = -1;
 			/*if(syncInfo != null){
 				if(syncInfo.getAutoSync() != null && syncInfo.getAutoSync() == false){
@@ -1207,41 +1202,41 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 			}
 			*/
 
-			String[] options = { 
+			String[] options = {
 					"Never", "1 min", "5 min", "10 min", "30 min"
-				};
-			new AlertDialog.Builder(this).setTitle("Autosync Interval").setSingleChoiceItems(options, selected, 
+			};
+			new AlertDialog.Builder(this).setTitle("Autosync Interval").setSingleChoiceItems(options, selected,
 					new DialogInterface.OnClickListener() {
 						Integer devAutoSyncOnTrigger = 0;
 						public void onClick(DialogInterface dialog, int which) {
 							if(which == 0){
-			//					syncHelper.autoSyncOff(getApplicationContext());
+								//					syncHelper.autoSyncOff(getApplicationContext());
 							} else if(which == 1) {
-			//					syncHelper.autoSyncOn(getApplicationContext(), 60);
+								//					syncHelper.autoSyncOn(getApplicationContext(), 60);
 							} else if(which == 2) {
-			//					syncHelper.autoSyncOn(getApplicationContext(), 60*5);
+								//					syncHelper.autoSyncOn(getApplicationContext(), 60*5);
 							} else if(which == 3) {
-			//					syncHelper.autoSyncOn(getApplicationContext(), 60*10);
+								//					syncHelper.autoSyncOn(getApplicationContext(), 60*10);
 							} else if(which == 4) {
-			//					syncHelper.autoSyncOn(getApplicationContext(), 60*30);
+								//					syncHelper.autoSyncOn(getApplicationContext(), 60*30);
 								devAutoSyncOnTrigger++;
 								if(devAutoSyncOnTrigger > 9){
 									if(devAutoSyncOnTrigger % 2 == 0){
-			//							syncHelper.devAutoSyncOn(getApplicationContext(), 3);
+										//							syncHelper.devAutoSyncOn(getApplicationContext(), 3);
 										Toast.makeText(getApplicationContext(), "Presentation auto sync on, every 3 seconds.", Toast.LENGTH_SHORT).show();
 									} else {
-			//							syncHelper.devAutoSyncOff(getApplicationContext());
+										//							syncHelper.devAutoSyncOff(getApplicationContext());
 										Toast.makeText(getApplicationContext(), "Presentation auto sync off.", Toast.LENGTH_SHORT).show();
 									}
 								}
 							}
-			           }
+						}
 					}).setPositiveButton("Ok", new DialogInterface.OnClickListener() {
-			             @Override
-			             public void onClick(DialogInterface dialog, int id) {
-			                 
-			             }
-			         }).show();
+				@Override
+				public void onClick(DialogInterface dialog, int id) {
+
+				}
+			}).show();
 		}
 		return true;
 	}
@@ -1255,13 +1250,13 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		ATKPolygonView polygonBeingDrawn = map.drawPolygon(ID_FIELD_DRAWING);
 		//Set some settings for what it should appear like when being drawn
 		polygonBeingDrawn.setFillColor(0.7f, 0, 255, 0); //Opacity, Red, Green, Blue
-		
+
 		Field newField = new Field();
 		newField.setId(-1);
 		newField.setDeleted(false);
-		
-		this.currentFieldView = new FieldView(FieldView.STATE_SELECTED, newField, null, polygonBeingDrawn, map);	
-	
+
+		this.currentFieldView = new FieldView(FieldView.STATE_SELECTED, newField, null, polygonBeingDrawn, map);
+
 		showFragmentAddField(true);
 		return null;
 	}
@@ -1352,11 +1347,11 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		if (this.fragmentJob != null && this.fragmentJob.isVisible()) {
 			FragmentManager fm = getSupportFragmentManager();
 			FragmentJob fragment = (FragmentJob) fm.findFragmentByTag("edit_job");
-			
+
 			if(fragment != null){
 				fragment.closing();
 			}
-			
+
 			// Set height so transition works
 			FrameLayout layout = (FrameLayout) findViewById(R.id.fragment_container_edit_job);
 			RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) layout.getLayoutParams();
@@ -1416,23 +1411,23 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 
 	public void FragmentAddBase_Init(){
 		if(this.currentBaseView == null) Log.w("FragmentAddBase_Init", "currentBaseView is null");
-		else fragmentAddField.init(this.currentBaseView);
+		if(fragmentAddField != null) fragmentAddField.init(this.currentBaseView);
 	}
-//check for errors
+	//check for errors
 	@Override
-	public void FragmentAddBase_Done(BaseFieldView baseFieldView) {
+	public void FragmentAddBase_Done(BaseFieldView baseFieldView, boolean checkDelete) {
 		//Check if we deleted the field b4 we made it, ie. add field, immediately delete.
 		BaseField bfield = baseFieldView.getBase();
 		closeKeyboard();
 //todo if statement has missing isdeleted method vv down here
-//		if(bfield == null || bfield.getId() == -1 ){
-//			Log.w("FragmentAddField_Done", "Deleted a  baseField before we were done making it.");
-//			ATKPolygonView polygon = map.completePolygon();
-//			map.removePolygon(polygon.getAtkPolygon());
-//			this.hideFragmentAddField(true);
-//			this.currentFieldView = null;
-//			return;
-//		}
+		if(bfield == null || bfield.getId() == -1 && checkDelete==true ){
+			Log.w("FragmentAddField_Done", "Deleted a  baseField before we were done making it.");
+			ATKPolygonView polygon = map.completePolygon();
+			map.removePolygon(polygon.getAtkPolygon());
+			this.hideFragmentAddField(true);
+			this.currentBaseView = null;
+			return;
+		}
 
 		// Check if field name is valid and doesn't exist already
 		if (bfield.getName().trim().length() == 0) {
@@ -1449,7 +1444,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 				//New field
 				bfield.setId(null); //Make sure null, so it creates the field again if it was deleted when we were editing it.
 				if(TableBaseField.FindBaseFieldByName(this.dbHelper, bfield.getName()) != null){
-				//	Toast.makeText(this,"A field with this name already exists. Field names must be unique.", Toast.LENGTH_LONG).show();
+					//	Toast.makeText(this,"A field with this name already exists. Field names must be unique.", Toast.LENGTH_LONG).show();
 					return;
 				}
 			} else {
@@ -1504,7 +1499,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 					Log.d("FragmentAddField_Done", "Saving Field to local db. Name: " + toUpdate.getName());
 					if(toUpdate.getId() != null) Log.d("FragmentAddField_Done", "Saving Field to local db. id:" + Integer.toString(bfield.getId()));
 
-				//	Toast.makeText(getBaseContext(),toUpdate.getWorker_Id(),Toast.LENGTH_SHORT);
+					//	Toast.makeText(getBaseContext(),toUpdate.getWorker_Id(),Toast.LENGTH_SHORT);
 					TableBaseField.updateField(dbHelper, toUpdate);
 					if(toUpdate.getId() != null) bfield.setId(toUpdate.getId()); //Update id of fieldview field if was insert
 				}
@@ -1535,8 +1530,9 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 			this.currentBaseView = baseFieldView;
 			this.hideFragmentAddField(false);
 			// Check to see if we have any operations
-//			if(bfield.getDeleted()){
-//				this.hideFragmentAddField(true);
+			if(checkDelete) {
+				this.hideFragmentAddField(true);
+			}
 //			} else {
 //				if(operationsList.isEmpty() == false) {
 //					// Check if any operation selected
@@ -1554,7 +1550,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 //						}
 //					});
 //				}
-	//		}
+			//		}
 		}
 	}
 
@@ -1575,7 +1571,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		//Check if we deleted the field b4 we made it, ie. add field, immediately delete.
 		Field field = fieldview.getField();
 		closeKeyboard();
-		
+
 		if(field == null || field.getId() == -1 && field.getDeleted() == true){
 			Log.w("FragmentAddField_Done", "Deleted a field before we were done making it.");
 			ATKPolygonView polygon = map.completePolygon();
@@ -1584,18 +1580,18 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 			this.currentFieldView = null;
 			return;
 		}
-		
+
 		// Check if field name is valid and doesn't exist already
 		if (field.getName().trim().length() == 0) {
 			// Tell them to input a name
 			// TODO add this message to R.strings
 			Toast.makeText(this, "Field name cannot be blank.", Toast.LENGTH_LONG).show();
 		} else {
-			
+
 			// Check if field name already exists in db
 			Field oldField = null;
 			if(field.getId() != -1) oldField = TableFields.FindFieldById(this.dbHelper, field.getId());
-			
+
 			if(oldField == null){
 				//New field
 				field.setId(null); //Make sure null, so it creates the field again if it was deleted when we were editing it.
@@ -1606,20 +1602,20 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 			} else {
 				field.setId(oldField.getId());
 			}
-			
+
 			ATKPolygonView polygon = map.completePolygon();
 			field.setBoundary(polygon.getAtkPolygon().boundary);
 			Log.d("FragmentAddField_Done", "boundary size:" + Integer.toString(field.getBoundary().size()));
-		
+
 			//Setup values to add or update
 			Field toUpdate = new Field(null);
-			
+
 			Boolean changes = false;
 			if(oldField == null || oldField.getName().contentEquals(field.getName()) == false) {
 				toUpdate.setName(field.getName());
 				toUpdate.setDateNameChanged(new Date());
 				changes = true;
-				
+
 				if(oldField != null) {
 					//Update all the jobs with this field name to the new field name
 					TableJobs.updateJobsWithFieldName(dbHelper, oldField.getName(), field.getName());
@@ -1638,17 +1634,16 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 			if(oldField != null && field.getDeleted() == true){
 				//Deleted
 				//If not trello synced then delete from db
-			
+
 				//Update db and remove from map
 				toUpdate.setDeleted(true);
 				toUpdate.setDateDeleted(new Date());
 			}
-			
+
 			if(changes){
 				// Save this field to the db
 				toUpdate.setId(field.getId()); //Set it's id if it has one
-				toUpdate.setBaseId(field.getBaseId());
-				
+
 				Boolean deleted = false;
 				if(field.getDeleted() == true){
 					//Delete from db if hasn't synced to cloud yet. Otherwise we have to mark it as deleted in db so cloud will delete it on next sync
@@ -1657,17 +1652,17 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 				if(deleted == false) {
 					Log.d("FragmentAddField_Done", "Saving Field to local db. Name: " + toUpdate.getName());
 					if(toUpdate.getId() != null) Log.d("FragmentAddField_Done", "Saving Field to local db. id:" + Integer.toString(field.getId()));
-					
+
 					TableFields.updateField(dbHelper, toUpdate);
 					if(toUpdate.getId() != null) field.setId(toUpdate.getId()); //Update id of fieldview field if was insert
 				}
-				Toast.makeText(getBaseContext(),"baseId of created field"+field.getBaseId(),Toast.LENGTH_SHORT).show();
+
 				if(oldField == null){
 					//More efficient, use this polygon so we don't have to delete and redraw
-				    //Finally, create our new FieldView
+					//Finally, create our new FieldView
 					polygon.getAtkPolygon().id = field.getId();
 					fieldview.update(field, fieldview.getJob());
-				    fieldViews.add(fieldview);
+					fieldViews.add(fieldview);
 				} else {
 					//Go ahead and update the field on the map, we were editing
 					fieldview.update(field, fieldview.getJob());
@@ -1677,14 +1672,14 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 						fieldview = null;
 					}
 				}
-				
+
 				//Add or update in list view
 				if (this.fragmentListView != null) this.fragmentListView.getData();
-			//	this.syncHelper.autoSyncDelayed(this);
+				//	this.syncHelper.autoSyncDelayed(this);
 			}
-			
+
 			this.currentFieldView = fieldview;
-			
+
 			// Check to see if we have any operations
 			if(field.getDeleted()){
 				this.hideFragmentAddField(true);
@@ -1719,34 +1714,34 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 	public String ListViewGetCurrentFieldName() {
 		return null;
 	}
-	
+
 
 	@Override
 	public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-		
+
 		// Spinner selected item
 		Worker worker = (Worker) parent.getItemAtPosition(pos);
 		if (worker.getId() == null) {
 			// Create new operation
 			selectCurrentOperationInSpinner(); // Go back to original for now,
-												// in case cancel
+			// in case cancel
 			createOperation(null);
 		} else {
 			if(currentOperation == null || currentOperation.getId() != worker.getId()) hideFragmentJob(true);
-			if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
+
+			if (currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
 			currentFieldView = null;
-			if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
-			currentBaseView=null;
-			
+			if (currentBaseView != null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+			currentBaseView = null;
 			currentOperation = worker;
-			
+
 			// Save this choice in preferences for next open
 			SharedPreferences prefs = getApplicationContext().getSharedPreferences("com.openatk.field_work", Context.MODE_PRIVATE);
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.putInt("currentOperationId", currentOperation.getId());
 			editor.commit();
 		}
-		
+
 		updateOperation();
 		if(this.fragmentListView != null) this.fragmentListView.getData();
 	}
@@ -1756,8 +1751,8 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		// Spinner, select disappear, selection removed from adapter
 		Log.d("MainMenu - onNothingSelected", "Nothing selected");
 	}
-	
-	
+
+
 	@Override
 	public void onMapClick(LatLng position) {
 		Log.d("MainActivity", "OnMapClick");
@@ -1784,84 +1779,61 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		if(this.keyboardIsShowing == true) {
 			closeKeyboard();
 		}
-		
+
 		if(this.currentOperation != null){
 			//Select field view that was clicked
 			try {
 
 				BaseFieldView clicked=(BaseFieldView)polygonView.getData();
 				if(this.fragmentJob != null)	hideFragmentJob(true);
-                boolean checkEx=false;
-                for(int i=0;i<baseViews.size();i++){
-                    if(baseViews.get(i).getBase().getId()==clicked.getBase().getId()) {
-                        if (baseViews.get(i).getBase().getWorker_Id() != currentOperation.getId())checkEx = true;
-                    }
-                }
-                if(checkEx==true){
-                    Toast.makeText(getBaseContext(),"This Base belongs to another farmer",Toast.LENGTH_SHORT).show();
+				boolean checkEx=false;
+				for(int i=0;i<baseViews.size();i++){
+					if(baseViews.get(i).getBase().getId()==clicked.getBase().getId()) {
+						if (baseViews.get(i).getBase().getWorker_Id() != currentOperation.getId())checkEx = true;
+					}
+				}
+				if(checkEx==true){
+					Toast.makeText(getBaseContext(),"This Base belongs to another farmer",Toast.LENGTH_SHORT).show();
 					if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
 					currentFieldView = null;
 					if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
 					currentBaseView=null;
 					if(this.fragmentJob != null) this.hideFragmentJob(true);
-                }
-                else{
-                    //todo not allow selecting if job belongs to another BASE / Location
-
+				}
+				else{
+					//todo not allow selecting if job belongs to another BASE / Location
 					clicked.setState(BaseFieldView.STATE_SELECTED);
-                   // Toast.makeText(getBaseContext(), clicked.getBase().getName()+clicked.getBase().getDateUpdated()+"workerId"+clicked.getBase().getWorker_Id(), Toast.LENGTH_SHORT).show();
-                    if (currentBaseView != clicked) {
-                        if (currentBaseView != null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
-                        currentBaseView = clicked;
-                    }
-                    if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
-                    currentFieldView = null;
-                }
+					// Toast.makeText(getBaseContext(), clicked.getBase().getName()+clicked.getBase().getDateUpdated()+"workerId"+clicked.getBase().getWorker_Id(), Toast.LENGTH_SHORT).show();
+					if (currentBaseView != clicked) {
+						if (currentBaseView != null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+						currentBaseView = clicked;
+					}
+					if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
+					currentFieldView = null;
+				}
 
 
 			} catch (Exception e) {
 
 				FieldView clicked = (FieldView) polygonView.getData();
 
-				boolean checkEx=false;
-				for(int i=0;i<fieldViews.size();i++){
-					if(fieldViews.get(i).getField().getId()==clicked.getField().getId()) {
-                            for(int b=0;b<baseViews.size();b++){
-                                if(baseViews.get(b).getBase().getWorker_Id()!= currentOperation.getId()
-                                        && baseViews.get(b).getBaseFieldId()==clicked.getField().getBaseId())checkEx = true;
+				clicked.setState(FieldView.STATE_SELECTED);
+				Toast.makeText(getBaseContext(), clicked.getField().getName()+clicked.getField().getAcres(), Toast.LENGTH_SHORT).show();
 
-                            }
-					}
+				if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+				currentBaseView=null;
+
+				if (currentFieldView != clicked) {
+					if (currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
+					currentFieldView = clicked;
 				}
-				if(checkEx==true){
-					Toast.makeText(getBaseContext(),"This Field belongs to another farmer",Toast.LENGTH_SHORT).show();
-					if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
-					currentFieldView = null;
-					if(currentBaseView!=null) currentBaseView.setState(BaseFieldView.STATE_NORMAL);
-					currentBaseView=null;
-					if(this.fragmentJob != null) this.hideFragmentJob(true);
-				}else {
 
 
-					clicked.setState(FieldView.STATE_SELECTED);
-					Toast.makeText(getBaseContext(), clicked.getField().getName() + clicked.getField().getAcres() + "bazeid" + clicked.getField().getBaseId(), Toast.LENGTH_SHORT).show();
+				updateFragmentJob();
 
-					if (currentBaseView != null)
-						currentBaseView.setState(BaseFieldView.STATE_NORMAL);
-					currentBaseView = null;
+				//Bring up fragmentJob if not already
+				this.showFragmentJob(true);
 
-					if (currentFieldView != clicked) {
-						if (currentFieldView != null)
-							currentFieldView.setState(FieldView.STATE_NORMAL);
-						currentFieldView = clicked;
-					}
-
-
-					updateFragmentJob();
-
-					//Bring up fragmentJob if not already
-					this.showFragmentJob(true);
-				}
 			}
 
 		} else {
@@ -1875,7 +1847,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		}
 		return true;
 	}
-	
+
 	private void updateFragmentJob(){
 		//Update info in fragmentJob if already up
 		Job curJob = null;
@@ -1911,7 +1883,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 
 	@Override
 	public boolean onPointDragStart(ATKPointView pointView) {
-		
+
 		return false;
 	}
 
@@ -1919,7 +1891,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 	public void FragmentJob_Init() {
 		if(this.fragmentJob != null){
 			this.fragmentJob.init(dbHelper);
-			
+
 			updateFragmentJob();
 		}
 	}
@@ -1931,13 +1903,13 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		Field field = null;
 		if(this.currentFieldView != null) field = this.currentFieldView.getField();
 		this.updateFieldView(field, job);
-		
+
 		//Update listView if it is visible
 		if(this.fragmentListView != null && this.fragmentListView.isVisible()){
 			//TODO get listview if it is null, could happen if rotate when list view is up.
 			this.fragmentListView.getData();
 		}
-		
+
 		//Remote sync jobs, they have changed...
 		//this.syncHelper.autoSyncDelayed(this);
 	}
@@ -1945,10 +1917,10 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 	@Override
 	public void FragmentJob_TriggerSync() {
 		//Trigger a sync
-	//	this.syncHelper.autoSyncDelayed(this);
+		//	this.syncHelper.autoSyncDelayed(this);
 	}
 
-// This code is the one that sends you to the clicked polygon in the fragment list
+	// This code is the one that sends you to the clicked polygon in the fragment list
 	@Override
 	public void ListViewOnClick(Job currentJob) {
 		//List view picked a job, select it
@@ -1956,7 +1928,7 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		if(currentJob != null && currentJob.getFieldName() != null){
 			field = TableFields.FindFieldByName(dbHelper, currentJob.getFieldName());
 		}
-		
+
 		if(currentFieldView != null) currentFieldView.setState(FieldView.STATE_NORMAL);
 
 		FieldView clicked = null;
@@ -1965,10 +1937,10 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 			clicked.setState(FieldView.STATE_SELECTED);
 			if(clicked.getPolygonView() != null) this.map.zoomTo(clicked.getPolygonView().getAtkPolygon(), false);
 		}
-		
+
 		currentFieldView = clicked;
 		updateFragmentJob();
-		
+
 		if(currentFieldView == null){
 			this.hideFragmentJob(true);
 		} else {
@@ -2000,14 +1972,14 @@ if(baseViews.get(i).getBase().getWorker_Id()==currentOperation.getId())checkEx=t
 		if(this.fragmentAddField != null) this.fragmentAddField.keyboardShowing = isShowing;
 	}
 
-	
+
 	private void closeKeyboard(){
 		InputMethodManager inputManager = (InputMethodManager) this.getSystemService(Context.INPUT_METHOD_SERVICE);
-	    //check if no view has focus:
-	    View v=this.getCurrentFocus();
-	    if(v != null){
-	    	inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-	    }
+		//check if no view has focus:
+		View v=this.getCurrentFocus();
+		if(v != null){
+			inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+		}
 	}
 
 

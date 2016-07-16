@@ -19,13 +19,13 @@ public class BaseField {
     private Float tAcres = 0.0f;
     private List<LatLng> boundary;
     private String cropLoc="";
-    private String cropClass="";
-    private String farmSys="";
+    private String managementType="";
+    private String district="";
+    private Double nitrogen= null;
     private Date dateUpdated = null;
-    private String cropVariety="";
-    private String furrowDist="";
-    private String soilAnalysis="";
-    private Date harvestDate= null;
+    private Double phosporus=  null;
+    private Double potassium= null;
+    private Double ph_level= null;
 
     public BaseField(){
 
@@ -37,18 +37,18 @@ public class BaseField {
             this.tAcres=null;
             this.boundary=null;
             this.cropLoc=null;
-            this.cropClass=null;
-            this.farmSys=null;
-            this.cropVariety=null;
-            this.dateUpdated=null;
-            this.furrowDist=null;
-            this.soilAnalysis=null;
-            this.harvestDate=null;
+            this.setManagementType(null);
+            this.setDistrict(null);
+            this.setNitrogen(null);
+            this.setDateUpdated(null);
+            this.setPhosporus(null);
+            this.setPotassium(null);
+            this.setPh_level(null);
         }
     }
     public BaseField(Integer id, String name,Integer workerId,
-                     float acres,List<LatLng> boundary,String cropLoc,String cropClass,String farmSys,String cropVariety,
-                     Date dateUpdated,String furrowDist,String soilAnalysis,Date harvestDate){
+                     float acres,List<LatLng> boundary,String cropLoc, String managementType,
+                     String district, Double nitrogen,Double phosporus, Double potassium, Double ph_level){
         super();
         this.setId(id);
         this.setName(name);
@@ -56,13 +56,12 @@ public class BaseField {
         this.tAcres=acres;
         this.boundary=boundary;
         this.setCropLoc(cropLoc);
-        this.setCropClass(cropClass);
-        this.setFarmSys(farmSys);
-        this.setCropVariety(cropVariety);
-        this.setDateUpdated(dateUpdated);
-        this.setFurrowDist(furrowDist);
-        this.setSoilAnalysis(soilAnalysis);
-        this.setHarvestDate(harvestDate);
+        this.setManagementType(managementType);
+        this.setDistrict(district);
+        this.setNitrogen(nitrogen);
+        this.setPhosporus(phosporus);
+        this.setPotassium(potassium);
+        this.setPh_level(ph_level);
     }
 
     public ATKPolygon getATKPolygon(){
@@ -117,20 +116,32 @@ public class BaseField {
         this.cropLoc = cropLoc;
     }
 
-    public String getCropClass() {
-        return cropClass;
+    public String toString() {
+        return this.getName();
     }
 
-    public void setCropClass(String cropClass) {
-        this.cropClass = cropClass;
+    public String getManagementType() {
+        return managementType;
     }
 
-    public String getFarmSys() {
-        return farmSys;
+    public void setManagementType(String managementType) {
+        this.managementType = managementType;
     }
 
-    public void setFarmSys(String farmSys) {
-        this.farmSys = farmSys;
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
+    public Double getNitrogen() {
+        return nitrogen;
+    }
+
+    public void setNitrogen(Double nitrogen) {
+        this.nitrogen = nitrogen;
     }
 
     public Date getDateUpdated() {
@@ -141,39 +152,27 @@ public class BaseField {
         this.dateUpdated = dateUpdated;
     }
 
-    public String getCropVariety() {
-        return cropVariety;
+    public Double getPhosporus() {
+        return phosporus;
     }
 
-    public void setCropVariety(String cropVariety) {
-        this.cropVariety = cropVariety;
+    public void setPhosporus(Double phosporus) {
+        this.phosporus = phosporus;
     }
 
-    public String getFurrowDist() {
-        return furrowDist;
+    public Double getPotassium() {
+        return potassium;
     }
 
-    public void setFurrowDist(String furrowDist) {
-        this.furrowDist = furrowDist;
+    public void setPotassium(Double potassium) {
+        this.potassium = potassium;
     }
 
-    public String getSoilAnalysis() {
-        return soilAnalysis;
+    public Double getPh_level() {
+        return ph_level;
     }
 
-    public void setSoilAnalysis(String soilAnalysis) {
-        this.soilAnalysis = soilAnalysis;
-    }
-
-    public Date getHarvestDate() {
-        return harvestDate;
-    }
-
-    public void setHarvestDate(Date harvestDate) {
-        this.harvestDate = harvestDate;
-    }
-
-    public String toString() {
-        return this.getName();
+    public void setPh_level(Double ph_level) {
+        this.ph_level = ph_level;
     }
 }

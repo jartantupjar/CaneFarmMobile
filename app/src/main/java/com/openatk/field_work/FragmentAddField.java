@@ -57,24 +57,24 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 	private RadioButton radioField;
 	private FragmentAddFieldListener listener;
 	private float autoAcresValue;
-	
+
 	private View layout;
 	private boolean ifBase;
 
-    private Spinner spinBases;
-  //  private Button butNewBase;
-    private ArrayAdapter<BaseField> spinBasesAdapter = null;
-    private List<BaseField> basesList = new ArrayList<BaseField>();
+	private Spinner spinBases;
+	//  private Button butNewBase;
+	private ArrayAdapter<BaseField> spinBasesAdapter = null;
+	private List<BaseField> basesList = new ArrayList<BaseField>();
 	private FieldView fieldview;
 
 	private BaseFieldView baseFieldView;
 
 	public boolean keyboardShowing = false;
-	
+
 	private static float DECIMAL_ACRES_LIMIT = 3.0f;
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+	@Override
+	public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
 		BaseField baseField = (BaseField) adapterView.getItemAtPosition(i);
 		Log.d("Selected:", baseField.getName());
@@ -108,21 +108,21 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 			}
 		}
 
-    }
+	}
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
+	@Override
+	public void onNothingSelected(AdapterView<?> adapterView) {
 
-    }
+	}
 
 
-    // Interface for receiving data
+	// Interface for receiving data
 	public interface FragmentAddFieldListener {
 		public void FragmentAddField_Undo(); //This -> Listener
 		public void FragmentAddField_Init(); //This -> Listener
 		public void FragmentAddField_Done(FieldView field);  //This -> Listener
 		public void FragmentAddBase_Init();
-		public void FragmentAddBase_Done(BaseFieldView base);
+		public void FragmentAddBase_Done(BaseFieldView base, boolean checkDelete);
 	}
 
 	@Override
@@ -133,7 +133,7 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 		ImageButton butUndo = (ImageButton) view.findViewById(R.id.add_field_undo);
 		ImageButton butDelete = (ImageButton) view.findViewById(R.id.add_field_delete);
 		layout = (View) view.findViewById(R.id.add_field_layout);
-		
+
 		name = (EditText) view.findViewById(R.id.add_field_name);
 		acres = (EditText) view.findViewById(R.id.add_field_etAcres);
 		autoAcres = (CheckBox) view.findViewById(R.id.add_field_chkAutoAcres);
@@ -142,11 +142,11 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 		radioBase=(RadioButton)view.findViewById(R.id.rbtnBase);
 		radioField=(RadioButton)view.findViewById(R.id.rbtnJob);
 
-        spinBases = (Spinner) view.findViewById(R.id.edit_field_spinBases);
-   //     butNewBase = (Button) view.findViewById(R.id.edit_field_butNewOperator);
+		spinBases = (Spinner) view.findViewById(R.id.edit_field_spinBases);
+		//     butNewBase = (Button) view.findViewById(R.id.edit_field_butNewOperator);
 
 		layout.setOnClickListener(this);
-		
+
 		acres.setOnFocusChangeListener(new OnFocusChangeListener() {
 			@Override
 			public void onFocusChange(View v, boolean hasFocus) {
@@ -175,14 +175,14 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 				}
 			}
 		});
-        spinBases.setOnItemSelectedListener(this);
-        spinBasesAdapter = new ArrayAdapter<BaseField>(this.getActivity(), android.R.layout.simple_list_item_1,basesList);
-        spinBases.setAdapter(spinBasesAdapter);
+		spinBases.setOnItemSelectedListener(this);
+		spinBasesAdapter = new ArrayAdapter<BaseField>(this.getActivity(), android.R.layout.simple_list_item_1,basesList);
+		spinBases.setAdapter(spinBasesAdapter);
 
 		butDone.setOnClickListener(this);
 		butUndo.setOnClickListener(this);
 		butDelete.setOnClickListener(this);
-		
+
 		autoAcres.setOnCheckedChangeListener(this);
 		radioGroup.setOnCheckedChangeListener(this);
 		return view;
@@ -200,13 +200,13 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 	public void init(FieldView fieldView,int id) {
 
 		if(fieldView != null) {
-            loadBasesList(id);
+			loadBasesList(id);
 
 			spinBasesAdapter.notifyDataSetChanged();
 			Toast.makeText(getContext(), "this id" + id, Toast.LENGTH_SHORT);
 			this.fieldview = fieldView;
 			Field field = fieldView.getField();
-			
+
 			if (field != null && field.getId() != null && field.getId() != -1) {
 				name.setText(field.getName());
 				String strAcres;
@@ -227,21 +227,21 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 				autoAcres.setChecked(true);
 				acres.setEnabled(false);
 			}
-			
+
 			this.fieldview.getPolygonView().setOnDrawListener(this);
 		}
 	}
-    private void loadBasesList(int id){
-        if (spinBasesAdapter != null) spinBasesAdapter.clear();
-        basesList.clear();
-        DatabaseHelper dbHelper= new DatabaseHelper(this.getActivity().getBaseContext());
+	private void loadBasesList(int id){
+		if (spinBasesAdapter != null) spinBasesAdapter.clear();
+		basesList.clear();
+		DatabaseHelper dbHelper= new DatabaseHelper(this.getActivity().getBaseContext());
 
-        List<BaseField> bases = dbHelper.readBaseFields();
-        if (bases.isEmpty() == false) {
-            Log.d("loadWorkerList", "Has workers");
+		List<BaseField> bases = dbHelper.readBaseFields();
+		if (bases.isEmpty() == false) {
+			Log.d("loadWorkerList", "Has workers");
 
-            spinBases.setVisibility(View.VISIBLE);
-          //  butNewBase.setVisibility(View.GONE);
+			spinBases.setVisibility(View.VISIBLE);
+			//  butNewBase.setVisibility(View.GONE);
 
 //            BaseField baseField = new BaseField();
 //            baseField.setId(null);
@@ -250,20 +250,20 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 			for(int i =0; i<bases.size(); i++){
 
 				if (bases.get(i).getWorker_Id() == id) basesList.add(bases.get(i)); Log.d("loadBasesList","added base"+bases.get(i).getName());
-            }
-            if(spinBasesAdapter != null) spinBasesAdapter.notifyDataSetChanged();Log.d("loadBasesList","notifysetchanged the spinner");
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
-            String toSelect = prefs.getString("defaultWorker", null);
-           selectWorkerInSpinner(toSelect);
-        } else {
-            Log.d("loadWorkerList", "No workers");
-            // Show button and hide spinner
+			}
+			if(spinBasesAdapter != null) spinBasesAdapter.notifyDataSetChanged();Log.d("loadBasesList","notifysetchanged the spinner");
+			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getActivity().getApplicationContext());
+			String toSelect = prefs.getString("defaultWorker", null);
+			selectWorkerInSpinner(toSelect);
+		} else {
+			Log.d("loadWorkerList", "No workers");
+			// Show button and hide spinner
 
 			spinBases.setVisibility(View.GONE);
 			Toast.makeText(getContext(),"NO BASE",Toast.LENGTH_SHORT).show();
-       //     butNewBase.setVisibility(View.VISIBLE);
-        }
-    }
+			//     butNewBase.setVisibility(View.VISIBLE);
+		}
+	}
 	private void selectWorkerInSpinner(String workerName) {
 
 		if(workerName == null){
@@ -313,7 +313,7 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 		if(baseView != null) {
 			this.baseFieldView = baseView;
 			BaseField baseField = baseView.getBaseField();
-            //radioGroup.setVisibility(View.GONE);
+			//radioGroup.setVisibility(View.GONE);
 
 			if (baseField != null && baseField.getId() != null && baseField.getId() != -1) {
 				name.setText(baseField.getName());
@@ -371,9 +371,9 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 			if (strAcres.length() > 0) {
 				fltAcres = Float.parseFloat(strAcres);
 			}
-		//	int selected=radioGroup.getCheckedRadioButtonId();
+			//	int selected=radioGroup.getCheckedRadioButtonId();
 
-		//	if(radioBase.getId()==selected){
+			//	if(radioBase.getId()==selected){
 			if(this.fieldview!=null) {
 				this.fieldview.getField().setAcres(fltAcres);
 				this.fieldview.getField().setName(name.getText().toString().trim());
@@ -382,41 +382,47 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 				this.fieldview=null;
 				spinBasesAdapter=null;
 			}else if(this.baseFieldView!=null &&spinBases.getVisibility()==View.GONE) {
-					this.baseFieldView.getBase().settAcres(fltAcres);
-					this.baseFieldView.getBase().setName(name.getText().toString().trim());
-					baseFieldView.getPolygonView().setOnDrawListener(null);
-					listener.FragmentAddBase_Done(this.baseFieldView);
-					this.baseFieldView=null;
-				}
+				this.baseFieldView.getBase().settAcres(fltAcres);
+				this.baseFieldView.getBase().setName(name.getText().toString().trim());
+				baseFieldView.getPolygonView().setOnDrawListener(null);
+				listener.FragmentAddBase_Done(this.baseFieldView, false);
+				this.baseFieldView=null;
+			}
 			//}else {
 
 
-		//	}
+			//	}
 
 
 		} else if (v.getId() == R.id.add_field_undo) {
 			listener.FragmentAddField_Undo();
 		} else if (v.getId() == R.id.add_field_delete) {
 			new AlertDialog.Builder(this.getActivity())
-			.setTitle("Delete Field")
-			.setMessage("Are you sure you want to delete this field?")
-			.setIcon(android.R.drawable.ic_dialog_alert)
-			.setPositiveButton("Yes",
-					new DialogInterface.OnClickListener() {
-						public void onClick(DialogInterface dialog,
-								int whichButton) {
-							fieldview.getField().setDeleted(true);
-							fieldview.getPolygonView().setOnDrawListener(null);
-							listener.FragmentAddField_Done(fieldview);
-						}
-					}).setNegativeButton("No", null).show();
+					.setTitle("Delete Field")
+					.setMessage("Are you sure you want to delete this field?")
+					.setIcon(android.R.drawable.ic_dialog_alert)
+					.setPositiveButton("Yes",
+							new DialogInterface.OnClickListener() {
+								public void onClick(DialogInterface dialog,
+													int whichButton) {
+									if (fieldview != null) {
+										fieldview.getField().setDeleted(true);
+										fieldview.getPolygonView().setOnDrawListener(null);
+										listener.FragmentAddField_Done(fieldview);
+									}
+									else{
+										baseFieldView.getPolygonView().setOnDrawListener(null);
+										listener.FragmentAddBase_Done(baseFieldView,true);
+									}
+								}
+							}).setNegativeButton("No", null).show();
 		} else {
 			this.closeKeyboard();
 		}
 	}
-	
-	
-//	public void autoAcres(float acres){
+
+
+	//	public void autoAcres(float acres){
 //		Log.d("FragmentAddField", "autoAcres:" + Float.toString(acres));
 //		autoAcresValue = acres;
 //		if(this.autoAcres != null && this.autoAcres.isChecked()){
@@ -424,11 +430,11 @@ public class FragmentAddField extends Fragment implements OnClickListener, OnChe
 //			this.acres.setText(Integer.toString(newAcres) + " ha");
 //		}
 //	}
-@Override
-public void onCheckedChanged(RadioGroup radioGroup, int i) {
-if(radioGroup.getId() == R.id.rbtnBase) ifBase=true;
-else ifBase=false;
-}
+	@Override
+	public void onCheckedChanged(RadioGroup radioGroup, int i) {
+		if(radioGroup.getId() == R.id.rbtnBase) ifBase=true;
+		else ifBase=false;
+	}
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 		if(buttonView.getId() == R.id.add_field_chkAutoAcres){
@@ -471,10 +477,10 @@ else ifBase=false;
 
 	private void closeKeyboard(){
 		InputMethodManager inputManager = (InputMethodManager) this.getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
-	    //check if no view has focus:
-	    View v=this.getActivity().getCurrentFocus();
-	    if(v != null){
-	    	inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-	    }
+		//check if no view has focus:
+		View v=this.getActivity().getCurrentFocus();
+		if(v != null){
+			inputManager.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+		}
 	}
 }

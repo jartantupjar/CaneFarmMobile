@@ -26,20 +26,19 @@ public class TableBaseField {
     public static final String COL_TOTAL_ACRES = "total_acres";
     public static final String COL_BOUNDARY = "boundary";
     public static final String COL_CROP_LOCATION = "crop_location";
-    public static final String COL_CROP_CLASS = "crop_class";
-    public static final String COL_FARMER_SYSTEM = "farmer_system";
+    public static final String COL_MANAGEMENT_TYPE = "management_type";
     public static final String COL_LAST_UPDATED = "last_updated";
-    public static final String COL_CROP_VARIETY = "crop_variety";
-    public static final String COL_FURROW_DISTANCE = "furrow_distance";
-    public static final String COL_SOIL_ANALYSIS = "soil_analysis";
-   // public static final String COL_TCHA = "tcha";
-    public static final String COL_HARVEST_DATE = "harvest_date";
+    public static final String COL_DISTRICT = "district";
+    public static final String COL_PH_LEVEL = "ph_level";
+    public static final String COL_NITROGEN = "nitrogen";
+    public static final String COL_PHOSPORUS = "phosporus";
+    public static final String COL_POTASSIUM = "potassium";
 
 
 
     public static String[] COLUMNS = { COL_ID, COL_NAME,COL_WORKER_ID,
-            COL_TOTAL_ACRES,COL_BOUNDARY,COL_CROP_LOCATION,COL_CROP_CLASS, COL_FARMER_SYSTEM,
-            COL_LAST_UPDATED, COL_CROP_VARIETY,COL_FURROW_DISTANCE,COL_SOIL_ANALYSIS, COL_HARVEST_DATE };
+            COL_TOTAL_ACRES,COL_BOUNDARY,COL_CROP_LOCATION,COL_MANAGEMENT_TYPE, COL_DISTRICT,
+            COL_LAST_UPDATED, COL_PH_LEVEL,COL_NITROGEN,COL_PHOSPORUS, COL_POTASSIUM };
 
     private static final String DATABASE_CREATE = "create table "
             + TABLE_NAME
@@ -50,13 +49,13 @@ public class TableBaseField {
             + COL_TOTAL_ACRES + " integer default 0,"
             + COL_BOUNDARY + " text,"
             + COL_CROP_LOCATION + " text,"
-            + COL_CROP_CLASS + " text,"
-            + COL_FARMER_SYSTEM + " text,"
+            + COL_MANAGEMENT_TYPE + " text,"
+            + COL_DISTRICT + " text,"
             + COL_LAST_UPDATED + " text,"
-            + COL_CROP_VARIETY + " text,"
-            + COL_FURROW_DISTANCE + " text,"
-            + COL_SOIL_ANALYSIS + " text,"
-            + COL_HARVEST_DATE + " text"
+            + COL_PH_LEVEL + " real,"
+            + COL_NITROGEN + " real,"
+            + COL_PHOSPORUS + " real,"
+            + COL_POTASSIUM + " real"
             + ");";
 
     public static void onCreate(SQLiteDatabase database) {
@@ -71,18 +70,21 @@ public class TableBaseField {
             Float acres = cursor.getFloat(cursor.getColumnIndex(TableBaseField.COL_TOTAL_ACRES));
             List<LatLng> boundary = TableBaseField.StringToBoundary(cursor.getString(cursor.getColumnIndex(TableBaseField.COL_BOUNDARY)));
             String cropLoc=cursor.getString(cursor.getColumnIndex(TableBaseField.COL_CROP_LOCATION));
-            String cropClass=cursor.getString(cursor.getColumnIndex(TableBaseField.COL_CROP_CLASS));
-            String farmSys=cursor.getString(cursor.getColumnIndex(TableBaseField.COL_FARMER_SYSTEM));
-            String cropVariety=cursor.getString(cursor.getColumnIndex(TableBaseField.COL_CROP_VARIETY));
-            Date dateUpdated = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableBaseField.COL_LAST_UPDATED)));
-            String furrowDist=cursor.getString(cursor.getColumnIndex(TableBaseField.COL_FURROW_DISTANCE));
-            String soilAnalysis=cursor.getString(cursor.getColumnIndex(TableBaseField.COL_SOIL_ANALYSIS));
-            Date harvestDate = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableBaseField.COL_HARVEST_DATE)));
+            String managementType=cursor.getString(cursor.getColumnIndex(TableBaseField.COL_MANAGEMENT_TYPE));
+            String district=cursor.getString(cursor.getColumnIndex(TableBaseField.COL_DISTRICT));
+            Double phLevel=cursor.getDouble(cursor.getColumnIndex(TableBaseField.COL_PH_LEVEL));
+            //Date dateUpdated = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableBaseField.COL_LAST_UPDATED)));
+            Double nitrogen=cursor.getDouble(cursor.getColumnIndex(TableBaseField.COL_NITROGEN));
+            Double phosporus=cursor.getDouble(cursor.getColumnIndex(TableBaseField.COL_PHOSPORUS));
+            Double potassium = cursor.getDouble(cursor.getColumnIndex(TableBaseField.COL_POTASSIUM));
 
-
+            System.out.println(nitrogen + "****************");
 
             BaseField newField = new BaseField(id, name,workerId,
-                     acres,boundary,cropLoc,cropClass,farmSys,cropVariety,dateUpdated,furrowDist,soilAnalysis,harvestDate) ;
+                    acres,boundary,cropLoc, managementType, district,
+                    nitrogen,
+                    phosporus
+                    , potassium, phLevel) ;
 
             return newField;
         } else {
@@ -167,19 +169,19 @@ public class TableBaseField {
 
         ContentValues values = new ContentValues();
         if(field.getId() != null) values.put(TableBaseField.COL_ID, field.getId());
-        if(field.getDateUpdated() != null) values.put(TableBaseField.COL_LAST_UPDATED, DatabaseHelper.dateToStringUTC(field.getDateUpdated()));
+        //if(field.getDateUpdated() != null) values.put(TableBaseField.COL_LAST_UPDATED, DatabaseHelper.dateToStringUTC(field.getDateUpdated()));
         if(field.getWorker_Id() != null) values.put(TableBaseField.COL_WORKER_ID, field.getWorker_Id());
         if(field.getName() != null) values.put(TableBaseField.COL_NAME, field.getName());
-      //  Log.d("updateField", "FieldName:" + field.getName());
+        //  Log.d("updateField", "FieldName:" + field.getName());
         if(field.gettAcres() != null) values.put(TableBaseField.COL_TOTAL_ACRES, field.gettAcres());
         if(field.getBoundary() != null) values.put(TableBaseField.COL_BOUNDARY, TableBaseField.BoundaryToString(field.getBoundary()));
         if(field.getCropLoc() != null) values.put(TableBaseField.COL_CROP_LOCATION, field.getCropLoc());
-        if(field.getCropClass() != null) values.put(TableBaseField.COL_CROP_CLASS, field.getCropClass());
-        if(field.getFarmSys() != null) values.put(TableBaseField.COL_FARMER_SYSTEM, field.getFarmSys());
-        if(field.getCropVariety() != null) values.put(TableBaseField.COL_CROP_VARIETY, field.getCropVariety());
-        if(field.getFurrowDist() != null) values.put(TableBaseField.COL_FURROW_DISTANCE, field.getFurrowDist());
-        if(field.getSoilAnalysis() != null) values.put(TableBaseField.COL_SOIL_ANALYSIS, field.getSoilAnalysis());
-        if(field.getHarvestDate() != null) values.put(TableBaseField.COL_HARVEST_DATE,DatabaseHelper.dateToStringUTC(field.getHarvestDate()));
+        if(field.getManagementType() != null) values.put(TableBaseField.COL_MANAGEMENT_TYPE, field.getManagementType());
+        if(field.getDistrict() != null) values.put(TableBaseField.COL_DISTRICT, field.getDistrict());
+        if(field.getNitrogen() != null) values.put(TableBaseField.COL_NITROGEN, field.getNitrogen());
+        if(field.getPhosporus() != null) values.put(TableBaseField.COL_PHOSPORUS, field.getPhosporus());
+        if(field.getPotassium() != null) values.put(TableBaseField.COL_POTASSIUM, field.getPotassium());
+        if(field.getPh_level() != null) values.put(TableBaseField.COL_PH_LEVEL,field.getPh_level());
 
         if(values.size() > 0){
             SQLiteDatabase database = dbHelper.getWritableDatabase();
