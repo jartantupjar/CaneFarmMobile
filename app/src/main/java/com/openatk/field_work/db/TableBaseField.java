@@ -21,7 +21,6 @@ public class TableBaseField {
     public static final String TABLE_NAME = "basefield";
     public static final String COL_ID = "_id";
     public static final String COL_NAME = "name";
-
     public static final String COL_WORKER_ID="worker_id";
     public static final String COL_TOTAL_ACRES = "total_acres";
     public static final String COL_BOUNDARY = "boundary";
