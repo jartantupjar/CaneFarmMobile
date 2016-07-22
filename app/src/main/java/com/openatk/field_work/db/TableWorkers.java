@@ -161,7 +161,6 @@ public class TableWorkers {
 		if (cursor.moveToFirst()){
 			username = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME2));
 		}
-		System.out.println(username+"**********");
 		cursor.close();
 		database.close();
 		dbHelper.close();

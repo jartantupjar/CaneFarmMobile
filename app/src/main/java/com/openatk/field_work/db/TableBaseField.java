@@ -3,11 +3,19 @@ package com.openatk.field_work.db;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.openatk.field_work.models.BaseField;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +29,6 @@ public class TableBaseField {
     public static final String TABLE_NAME = "basefield";
     public static final String COL_ID = "_id";
     public static final String COL_NAME = "name";
-    public static final String COL_USERNAME = "username";
     public static final String COL_WORKER_ID="worker_id";
     public static final String COL_TOTAL_ACRES = "total_acres";
     public static final String COL_BOUNDARY = "boundary";
@@ -45,7 +52,6 @@ public class TableBaseField {
             + " ("
             + COL_ID + " integer primary key autoincrement,"
             + COL_NAME + " text,"
-            + COL_USERNAME + "username, "
             + COL_WORKER_ID + " integer,"
             + COL_TOTAL_ACRES + " integer default 0,"
             + COL_BOUNDARY + " text,"
@@ -67,7 +73,6 @@ public class TableBaseField {
         if(cursor != null){
             Integer id = cursor.getInt(cursor.getColumnIndex(TableBaseField.COL_ID));
             String name = cursor.getString(cursor.getColumnIndex(TableBaseField.COL_NAME));
-            String username = cursor.getString(cursor.getColumnIndex(TableBaseField.COL_USERNAME));
             Integer workerId = cursor.getInt(cursor.getColumnIndex(TableBaseField.COL_WORKER_ID));
             Float acres = cursor.getFloat(cursor.getColumnIndex(TableBaseField.COL_TOTAL_ACRES));
             List<LatLng> boundary = TableBaseField.StringToBoundary(cursor.getString(cursor.getColumnIndex(TableBaseField.COL_BOUNDARY)));
@@ -80,7 +85,7 @@ public class TableBaseField {
             Double phosporus=cursor.getDouble(cursor.getColumnIndex(TableBaseField.COL_PHOSPORUS));
             Double potassium = cursor.getDouble(cursor.getColumnIndex(TableBaseField.COL_POTASSIUM));
 
-            BaseField newField = new BaseField(id, name,username, workerId,
+            BaseField newField = new BaseField(id, name, workerId,
                     acres,boundary,cropLoc, managementType, district,
                     nitrogen,
                     phosporus
@@ -160,12 +165,13 @@ public class TableBaseField {
             return null;
         }
     }
-    public static boolean updateField(DatabaseHelper dbHelper, BaseField field){
+    public static int updateField(DatabaseHelper dbHelper, BaseField field){
         //Inserts, updates
         //Only non-null fields are updated
         //Used by both LibTrello and MainActivity to update database data
 
         boolean ret = false;
+        int id = -1;
 
         ContentValues values = new ContentValues();
         if(field.getId() != null) values.put(TableBaseField.COL_ID, field.getId());
@@ -187,7 +193,7 @@ public class TableBaseField {
             SQLiteDatabase database = dbHelper.getWritableDatabase();
             if(field.getId() == null) {
                 //INSERT This is a new worker, has no id's
-                int id = (int) database.insert(TableBaseField.TABLE_NAME, null, values);
+                 id = (int) database.insert(TableBaseField.TABLE_NAME, null, values);
                 field.setId(id);
                 ret = true;
             } else {
@@ -200,7 +206,8 @@ public class TableBaseField {
             database.close();
             dbHelper.close();
         }
-        return ret;
+        return id;
     }
+
 
 }

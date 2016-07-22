@@ -149,6 +149,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 	private List<BaseFieldView> baseViews = new ArrayList<BaseFieldView>();
 	private BaseFieldView currentBaseView;
+	private BaseField toUpdateBaseField;
 
 	private Worker currentOperation;
 
@@ -931,7 +932,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		protected String doInBackground(String... strings) {
 			Response response;
 			String result = null;
-			System.out.println("CreateWorkerHelper");
 			OkHttpClient client = new OkHttpClient();
 			RequestBody postRequestBody = new FormEncodingBuilder().add("username", newOp.getName()).build();
 			Request request = new Request.Builder().url(new IPConfig().getBaseUrl() +"CreateNewOwnerMobile").post(postRequestBody).build();
@@ -940,7 +940,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				result = response.body().string();
 
 			} catch (IOException e) {
-				System.out.println("************");
+
+
 				e.printStackTrace();
 			}
 			return result;
@@ -1510,12 +1511,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			Log.d("FragmentAddField_Done", "boundary size:" + Integer.toString(bfield.getBoundary().size()));
 
 			//Setup values to add or update
-			BaseField toUpdate = new BaseField(null);
+			 toUpdateBaseField = new BaseField(null);
 
 			Boolean changes = false;
 			if(oldField == null || oldField.getName().contentEquals(bfield.getName()) == false) {
-				toUpdate.setName(bfield.getName());
-				toUpdate.setDateUpdated(new Date());
+				toUpdateBaseField.setName(bfield.getName());
+				toUpdateBaseField.setDateUpdated(new Date());
 				changes = true;
 
 //todo *** do this method for baseField required***
@@ -1526,22 +1527,22 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			}
 
 			if(oldField == null || oldField.gettAcres() != bfield.gettAcres()) {
-				toUpdate.settAcres(bfield.gettAcres());
-				toUpdate.setDateUpdated(new Date());
+				toUpdateBaseField.settAcres(bfield.gettAcres());
+				toUpdateBaseField.setDateUpdated(new Date());
 				changes = true;
 			}
 			if(oldField == null ||  oldField.getBoundary().equals(bfield.getBoundary()) == false){
-				toUpdate.setBoundary(bfield.getBoundary());
+				toUpdateBaseField.setBoundary(bfield.getBoundary());
 				changes = true;
 			}
 
 
 			if(changes){
 				// Save this field to the db
-				toUpdate.setId(bfield.getId()); //Set it's id if it has one
+				toUpdateBaseField.setId(bfield.getId()); //Set it's id if it has one
 				selectCurrentOperationInSpinner();
-				toUpdate.setWorker_Id(this.currentOperation.getId());
-				toUpdate.setDateUpdated(new Date());
+				toUpdateBaseField.setWorker_Id(this.currentOperation.getId());
+				toUpdateBaseField.setDateUpdated(new Date());
 				bfield.setWorker_Id(this.currentOperation.getId());
 				bfield.setDateUpdated(new Date());
 				Boolean deleted = false;
@@ -1550,12 +1551,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 					deleted = TableFields.deleteFieldIfNotSynced(dbHelper, oldField);
 				}*/
 				if (deleted == false) {
-					Log.d("FragmentAddField_Done", "Saving Field to local db. Name: " + toUpdate.getName());
-					if(toUpdate.getId() != null) Log.d("FragmentAddField_Done", "Saving Field to local db. id:" + Integer.toString(bfield.getId()));
+					Log.d("FragmentAddField_Done", "Saving Field to local db. Name: " + toUpdateBaseField.getName());
+					if(toUpdateBaseField.getId() != null) Log.d("FragmentAddField_Done", "Saving Field to local db. id:" + Integer.toString(bfield.getId()));
 
-					//	Toast.makeText(getBaseContext(),toUpdate.getWorker_Id(),Toast.LENGTH_SHORT);
-					TableBaseField.updateField(dbHelper, toUpdate);
-					if(toUpdate.getId() != null) bfield.setId(toUpdate.getId()); //Update id of fieldview field if was insert
+					toUpdateBaseField.setId(TableBaseField.updateField(dbHelper, toUpdateBaseField));
+					new AddBaseHelper().execute();
+					if(toUpdateBaseField.getId() != null) bfield.setId(toUpdateBaseField.getId()); //Update id of fieldview field if was insert
 				}
 
 				if(oldField == null){
@@ -1607,6 +1608,44 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			//		}
 		}
 	}
+
+	private  class AddBaseHelper extends AsyncTask<String, Void, String> {
+
+
+
+		@Override
+		protected String doInBackground(String... strings) {
+			Response response;
+			String result = null;
+			OkHttpClient client = new OkHttpClient();
+			System.out.println(toUpdateBaseField.getId()+"******");
+			RequestBody postRequestBody = new FormEncodingBuilder()
+					.add("acres", toUpdateBaseField.gettAcres().toString())
+					.add("farm_name", toUpdateBaseField.getId().toString())
+					.add("boundaries", TableBaseField.BoundaryToString(toUpdateBaseField.getBoundary()))
+					.add("owner", TableWorkers.getUsernameById(dbHelper,toUpdateBaseField.getWorker_Id()))
+					.build();
+			Request request = new Request.Builder().url(new IPConfig().getBaseUrl() +"AddBase").post(postRequestBody).build();
+			try {
+				response = client.newCall(request).execute();
+				result = response.body().string();
+
+			} catch (IOException e) {
+
+
+				e.printStackTrace();
+			}
+			return result;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+			if (!s.equalsIgnoreCase("true")){
+				Toast.makeText(getBaseContext(), "Unable to add", Toast.LENGTH_SHORT).show();
+			}
+		}
+	}
+
 
 	//initializes the add field fragment with an empty  currentFieldView is empty
 	@Override
