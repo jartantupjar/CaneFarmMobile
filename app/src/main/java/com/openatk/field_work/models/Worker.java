@@ -12,7 +12,7 @@ public class Worker {
 	private String remote_id = null;
 	private Date dateNameChanged = null;
 	private String name = "";
-	
+	private String name2="";
 	private Boolean deleted = null;
 	private Date dateDeletedChanged = null;
 
@@ -35,6 +35,7 @@ public class Worker {
 	}
 		
 	public Worker(String name) {
+		this.name2 = name;
 		this.name = name;
 		this.dateNameChanged = new Date();
 	}
@@ -56,7 +57,7 @@ public class Worker {
 		this.dateDeletedChanged = dateDeletedChanged;
 	}
 
-	public Worker(Integer id, String remote_id, Date dateNameChanged, String name, String address,
+	public Worker(Integer id, String remote_id, Date dateNameChanged, String name, String name2,String address,
 				  String sex, String civil, String education, String phone, Boolean deleted, Date dateDeletedChanged) {
 
 		super();
@@ -69,7 +70,7 @@ public class Worker {
 		this.civil=civil;
 		this.education=education;
 		this.phone=phone;
-
+		this.setName2(name2);
 		this.deleted = deleted;
 		this.dateDeletedChanged = dateDeletedChanged;
 	}
@@ -160,5 +161,13 @@ public class Worker {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getName2() {
+		return name2;
+	}
+
+	public void setName2(String name2) {
+		this.name2 = name2;
 	}
 }

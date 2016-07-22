@@ -15,6 +15,7 @@ public class BaseField {
 
     private Integer id = null;
     private String name = "";
+    private String username="";
     private Integer worker_Id=null;
     private Float tAcres = 0.0f;
     private List<LatLng> boundary;
@@ -33,6 +34,7 @@ public class BaseField {
     public BaseField(Object makeNull){
         if(makeNull == null){
             this.name=null;
+            this.username = null;
             this.worker_Id=null;
             this.tAcres=null;
             this.boundary=null;
@@ -46,7 +48,7 @@ public class BaseField {
             this.setPh_level(null);
         }
     }
-    public BaseField(Integer id, String name,Integer workerId,
+    public BaseField(Integer id, String name,String username, Integer workerId,
                      float acres,List<LatLng> boundary,String cropLoc, String managementType,
                      String district, Double nitrogen,Double phosporus, Double potassium, Double ph_level){
         super();
@@ -174,5 +176,13 @@ public class BaseField {
 
     public void setPh_level(Double ph_level) {
         this.ph_level = ph_level;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

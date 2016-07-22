@@ -21,6 +21,7 @@ public class TableBaseField {
     public static final String TABLE_NAME = "basefield";
     public static final String COL_ID = "_id";
     public static final String COL_NAME = "name";
+    public static final String COL_USERNAME = "username";
     public static final String COL_WORKER_ID="worker_id";
     public static final String COL_TOTAL_ACRES = "total_acres";
     public static final String COL_BOUNDARY = "boundary";
@@ -44,6 +45,7 @@ public class TableBaseField {
             + " ("
             + COL_ID + " integer primary key autoincrement,"
             + COL_NAME + " text,"
+            + COL_USERNAME + "username, "
             + COL_WORKER_ID + " integer,"
             + COL_TOTAL_ACRES + " integer default 0,"
             + COL_BOUNDARY + " text,"
@@ -65,6 +67,7 @@ public class TableBaseField {
         if(cursor != null){
             Integer id = cursor.getInt(cursor.getColumnIndex(TableBaseField.COL_ID));
             String name = cursor.getString(cursor.getColumnIndex(TableBaseField.COL_NAME));
+            String username = cursor.getString(cursor.getColumnIndex(TableBaseField.COL_USERNAME));
             Integer workerId = cursor.getInt(cursor.getColumnIndex(TableBaseField.COL_WORKER_ID));
             Float acres = cursor.getFloat(cursor.getColumnIndex(TableBaseField.COL_TOTAL_ACRES));
             List<LatLng> boundary = TableBaseField.StringToBoundary(cursor.getString(cursor.getColumnIndex(TableBaseField.COL_BOUNDARY)));
@@ -77,9 +80,7 @@ public class TableBaseField {
             Double phosporus=cursor.getDouble(cursor.getColumnIndex(TableBaseField.COL_PHOSPORUS));
             Double potassium = cursor.getDouble(cursor.getColumnIndex(TableBaseField.COL_POTASSIUM));
 
-            System.out.println(nitrogen + "****************");
-
-            BaseField newField = new BaseField(id, name,workerId,
+            BaseField newField = new BaseField(id, name,username, workerId,
                     acres,boundary,cropLoc, managementType, district,
                     nitrogen,
                     phosporus

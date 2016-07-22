@@ -18,6 +18,7 @@ public class TableWorkers {
 	public static final String COL_REMOTE_ID = "remote_id";
 	
 	public static final String COL_NAME = "name";
+	public static final String COL_NAME2 = "name2";
 	public static final String COL_NAME_CHANGED = "name_changed";
 
 
@@ -35,7 +36,7 @@ public class TableWorkers {
 	public static final String COL_DELETED = "deleted";
 	public static final String COL_DELETED_CHANGED = "deleted_changed";
 	
-	public static String[] COLUMNS = { COL_ID, COL_REMOTE_ID, COL_NAME, COL_NAME_CHANGED, COL_ADDRESS,COL_SEX,COL_CIVIL,COL_EDUCATION,COL_PHONE,
+	public static String[] COLUMNS = { COL_ID, COL_REMOTE_ID, COL_NAME, COL_NAME2,COL_NAME_CHANGED, COL_ADDRESS,COL_SEX,COL_CIVIL,COL_EDUCATION,COL_PHONE,
 			COL_DELETED, COL_DELETED_CHANGED };
 
 	// Database creation SQL statement
@@ -44,7 +45,8 @@ public class TableWorkers {
 	      + "(" 
 	      + COL_ID + " integer primary key autoincrement," 
 	      + COL_REMOTE_ID + " text default ''," 
-	      + COL_NAME + " text," 
+	      + COL_NAME + " text,"
+			+COL_NAME2+" text,"
 	      + COL_NAME_CHANGED + " text,"
 
 			+ COL_ADDRESS +" text,"
@@ -56,6 +58,7 @@ public class TableWorkers {
 	      + COL_DELETED + " integer default 0," 
 	      + COL_DELETED_CHANGED + " text" 
 	      + ");";
+
 
 	public static void onCreate(SQLiteDatabase database) {
 	  database.execSQL(DATABASE_CREATE);
@@ -108,7 +111,7 @@ public class TableWorkers {
 			String remote_id = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_REMOTE_ID));
 			Date dateNameChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME_CHANGED)));
 			String name = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME));
-
+			String name2 = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME2));
 			 String address=cursor.getString(cursor.getColumnIndex(TableWorkers.COL_ADDRESS));
 			 String sex = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_SEX));
 			 String civil=cursor.getString(cursor.getColumnIndex(TableWorkers.COL_CIVIL));
@@ -119,7 +122,7 @@ public class TableWorkers {
 			Boolean deleted = cursor.getInt(cursor.getColumnIndex(TableWorkers.COL_DELETED)) == 1 ? true : false;
 			Date dateDeletedChanged = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableWorkers.COL_DELETED_CHANGED)));;
 			
-			Worker worker = new Worker(id, remote_id, dateNameChanged, name,address,sex,civil,education,phone,deleted, dateDeletedChanged);
+			Worker worker = new Worker(id, remote_id, dateNameChanged, name,name2,address,sex,civil,education,phone,deleted, dateDeletedChanged);
 			return worker;
 		} else {
 			return null;
@@ -146,6 +149,24 @@ public class TableWorkers {
 		} else {
 			return null;
 		}
+	}
+	public static  String getUsernameById(DatabaseHelper dbHelper,int id){
+		if(dbHelper == null) return null;
+
+
+		SQLiteDatabase database = dbHelper.getReadableDatabase();
+		String username = null;
+		String where = TableWorkers.COL_ID + " = ?";
+		Cursor cursor = database.query(TableWorkers.TABLE_NAME, TableWorkers.COLUMNS, where, new String[]{id+""}, null, null, null);
+		if (cursor.moveToFirst()){
+			username = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME2));
+		}
+		System.out.println(username+"**********");
+		cursor.close();
+		database.close();
+		dbHelper.close();
+		return username;
+
 	}
 	
 	public static Worker FindWorkerByRemoteId(DatabaseHelper dbHelper, String remoteId) {
@@ -180,6 +201,7 @@ public class TableWorkers {
 		
 		if(worker.getDateNameChanged() != null) values.put(TableWorkers.COL_NAME_CHANGED, DatabaseHelper.dateToStringUTC(worker.getDateNameChanged()));
 		if(worker.getName() != null) values.put(TableWorkers.COL_NAME, worker.getName());
+		if (worker.getName2()!=null) values.put(TableWorkers.COL_NAME2, worker.getName2());
 		//todo check if this is necessary
 		if(worker.getAddress() != null) values.put(TableWorkers.COL_ADDRESS, worker.getAddress());
 		if(worker.getSex() != null) values.put(TableWorkers.COL_SEX, worker.getSex());

@@ -1,5 +1,6 @@
 package com.openatk.field_work;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -18,6 +19,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.location.Location;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -54,6 +56,7 @@ import com.openatk.field_work.FragmentAddField.FragmentAddFieldListener;
 import com.openatk.field_work.FragmentJob.FragmentJobListener;
 import com.openatk.field_work.FragmentListView.ListViewListener;
 import com.openatk.field_work.db.DatabaseHelper;
+import com.openatk.field_work.db.IPConfig;
 import com.openatk.field_work.db.TableBaseField;
 import com.openatk.field_work.db.TableFields;
 import com.openatk.field_work.db.TableJobs;
@@ -78,6 +81,11 @@ import com.openatk.openatklib.atkmap.listeners.ATKPointDragListener;
 import com.openatk.openatklib.atkmap.listeners.ATKPolygonClickListener;
 import com.openatk.openatklib.atkmap.views.ATKPointView;
 import com.openatk.openatklib.atkmap.views.ATKPolygonView;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
 public class MainActivity extends FragmentActivity implements OnClickListener, FragmentAddFieldListener, FragmentJobListener, DatePickerListener,
 		OnItemSelectedListener, ListViewListener, ATKPointDragListener, ATKMapClickListener, ATKPolygonClickListener, ATKPointClickListener, KeyboardChangeListener {
@@ -144,6 +152,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 
 	private Worker currentOperation;
 
+	private Worker newOp;
+
 	//private TrelloSyncHelper syncHelper;
 
 	@Override
@@ -201,6 +211,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		actionBarSearch = (EditText) view.findViewById(R.id.action_bar_search_box);
 		actionBar.setCustomView(item, new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,
 				ActionBar.LayoutParams.WRAP_CONTENT, Gravity.CENTER_VERTICAL | Gravity.LEFT));
+		if (dbHelper.readFarmers().isEmpty()){
+			Worker rajput =  new Worker("rajput");
+			TableWorkers.updateWorker(dbHelper, rajput);
+			currentOperation= dbHelper.readFarmers().get(0);
+		}
 
 		actionBarSearch.setOnFocusChangeListener(new OnFocusChangeListener() {
 			@Override
@@ -908,6 +923,48 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 		}
 	};
 
+	private class CreateWorkerHelper extends AsyncTask<String, Void, String> {
+
+
+
+		@Override
+		protected String doInBackground(String... strings) {
+			Response response;
+			String result = null;
+			System.out.println("CreateWorkerHelper");
+			OkHttpClient client = new OkHttpClient();
+			RequestBody postRequestBody = new FormEncodingBuilder().add("username", newOp.getName()).build();
+			Request request = new Request.Builder().url(new IPConfig().getBaseUrl() +"CreateNewOwnerMobile").post(postRequestBody).build();
+			try {
+				response = client.newCall(request).execute();
+				result = response.body().string();
+
+			} catch (IOException e) {
+				System.out.println("************");
+				e.printStackTrace();
+			}
+			return result;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+			if (s.equalsIgnoreCase("true")){
+
+				TableWorkers.updateWorker(dbHelper, newOp);
+				currentOperation = newOp;
+
+				Log.d("MainActivity - createOperation", currentOperation.getName());
+
+				dbHelper.close();
+				//Add to operations list
+				operationsList.add(0, newOp);
+			}else{
+				//TableWorkers.updateWorker(dbHelper, null);
+				Toast.makeText(getBaseContext(), "Username is taken", Toast.LENGTH_SHORT).show();
+			}
+		}
+	}
+
 
 
 	public void loadOperations() {
@@ -974,15 +1031,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 								String name = userInput.getText().toString();
 								if (name.isEmpty() == false) {
 
-									Worker newOp = new Worker(name);
-									TableWorkers.updateWorker(dbHelper, newOp); //Add operation to db
-									currentOperation = newOp;
+									 newOp = new Worker(name);
 
-									Log.d("MainActivity - createOperation", currentOperation.getName());
 
-									dbHelper.close();
-									//Add to operations list
-									operationsList.add(0, newOp);
+									new CreateWorkerHelper().execute(); //Add operation to db
+									//TableWorkers.updateWorker(dbHelper, newOp);
+
 									if (spinnerMenuAdapter != null) spinnerMenuAdapter.notifyDataSetChanged();
 									selectCurrentOperationInSpinner();
 

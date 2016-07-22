@@ -1,10 +1,18 @@
 [
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\anim\\slide_up.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\anim\\slide_up.xml"
+        "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\anim\\slide_up.xml",
+        "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\anim\\slide_up.xml"
     },
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\anim\\slide_down.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\anim\\slide_down.xml"
+    },
+    {
+        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\anim\\slide_up.xml",
+        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\anim\\slide_up.xml"
+    },
+    {
+        "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\anim\\slide_down.xml",
+        "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\anim\\slide_down.xml"
     }
 ]

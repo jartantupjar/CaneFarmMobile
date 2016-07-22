@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import com.openatk.field_work.db.DatabaseHelper;
+import com.openatk.field_work.db.IPConfig;
 import com.openatk.field_work.db.TableWorkers;
 import com.openatk.field_work.models.Worker;
 import com.squareup.okhttp.FormEncodingBuilder;
@@ -95,13 +96,12 @@ Worker worker;
             nworker.setName(name.getText().toString());
             nworker.setAddress(address.getText().toString());
             nworker.setPhone(phone.getText().toString());
-
+            nworker.setName2(TableWorkers.getUsernameById(dbHelper, farmerId));
           nworker.setSex(TableWorkers.gendertoInt(sex.getSelectedItem().toString()));
             nworker.setCivil(TableWorkers.civiltoInt(civil.getSelectedItem().toString()));
             nworker.setEducation(TableWorkers.educationtoInt(education.getSelectedItem().toString()));
             nworker.setId(farmerId);
 
-            TableWorkers.updateWorker(dbHelper, nworker);
 
             new EditWorkerHelper().execute();
 
@@ -119,21 +119,30 @@ Worker worker;
             String result = null;
             OkHttpClient client = new OkHttpClient();
             RequestBody postRequestBody = new FormEncodingBuilder()
-                    .add("username", nworker.getName())
+                    .add("username", nworker.getName2())
+                    .add("name", nworker.getName())
                     .add("address", nworker.getAddress())
                     .add("cell_num", nworker.getPhone())
                     .add("civil", nworker.getCivil())
                     .add("gender", nworker.getSex())
                     .add("education", nworker.getEducation()).build();
-            Request request = new Request.Builder().url(baseUrl + "EditOwnerMobile").post(postRequestBody).build();
+            Request request = new Request.Builder().url(new IPConfig().getBaseUrl() + "EditOwnerMobile").post(postRequestBody).build();
             try {
                 response = client.newCall(request).execute();
                 result = response.body().string();
+                System.out.println("EDITWORKERHELPER **********" + nworker.getName2());
 
             } catch (IOException e) {
                 e.printStackTrace();
+                System.out.println("FAIL **************");
             }
             return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s.equalsIgnoreCase("true"))
+            TableWorkers.updateWorker(dbHelper, nworker);
         }
     }
 

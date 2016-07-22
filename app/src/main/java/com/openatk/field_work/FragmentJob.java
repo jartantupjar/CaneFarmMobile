@@ -13,6 +13,7 @@ import java.util.Locale;
 import java.util.concurrent.Callable;
 
 import com.openatk.field_work.db.DatabaseHelper;
+import com.openatk.field_work.db.IPConfig;
 import com.openatk.field_work.db.TableJobs;
 //import com.openatk.field_work.db.TableOperations;
 import com.openatk.field_work.db.TableWorkers;
@@ -63,6 +64,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class FragmentJob extends Fragment implements
@@ -108,9 +110,7 @@ public class FragmentJob extends Fragment implements
 
 	private Worker newWorker;
 
-	private String ipAddress = "192.168.8.102:8080";
-	private String webApp="SRA";
-	private String baseUrl = "http://" + ipAddress +"/" + webApp +"/";
+
 
 	// Interface for sending data
 	public interface FragmentJobListener {
@@ -658,7 +658,6 @@ public class FragmentJob extends Fragment implements
 									newWorker.setDeleted(false);
 									newWorker.setDateDeletedChanged(new Date());
 									//Save in database and get id
-									TableWorkers.updateWorker(dbHelper, newWorker);
 									//Tell mainactivity to trigger a remote sync
 									listener.FragmentJob_TriggerSync();
 									new CreateWorkerHelper().execute();
@@ -682,7 +681,6 @@ public class FragmentJob extends Fragment implements
 		// show it
 		alertDialog.show();
 	}
-
 	private class CreateWorkerHelper extends AsyncTask<String, Void, String>{
 
 
@@ -693,7 +691,7 @@ public class FragmentJob extends Fragment implements
 			String result = null;
 			OkHttpClient client = new OkHttpClient();
 			RequestBody postRequestBody = new FormEncodingBuilder().add("username", newWorker.getName()).build();
-			Request request = new Request.Builder().url(baseUrl+"CreateNewOwnerMobile").post(postRequestBody).build();
+			Request request = new Request.Builder().url(new IPConfig().getBaseUrl() +"CreateNewOwnerMobile").post(postRequestBody).build();
 			try {
 				response = client.newCall(request).execute();
 				result = response.body().string();
@@ -702,6 +700,16 @@ public class FragmentJob extends Fragment implements
 				e.printStackTrace();
 			}
 			return result;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+			if (s.equalsIgnoreCase("true")){
+
+				TableWorkers.updateWorker(dbHelper, newWorker);
+			}else{
+				Toast.makeText(getContext(), "Username is taken", Toast.LENGTH_SHORT).show();
+			}
 		}
 	}
 
