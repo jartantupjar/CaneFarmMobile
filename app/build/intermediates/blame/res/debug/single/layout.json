@@ -100,6 +100,10 @@
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\layout\\action_bar.xml"
     },
     {
+        "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tv_farmslistdetails.xml",
+        "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\layout\\tv_farmslistdetails.xml"
+    },
+    {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_view.xml",
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\layout\\list_view.xml"
     },
@@ -110,6 +114,10 @@
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_add_field.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\fragment_add_field.xml"
+    },
+    {
+        "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_farm_details.xml",
+        "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\layout\\activity_farm_details.xml"
     },
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_view_job.xml",
@@ -126,6 +134,10 @@
     {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_farmer_menu.xml",
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\layout\\activity_farmer_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_farms_list_details.xml",
+        "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\layout\\activity_farms_list_details.xml"
     },
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_farmer_profile.xml",

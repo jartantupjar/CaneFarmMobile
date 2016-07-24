@@ -36,6 +36,16 @@
         <item >Vocational</item>
         <item >None</item>
     </string-array>
+
+    <string-array name="management_type">
+        <item>Private-leased</item>
+        <item>Owned &amp; individually managed</item>
+        <item>CLOA holder/lessee</item>
+        <item>CLOA holder/individually managed</item>
+        <item>CLOA on process</item>
+    </string-array>
     <string name="title_activity_base_details">BaseDetails</string>
+    <string name="title_activity_farm_details">FarmDetails</string>
+    <string name="title_activity_farms_list_details">FarmsListDetails</string>
 
 </resources>

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:2:1-101:12
+ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:2:1-109:12
 	package
 		ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:3:5-37
 		INJECTED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml
@@ -103,7 +103,7 @@ ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\Andr
 	android:name
 		ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:31:22-77
 application
-ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:33:5-99:19
+ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:33:5-107:19
 MERGED from [com.google.android.gms:play-services-maps:8.4.0] C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.4.0\AndroidManifest.xml:27:5-20
 MERGED from [com.google.android.gms:play-services-basement:8.4.0] C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:20:5-24:19
 MERGED from [com.android.support:support-v4:23.0.0] C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\AndroidManifest.xml:22:5-20
@@ -188,3 +188,15 @@ ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\Andr
 		ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:97:13-64
 	android:name
 		ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:96:13-40
+activity#com.openatk.field_work.FarmDetails
+ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:99:9-102:20
+	android:label
+		ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:101:13-64
+	android:name
+		ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:100:13-40
+activity#com.openatk.field_work.FarmsListDetails
+ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:103:9-106:20
+	android:label
+		ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:105:13-70
+	android:name
+		ADDED from C:\Users\micha\AndroidStudioProjects\CaneFarmMobile\app\src\main\AndroidManifest.xml:104:13-45

@@ -209,5 +209,28 @@ public class TableBaseField {
         return id;
     }
 
+    public static String[] getFarmsofOwner(DatabaseHelper dbHelper, int ownerID){
+
+        if(dbHelper == null) return null;
+
+            SQLiteDatabase database = dbHelper.getReadableDatabase();
+
+            String where = TableBaseField.COL_WORKER_ID + " = ?";
+            Cursor cursor = database.query
+                    (TableBaseField.TABLE_NAME, TableBaseField.COLUMNS, where, new String[] {ownerID+""}, null, null, null);
+        if(cursor.moveToFirst()) {
+            ArrayList<String> farms = new ArrayList<String>();
+            do{
+                farms.add(cursor.getInt(cursor.getColumnIndex(TableBaseField.COL_ID))+"");
+            }while(cursor.moveToNext());
+            return farms.toArray(new String[0]);
+        }
+        else{
+            return null;
+        }
+
+    }
+
+
 
 }

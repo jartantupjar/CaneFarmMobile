@@ -96,6 +96,14 @@
             android:name=".BaseDetails"
             android:label="@string/title_activity_base_details" >
         </activity>
+        <activity
+            android:name=".FarmDetails"
+            android:label="@string/title_activity_farm_details" >
+        </activity>
+        <activity
+            android:name=".FarmsListDetails"
+            android:label="@string/title_activity_farms_list_details" >
+        </activity>
     </application>
 
 </manifest>

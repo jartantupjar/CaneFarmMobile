@@ -8,7 +8,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.TableWorkers;
@@ -16,24 +15,33 @@ import com.openatk.field_work.models.Worker;
 
 public class FarmerMenu extends Activity {
 
-    TextView tvFarmer;
-    Worker worker;
-    int farmerId;
-    DatabaseHelper dbHelper;
-    Button btnProf;
+    private TextView tvFarmer;
+    private Worker worker;
+    private int farmerId;
+    private DatabaseHelper dbHelper;
+    private Button btnProf, btnFarms;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farmer_menu);
 
         farmerId= getIntent().getExtras().getInt(TableWorkers.COL_ID);
-        Toast.makeText(getBaseContext(),Integer.toString(farmerId), Toast.LENGTH_SHORT).show();
          dbHelper= new DatabaseHelper(getBaseContext());
         tvFarmer=(TextView)findViewById(R.id.nFarm);
         btnProf=(Button)findViewById(R.id.btnProf);
         btnProf.setOnClickListener(startProf);
+        btnFarms = (Button) findViewById(R.id.frmDetails);
+        btnFarms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getBaseContext(), FarmsListDetails.class);
+                intent.putExtra(TableWorkers.COL_ID, farmerId);
+                startActivity(intent);
+            }
+        });
 
-      worker=TableWorkers.FindWorkerById(dbHelper,farmerId);
+        worker=TableWorkers.FindWorkerById(dbHelper,farmerId);
 
         tvFarmer.setText(worker.getName());
 

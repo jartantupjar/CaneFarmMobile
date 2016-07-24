@@ -167,6 +167,23 @@ public class TableWorkers {
 		return username;
 
 	}
+
+	public static String getNameByID(DatabaseHelper dbHelper, int id){
+		if(dbHelper == null) return null;
+		SQLiteDatabase database = dbHelper.getReadableDatabase();
+
+		String name = null;
+		String where = TableWorkers.COL_ID + " = ?";
+		Cursor cursor = database.query(TableWorkers.TABLE_NAME, TableWorkers.COLUMNS, where, new String[]{id+""}, null, null, null);
+		if (cursor.moveToFirst()){
+			name = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME));
+		}
+
+		cursor.close();
+		database.close();
+		dbHelper.close();
+		return name;
+	}
 	
 	public static Worker FindWorkerByRemoteId(DatabaseHelper dbHelper, String remoteId) {
 		if(dbHelper == null) return null;

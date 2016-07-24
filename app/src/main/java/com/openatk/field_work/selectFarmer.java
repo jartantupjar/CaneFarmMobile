@@ -51,7 +51,7 @@ public class selectFarmer extends Activity {
 
 
 // shows toast
-       Toast.makeText(getBaseContext(),farmList.get(0).getName(), Toast.LENGTH_SHORT).show();
+       //Toast.makeText(getBaseContext(),farmList.get(0).getName(), Toast.LENGTH_SHORT).show();
         farmerAdapter=new farmerAdapter(getBaseContext(),R.layout.list_view_farmer,farmList);
 
         farmerAdapter.addAll(farmList);

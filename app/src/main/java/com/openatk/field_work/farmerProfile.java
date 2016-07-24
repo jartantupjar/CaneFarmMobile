@@ -56,7 +56,7 @@ Worker worker;
 
         name.setText(worker.getName());
         address.setText(worker.getAddress());
-    phone.setText(worker.getPhone());
+        phone.setText(worker.getPhone());
 
         String[] sgender;
         sgender=TableWorkers.InttoGender(worker.getSex());
@@ -130,11 +130,9 @@ Worker worker;
             try {
                 response = client.newCall(request).execute();
                 result = response.body().string();
-                System.out.println("EDITWORKERHELPER **********" + nworker.getName2());
 
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("FAIL **************");
             }
             return result;
         }
