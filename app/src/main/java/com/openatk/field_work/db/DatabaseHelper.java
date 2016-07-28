@@ -9,6 +9,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import com.openatk.field_work.models.BaseField;
+import com.openatk.field_work.models.CropSurv;
 import com.openatk.field_work.models.Field;
 import com.openatk.field_work.models.Job;
 //import com.openatk.field_work.models.Operation;
@@ -42,6 +43,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		TableBaseField.onCreate(database);
 		TableJobs.onCreate(database);
 		TableWorkers.onCreate(database);
+		TableCropSurv.onCreate(database);
 	//	TableOperations.onCreate(database);
 	}
 

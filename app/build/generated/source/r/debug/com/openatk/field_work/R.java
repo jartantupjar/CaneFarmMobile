@@ -14,10 +14,13 @@ public final class R {
     }
     public static final class array {
         public static final int civil=0x7f080000;
-        public static final int education=0x7f080001;
-        public static final int gender=0x7f080002;
-        public static final int labelMenu=0x7f080003;
-        public static final int management_type=0x7f080004;
+        public static final int crop_class=0x7f080001;
+        public static final int education=0x7f080002;
+        public static final int farming_systems=0x7f080003;
+        public static final int gender=0x7f080004;
+        public static final int labelMenu=0x7f080005;
+        public static final int management_type=0x7f080006;
+        public static final int sugarcane=0x7f080007;
     }
     public static final class attr {
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -27,7 +30,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int ambientEnabled=0x7f010016;
+        public static final int ambientEnabled=0x7f010034;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be one of the following constant values.</p>
@@ -41,7 +44,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>icon_only</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int buttonSize=0x7f010017;
+        public static final int buttonSize=0x7f010035;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -49,7 +52,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraBearing=0x7f010007;
+        public static final int cameraBearing=0x7f010025;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -57,7 +60,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTargetLat=0x7f010008;
+        public static final int cameraTargetLat=0x7f010026;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -65,7 +68,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTargetLng=0x7f010009;
+        public static final int cameraTargetLng=0x7f010027;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -73,7 +76,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraTilt=0x7f01000a;
+        public static final int cameraTilt=0x7f010028;
         /** <p>Must be a floating point value, such as "<code>1.2</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -81,7 +84,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int cameraZoom=0x7f01000b;
+        public static final int cameraZoom=0x7f010029;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -89,7 +92,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int circleCrop=0x7f010005;
+        public static final int circleCrop=0x7f010023;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be one of the following constant values.</p>
@@ -103,7 +106,15 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>auto</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int colorScheme=0x7f010018;
+        public static final int colorScheme=0x7f010036;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int containerItemSkip=0x7f010007;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -121,7 +132,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int imageAspectRatio=0x7f010004;
+        public static final int imageAspectRatio=0x7f010022;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -133,7 +144,151 @@ containing a value of this type.
 <tr><td><code>adjust_height</code></td><td>2</td><td></td></tr>
 </table>
          */
-        public static final int imageAspectRatioAdjust=0x7f010003;
+        public static final int imageAspectRatioAdjust=0x7f010021;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_constraintBaseline_creator=0x7f01001d;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintBaseline_toBaselineOf=0x7f010010;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_constraintBottom_creator=0x7f01001c;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintBottom_toBottomOf=0x7f01000f;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintBottom_toTopOf=0x7f01000e;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintCenterX_toCenterX=0x7f010011;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintCenterY_toCenterY=0x7f010012;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_constraintDimensionRatio=0x7f01001e;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintEnd_toEndOf=0x7f010016;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintEnd_toStartOf=0x7f010015;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_constraintHorizontal_bias=0x7f010017;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_constraintLeft_creator=0x7f010019;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintLeft_toLeftOf=0x7f010008;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintLeft_toRightOf=0x7f010009;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_constraintRight_creator=0x7f01001b;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintRight_toLeftOf=0x7f01000a;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintRight_toRightOf=0x7f01000b;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintStart_toEndOf=0x7f010013;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintStart_toStartOf=0x7f010014;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_constraintTop_creator=0x7f01001a;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintTop_toBottomOf=0x7f01000d;
+        /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int layout_constraintTop_toTopOf=0x7f01000c;
+        /** <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_constraintVertical_bias=0x7f010018;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_editor_absoluteX=0x7f01001f;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int layout_editor_absoluteY=0x7f010020;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -141,7 +296,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int liteMode=0x7f01000c;
+        public static final int liteMode=0x7f01002a;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -155,12 +310,51 @@ containing a value of this type.
 <tr><td><code>hybrid</code></td><td>4</td><td></td></tr>
 </table>
          */
-        public static final int mapType=0x7f010006;
+        public static final int mapType=0x7f010024;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>horizontal</code></td><td>0</td><td></td></tr>
+<tr><td><code>vertical</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int orientation=0x7f010003;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int relativeBegin=0x7f010004;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int relativeEnd=0x7f010005;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int relativePercent=0x7f010006;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
          */
-        public static final int scopeUris=0x7f010019;
+        public static final int scopeUris=0x7f010037;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -176,7 +370,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiCompass=0x7f01000d;
+        public static final int uiCompass=0x7f01002b;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -184,7 +378,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiMapToolbar=0x7f010015;
+        public static final int uiMapToolbar=0x7f010033;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -192,7 +386,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiRotateGestures=0x7f01000e;
+        public static final int uiRotateGestures=0x7f01002c;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -200,7 +394,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiScrollGestures=0x7f01000f;
+        public static final int uiScrollGestures=0x7f01002d;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -208,7 +402,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiTiltGestures=0x7f010010;
+        public static final int uiTiltGestures=0x7f01002e;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -216,7 +410,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiZoomControls=0x7f010011;
+        public static final int uiZoomControls=0x7f01002f;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -224,7 +418,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int uiZoomGestures=0x7f010012;
+        public static final int uiZoomGestures=0x7f010030;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -232,7 +426,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int useViewLifecycle=0x7f010013;
+        public static final int useViewLifecycle=0x7f010031;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -250,7 +444,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int zOrderOnTop=0x7f010014;
+        public static final int zOrderOnTop=0x7f010032;
     }
     public static final class color {
         public static final int article_title=0x7f090000;
@@ -380,156 +574,181 @@ containing a value of this type.
         public static final int unselected_vertex=0x7f020056;
     }
     public static final class id {
-        public static final int action_bar_layout=0x7f0c000d;
-        public static final int action_bar_operation_spinner=0x7f0c000e;
-        public static final int action_bar_search_box=0x7f0c000f;
-        public static final int action_settings=0x7f0c0093;
-        public static final int add_field_caption=0x7f0c0041;
-        public static final int add_field_chkAutoAcres=0x7f0c0050;
-        public static final int add_field_delete=0x7f0c004d;
-        public static final int add_field_done=0x7f0c004c;
-        public static final int add_field_etAcres=0x7f0c0051;
-        public static final int add_field_lay_row1=0x7f0c0042;
-        public static final int add_field_lay_row2=0x7f0c004f;
-        public static final int add_field_layout=0x7f0c0040;
-        public static final int add_field_name=0x7f0c0043;
-        public static final int add_field_undo=0x7f0c004e;
-        public static final int adjust_height=0x7f0c0000;
-        public static final int adjust_width=0x7f0c0001;
-        public static final int atkSlider=0x7f0c0088;
-        public static final int auto=0x7f0c000a;
-        public static final int btnCSurvey=0x7f0c002f;
-        public static final int btnEsrvy=0x7f0c0032;
-        public static final int btnMSurvey=0x7f0c0030;
-        public static final int btnProf=0x7f0c002e;
-        public static final int btnRec=0x7f0c0031;
-        public static final int btnSave=0x7f0c001b;
-        public static final int btnSaveFarmDetails=0x7f0c002c;
-        public static final int chkboxField=0x7f0c0044;
-        public static final int civil=0x7f0c0036;
-        public static final int cropVar=0x7f0c0017;
-        public static final int dark=0x7f0c000b;
-        public static final int edit_field_butCalendar=0x7f0c0063;
-        public static final int edit_field_butDelete=0x7f0c0066;
-        public static final int edit_field_butEditField=0x7f0c0057;
-        public static final int edit_field_butNewOperator=0x7f0c004b;
-        public static final int edit_field_chkDone=0x7f0c0060;
-        public static final int edit_field_chkPlanned=0x7f0c005a;
-        public static final int edit_field_chkStarted=0x7f0c005d;
-        public static final int edit_field_etComment=0x7f0c0067;
-        public static final int edit_field_label_acres=0x7f0c0056;
-        public static final int edit_field_label_chkDone=0x7f0c0061;
-        public static final int edit_field_label_chkPlanned=0x7f0c005b;
-        public static final int edit_field_label_chkStarted=0x7f0c005e;
-        public static final int edit_field_layInfo1=0x7f0c0062;
-        public static final int edit_field_layInfo2=0x7f0c0065;
-        public static final int edit_field_layStatus=0x7f0c0058;
-        public static final int edit_field_layStatusDone=0x7f0c005f;
-        public static final int edit_field_layStatusPlanned=0x7f0c0059;
-        public static final int edit_field_layStatusStarted=0x7f0c005c;
-        public static final int edit_field_layTitle=0x7f0c0053;
-        public static final int edit_field_layout=0x7f0c0052;
-        public static final int edit_field_spinBases=0x7f0c004a;
-        public static final int edit_field_spinOperator=0x7f0c0064;
-        public static final int edit_field_tvAcres=0x7f0c0055;
-        public static final int edit_field_tvCalendar=0x7f0c0049;
-        public static final int edit_field_tvName=0x7f0c0054;
-        public static final int education=0x7f0c001a;
-        public static final int etAddress=0x7f0c0023;
-        public static final int etNitrogen=0x7f0c0025;
-        public static final int etPhLevel=0x7f0c002b;
-        public static final int etPhosporus=0x7f0c0027;
-        public static final int etPotassium=0x7f0c0029;
-        public static final int fragment_container_add_field=0x7f0c003e;
-        public static final int fragment_container_edit_job=0x7f0c003d;
-        public static final int fragment_slider_content_container=0x7f0c0069;
-        public static final int fragment_slider_tab_container=0x7f0c0068;
-        public static final int frmDetails=0x7f0c0033;
-        public static final int hybrid=0x7f0c0003;
-        public static final int icon_only=0x7f0c0007;
-        public static final int imageView=0x7f0c0011;
-        public static final int light=0x7f0c000c;
-        public static final int linearLayout2=0x7f0c0010;
-        public static final int list_view=0x7f0c003c;
-        public static final int list_view_action_bar_etSearch=0x7f0c0072;
-        public static final int list_view_action_bar_layout=0x7f0c0070;
-        public static final int list_view_action_bar_operation_spinner=0x7f0c0071;
-        public static final int list_view_categories=0x7f0c006f;
-        public static final int list_view_category_all=0x7f0c0073;
-        public static final int list_view_category_butLess=0x7f0c0077;
-        public static final int list_view_category_butMore=0x7f0c0076;
-        public static final int list_view_category_field_list=0x7f0c0078;
-        public static final int list_view_category_topbar=0x7f0c0074;
-        public static final int list_view_category_tvTitle=0x7f0c0075;
-        public static final int list_view_job_content=0x7f0c007e;
-        public static final int list_view_job_date=0x7f0c0080;
-        public static final int list_view_job_full=0x7f0c007a;
-        public static final int list_view_job_image=0x7f0c007f;
-        public static final int list_view_job_topbar=0x7f0c007b;
-        public static final int list_view_job_tvTitle=0x7f0c007d;
-        public static final int list_view_job_tvTitleLabel=0x7f0c007c;
-        public static final int list_view_job_worker=0x7f0c0081;
-        public static final int list_view_layout=0x7f0c006a;
-        public static final int list_view_scrollview=0x7f0c006e;
-        public static final int list_view_topbar=0x7f0c006b;
-        public static final int list_view_tvTitle1=0x7f0c006c;
-        public static final int list_view_tvTitle2=0x7f0c006d;
-        public static final int lvFarmsListDetails=0x7f0c0039;
-        public static final int lv_farmers=0x7f0c003f;
-        public static final int mainActivity=0x7f0c003a;
-        public static final int main_menu_add=0x7f0c0089;
-        public static final int main_menu_autosync=0x7f0c0092;
-        public static final int main_menu_current_location=0x7f0c008a;
-        public static final int main_menu_help=0x7f0c0090;
-        public static final int main_menu_layers=0x7f0c008c;
-        public static final int main_menu_legal=0x7f0c0091;
-        public static final int main_menu_list_view=0x7f0c008e;
-        public static final int main_menu_map_view=0x7f0c008f;
-        public static final int main_menu_sMain=0x7f0c008d;
-        public static final int main_menu_sync=0x7f0c008b;
-        public static final int map=0x7f0c003b;
-        public static final int milldata=0x7f0c0095;
-        public static final int nFarm=0x7f0c002d;
-        public static final int new_operation_dialog_label=0x7f0c0083;
-        public static final int new_operation_dialog_name=0x7f0c0084;
-        public static final int new_operation_dialog_title=0x7f0c0082;
-        public static final int new_worker_dialog_label=0x7f0c0086;
-        public static final int new_worker_dialog_name=0x7f0c0087;
-        public static final int new_worker_dialog_title=0x7f0c0085;
-        public static final int none=0x7f0c0002;
-        public static final int normal=0x7f0c0004;
-        public static final int radiogroup=0x7f0c0045;
-        public static final int rbtnBase=0x7f0c0047;
-        public static final int rbtnJob=0x7f0c0046;
-        public static final int satellite=0x7f0c0005;
-        public static final int sex=0x7f0c0035;
-        public static final int spinnrHolder=0x7f0c0048;
-        public static final int spnMType=0x7f0c0021;
-        public static final int standard=0x7f0c0008;
-        public static final int terrain=0x7f0c0006;
-        public static final int textView=0x7f0c001c;
-        public static final int textView10=0x7f0c0026;
-        public static final int textView11=0x7f0c002a;
-        public static final int textView2=0x7f0c0038;
-        public static final int textView3=0x7f0c001e;
-        public static final int textView4=0x7f0c0020;
-        public static final int textView5=0x7f0c0022;
-        public static final int textView8=0x7f0c0024;
-        public static final int textView9=0x7f0c0028;
-        public static final int tvFarmID=0x7f0c001f;
-        public static final int tvOwner=0x7f0c001d;
-        public static final int tv_Address=0x7f0c0037;
-        public static final int tv_Basename=0x7f0c0013;
-        public static final int tv_Phone=0x7f0c0019;
-        public static final int tv_cropClass=0x7f0c0018;
-        public static final int tv_curTot=0x7f0c0015;
-        public static final int tv_currTot=0x7f0c0016;
-        public static final int tv_farmer=0x7f0c0079;
-        public static final int tv_farmername=0x7f0c0012;
-        public static final int tv_location=0x7f0c0014;
-        public static final int tv_name=0x7f0c0034;
-        public static final int viewMap=0x7f0c0094;
-        public static final int wide=0x7f0c0009;
+        public static final int action_bar_layout=0x7f0c000f;
+        public static final int action_bar_operation_spinner=0x7f0c0010;
+        public static final int action_bar_search_box=0x7f0c0011;
+        public static final int action_settings=0x7f0c00ac;
+        public static final int activity_crop_validation_survey=0x7f0c001e;
+        public static final int add_field_caption=0x7f0c005a;
+        public static final int add_field_chkAutoAcres=0x7f0c0069;
+        public static final int add_field_delete=0x7f0c0066;
+        public static final int add_field_done=0x7f0c0065;
+        public static final int add_field_etAcres=0x7f0c006a;
+        public static final int add_field_lay_row1=0x7f0c005b;
+        public static final int add_field_lay_row2=0x7f0c0068;
+        public static final int add_field_layout=0x7f0c0059;
+        public static final int add_field_name=0x7f0c005c;
+        public static final int add_field_undo=0x7f0c0067;
+        public static final int adjust_height=0x7f0c0002;
+        public static final int adjust_width=0x7f0c0003;
+        public static final int atkSlider=0x7f0c00a1;
+        public static final int auto=0x7f0c000c;
+        public static final int btnCSurvey=0x7f0c0048;
+        public static final int btnDateMillable=0x7f0c002d;
+        public static final int btnEsrvy=0x7f0c004b;
+        public static final int btnHarvestDate=0x7f0c0029;
+        public static final int btnMSurvey=0x7f0c0049;
+        public static final int btnProf=0x7f0c0047;
+        public static final int btnRec=0x7f0c004a;
+        public static final int btnSave=0x7f0c001d;
+        public static final int btnSaveCVS=0x7f0c0034;
+        public static final int btnSaveFarmDetails=0x7f0c0045;
+        public static final int chkboxField=0x7f0c005d;
+        public static final int civil=0x7f0c004f;
+        public static final int cropVar=0x7f0c0019;
+        public static final int dark=0x7f0c000d;
+        public static final int edit_field_butCalendar=0x7f0c007c;
+        public static final int edit_field_butDelete=0x7f0c007f;
+        public static final int edit_field_butEditField=0x7f0c0070;
+        public static final int edit_field_butNewOperator=0x7f0c0064;
+        public static final int edit_field_chkDone=0x7f0c0079;
+        public static final int edit_field_chkPlanned=0x7f0c0073;
+        public static final int edit_field_chkStarted=0x7f0c0076;
+        public static final int edit_field_etComment=0x7f0c0080;
+        public static final int edit_field_label_acres=0x7f0c006f;
+        public static final int edit_field_label_chkDone=0x7f0c007a;
+        public static final int edit_field_label_chkPlanned=0x7f0c0074;
+        public static final int edit_field_label_chkStarted=0x7f0c0077;
+        public static final int edit_field_layInfo1=0x7f0c007b;
+        public static final int edit_field_layInfo2=0x7f0c007e;
+        public static final int edit_field_layStatus=0x7f0c0071;
+        public static final int edit_field_layStatusDone=0x7f0c0078;
+        public static final int edit_field_layStatusPlanned=0x7f0c0072;
+        public static final int edit_field_layStatusStarted=0x7f0c0075;
+        public static final int edit_field_layTitle=0x7f0c006c;
+        public static final int edit_field_layout=0x7f0c006b;
+        public static final int edit_field_spinBases=0x7f0c0063;
+        public static final int edit_field_spinOperator=0x7f0c007d;
+        public static final int edit_field_tvAcres=0x7f0c006e;
+        public static final int edit_field_tvCalendar=0x7f0c0062;
+        public static final int edit_field_tvName=0x7f0c006d;
+        public static final int education=0x7f0c001c;
+        public static final int etAddress=0x7f0c003c;
+        public static final int etAvgMillableStool=0x7f0c002f;
+        public static final int etBrix=0x7f0c0030;
+        public static final int etDiameter=0x7f0c0031;
+        public static final int etFurrowDistance=0x7f0c0023;
+        public static final int etNitrogen=0x7f0c003e;
+        public static final int etNumMillable=0x7f0c002e;
+        public static final int etPhLevel=0x7f0c0044;
+        public static final int etPhosporus=0x7f0c0040;
+        public static final int etPlantingDensity=0x7f0c0026;
+        public static final int etPotassium=0x7f0c0042;
+        public static final int etTexture=0x7f0c0024;
+        public static final int etTopography=0x7f0c0025;
+        public static final int etWeight=0x7f0c0032;
+        public static final int fragment_container_add_field=0x7f0c0057;
+        public static final int fragment_container_edit_job=0x7f0c0056;
+        public static final int fragment_slider_content_container=0x7f0c0082;
+        public static final int fragment_slider_tab_container=0x7f0c0081;
+        public static final int frmDetails=0x7f0c004c;
+        public static final int horizontal=0x7f0c0000;
+        public static final int hybrid=0x7f0c0005;
+        public static final int icon_only=0x7f0c0009;
+        public static final int imageView=0x7f0c0013;
+        public static final int labelDateMillable=0x7f0c002b;
+        public static final int labelHarvestDate=0x7f0c0027;
+        public static final int light=0x7f0c000e;
+        public static final int linearLayout2=0x7f0c0012;
+        public static final int list_view=0x7f0c0055;
+        public static final int list_view_action_bar_etSearch=0x7f0c008b;
+        public static final int list_view_action_bar_layout=0x7f0c0089;
+        public static final int list_view_action_bar_operation_spinner=0x7f0c008a;
+        public static final int list_view_categories=0x7f0c0088;
+        public static final int list_view_category_all=0x7f0c008c;
+        public static final int list_view_category_butLess=0x7f0c0090;
+        public static final int list_view_category_butMore=0x7f0c008f;
+        public static final int list_view_category_field_list=0x7f0c0091;
+        public static final int list_view_category_topbar=0x7f0c008d;
+        public static final int list_view_category_tvTitle=0x7f0c008e;
+        public static final int list_view_job_content=0x7f0c0097;
+        public static final int list_view_job_date=0x7f0c0099;
+        public static final int list_view_job_full=0x7f0c0093;
+        public static final int list_view_job_image=0x7f0c0098;
+        public static final int list_view_job_topbar=0x7f0c0094;
+        public static final int list_view_job_tvTitle=0x7f0c0096;
+        public static final int list_view_job_tvTitleLabel=0x7f0c0095;
+        public static final int list_view_job_worker=0x7f0c009a;
+        public static final int list_view_layout=0x7f0c0083;
+        public static final int list_view_scrollview=0x7f0c0087;
+        public static final int list_view_topbar=0x7f0c0084;
+        public static final int list_view_tvTitle1=0x7f0c0085;
+        public static final int list_view_tvTitle2=0x7f0c0086;
+        public static final int lvFarmsListDetails=0x7f0c0052;
+        public static final int lv_farmers=0x7f0c0058;
+        public static final int mainActivity=0x7f0c0053;
+        public static final int main_menu_add=0x7f0c00a2;
+        public static final int main_menu_autosync=0x7f0c00ab;
+        public static final int main_menu_current_location=0x7f0c00a3;
+        public static final int main_menu_help=0x7f0c00a9;
+        public static final int main_menu_layers=0x7f0c00a5;
+        public static final int main_menu_legal=0x7f0c00aa;
+        public static final int main_menu_list_view=0x7f0c00a7;
+        public static final int main_menu_map_view=0x7f0c00a8;
+        public static final int main_menu_sMain=0x7f0c00a6;
+        public static final int main_menu_sync=0x7f0c00a4;
+        public static final int map=0x7f0c0054;
+        public static final int milldata=0x7f0c00ae;
+        public static final int nFarm=0x7f0c0046;
+        public static final int new_operation_dialog_label=0x7f0c009c;
+        public static final int new_operation_dialog_name=0x7f0c009d;
+        public static final int new_operation_dialog_title=0x7f0c009b;
+        public static final int new_worker_dialog_label=0x7f0c009f;
+        public static final int new_worker_dialog_name=0x7f0c00a0;
+        public static final int new_worker_dialog_title=0x7f0c009e;
+        public static final int none=0x7f0c0004;
+        public static final int normal=0x7f0c0006;
+        public static final int radiogroup=0x7f0c005e;
+        public static final int rbtnBase=0x7f0c0060;
+        public static final int rbtnJob=0x7f0c005f;
+        public static final int satellite=0x7f0c0007;
+        public static final int sex=0x7f0c004e;
+        public static final int spinnrHolder=0x7f0c0061;
+        public static final int spnCropClass=0x7f0c002a;
+        public static final int spnFarmingSystem=0x7f0c0033;
+        public static final int spnMType=0x7f0c003a;
+        public static final int spnVariety=0x7f0c0022;
+        public static final int standard=0x7f0c000a;
+        public static final int terrain=0x7f0c0008;
+        public static final int textView=0x7f0c0035;
+        public static final int textView10=0x7f0c003f;
+        public static final int textView11=0x7f0c0043;
+        public static final int textView2=0x7f0c0051;
+        public static final int textView3=0x7f0c0037;
+        public static final int textView4=0x7f0c0039;
+        public static final int textView5=0x7f0c003b;
+        public static final int textView8=0x7f0c003d;
+        public static final int textView9=0x7f0c0041;
+        public static final int tvDateMillable=0x7f0c002c;
+        public static final int tvFarmID=0x7f0c0038;
+        public static final int tvFarmIDCVS=0x7f0c001f;
+        public static final int tvHarvestDate=0x7f0c0028;
+        public static final int tvOwner=0x7f0c0036;
+        public static final int tvOwnerCVS=0x7f0c0020;
+        public static final int tvYearCVS=0x7f0c0021;
+        public static final int tv_Address=0x7f0c0050;
+        public static final int tv_Basename=0x7f0c0015;
+        public static final int tv_Phone=0x7f0c001b;
+        public static final int tv_cropClass=0x7f0c001a;
+        public static final int tv_curTot=0x7f0c0017;
+        public static final int tv_currTot=0x7f0c0018;
+        public static final int tv_farmer=0x7f0c0092;
+        public static final int tv_farmername=0x7f0c0014;
+        public static final int tv_location=0x7f0c0016;
+        public static final int tv_name=0x7f0c004d;
+        public static final int vertical=0x7f0c0001;
+        public static final int viewMap=0x7f0c00ad;
+        public static final int wide=0x7f0c000b;
     }
     public static final class integer {
         public static final int google_play_services_version=0x7f0a0000;
@@ -537,26 +756,27 @@ containing a value of this type.
     public static final class layout {
         public static final int action_bar=0x7f030000;
         public static final int activity_base_details=0x7f030001;
-        public static final int activity_farm_details=0x7f030002;
-        public static final int activity_farmer_menu=0x7f030003;
-        public static final int activity_farmer_profile=0x7f030004;
-        public static final int activity_farms_list_details=0x7f030005;
-        public static final int activity_main=0x7f030006;
-        public static final int activity_select_farmer=0x7f030007;
-        public static final int fragment_add_field=0x7f030008;
-        public static final int fragment_edit_job_popup=0x7f030009;
-        public static final int fragment_slider_layout=0x7f03000a;
-        public static final int list_view=0x7f03000b;
-        public static final int list_view_action_bar=0x7f03000c;
-        public static final int list_view_category=0x7f03000d;
-        public static final int list_view_farmer=0x7f03000e;
-        public static final int list_view_job=0x7f03000f;
-        public static final int new_operation_dialog=0x7f030010;
-        public static final int new_worker_dialog=0x7f030011;
-        public static final int operation_list_item=0x7f030012;
-        public static final int tv_farmslistdetails=0x7f030013;
-        public static final int view_color_options=0x7f030014;
-        public static final int view_job_status=0x7f030015;
+        public static final int activity_crop_validation_survey=0x7f030002;
+        public static final int activity_farm_details=0x7f030003;
+        public static final int activity_farmer_menu=0x7f030004;
+        public static final int activity_farmer_profile=0x7f030005;
+        public static final int activity_farms_list_details=0x7f030006;
+        public static final int activity_main=0x7f030007;
+        public static final int activity_select_farmer=0x7f030008;
+        public static final int fragment_add_field=0x7f030009;
+        public static final int fragment_edit_job_popup=0x7f03000a;
+        public static final int fragment_slider_layout=0x7f03000b;
+        public static final int list_view=0x7f03000c;
+        public static final int list_view_action_bar=0x7f03000d;
+        public static final int list_view_category=0x7f03000e;
+        public static final int list_view_farmer=0x7f03000f;
+        public static final int list_view_job=0x7f030010;
+        public static final int new_operation_dialog=0x7f030011;
+        public static final int new_worker_dialog=0x7f030012;
+        public static final int operation_list_item=0x7f030013;
+        public static final int tv_farmslistdetails=0x7f030014;
+        public static final int view_color_options=0x7f030015;
+        public static final int view_job_status=0x7f030016;
     }
     public static final class menu {
         public static final int add_field=0x7f0b0000;
@@ -604,13 +824,14 @@ containing a value of this type.
         public static final int common_signin_button_text_long=0x7f05001c;
         public static final int hello_world=0x7f050021;
         public static final int title_activity_base_details=0x7f050022;
-        public static final int title_activity_farm_details=0x7f050023;
-        public static final int title_activity_farmer_menu=0x7f050024;
-        public static final int title_activity_farmer_profile=0x7f050025;
-        public static final int title_activity_farms_list_details=0x7f050026;
-        public static final int title_activity_select_farmer=0x7f050027;
-        public static final int trello_perm_desc=0x7f050028;
-        public static final int trello_perm_label=0x7f050029;
+        public static final int title_activity_crop_validation_survey=0x7f050023;
+        public static final int title_activity_farm_details=0x7f050024;
+        public static final int title_activity_farmer_menu=0x7f050025;
+        public static final int title_activity_farmer_profile=0x7f050026;
+        public static final int title_activity_farms_list_details=0x7f050027;
+        public static final int title_activity_select_farmer=0x7f050028;
+        public static final int trello_perm_desc=0x7f050029;
+        public static final int trello_perm_label=0x7f05002a;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 
@@ -701,6 +922,455 @@ containing a value of this type.
           @attr name com.openatk.field_work:shown
         */
         public static final int ATKSliderLayout_LayoutParams_shown = 0;
+        /** Attributes that can be used with a ConstraintLayout_Layout.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_containerItemSkip com.openatk.field_work:containerItemSkip}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintBaseline_creator com.openatk.field_work:layout_constraintBaseline_creator}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf com.openatk.field_work:layout_constraintBaseline_toBaselineOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintBottom_creator com.openatk.field_work:layout_constraintBottom_creator}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintBottom_toBottomOf com.openatk.field_work:layout_constraintBottom_toBottomOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintBottom_toTopOf com.openatk.field_work:layout_constraintBottom_toTopOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintCenterX_toCenterX com.openatk.field_work:layout_constraintCenterX_toCenterX}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintCenterY_toCenterY com.openatk.field_work:layout_constraintCenterY_toCenterY}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintDimensionRatio com.openatk.field_work:layout_constraintDimensionRatio}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintEnd_toEndOf com.openatk.field_work:layout_constraintEnd_toEndOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintEnd_toStartOf com.openatk.field_work:layout_constraintEnd_toStartOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintHorizontal_bias com.openatk.field_work:layout_constraintHorizontal_bias}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintLeft_creator com.openatk.field_work:layout_constraintLeft_creator}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintLeft_toLeftOf com.openatk.field_work:layout_constraintLeft_toLeftOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintLeft_toRightOf com.openatk.field_work:layout_constraintLeft_toRightOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintRight_creator com.openatk.field_work:layout_constraintRight_creator}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintRight_toLeftOf com.openatk.field_work:layout_constraintRight_toLeftOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintRight_toRightOf com.openatk.field_work:layout_constraintRight_toRightOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintStart_toEndOf com.openatk.field_work:layout_constraintStart_toEndOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintStart_toStartOf com.openatk.field_work:layout_constraintStart_toStartOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintTop_creator com.openatk.field_work:layout_constraintTop_creator}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintTop_toBottomOf com.openatk.field_work:layout_constraintTop_toBottomOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintTop_toTopOf com.openatk.field_work:layout_constraintTop_toTopOf}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_constraintVertical_bias com.openatk.field_work:layout_constraintVertical_bias}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_editor_absoluteX com.openatk.field_work:layout_editor_absoluteX}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_layout_editor_absoluteY com.openatk.field_work:layout_editor_absoluteY}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_orientation com.openatk.field_work:orientation}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_relativeBegin com.openatk.field_work:relativeBegin}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_relativeEnd com.openatk.field_work:relativeEnd}</code></td><td></td></tr>
+           <tr><td><code>{@link #ConstraintLayout_Layout_relativePercent com.openatk.field_work:relativePercent}</code></td><td></td></tr>
+           </table>
+           @see #ConstraintLayout_Layout_containerItemSkip
+           @see #ConstraintLayout_Layout_layout_constraintBaseline_creator
+           @see #ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf
+           @see #ConstraintLayout_Layout_layout_constraintBottom_creator
+           @see #ConstraintLayout_Layout_layout_constraintBottom_toBottomOf
+           @see #ConstraintLayout_Layout_layout_constraintBottom_toTopOf
+           @see #ConstraintLayout_Layout_layout_constraintCenterX_toCenterX
+           @see #ConstraintLayout_Layout_layout_constraintCenterY_toCenterY
+           @see #ConstraintLayout_Layout_layout_constraintDimensionRatio
+           @see #ConstraintLayout_Layout_layout_constraintEnd_toEndOf
+           @see #ConstraintLayout_Layout_layout_constraintEnd_toStartOf
+           @see #ConstraintLayout_Layout_layout_constraintHorizontal_bias
+           @see #ConstraintLayout_Layout_layout_constraintLeft_creator
+           @see #ConstraintLayout_Layout_layout_constraintLeft_toLeftOf
+           @see #ConstraintLayout_Layout_layout_constraintLeft_toRightOf
+           @see #ConstraintLayout_Layout_layout_constraintRight_creator
+           @see #ConstraintLayout_Layout_layout_constraintRight_toLeftOf
+           @see #ConstraintLayout_Layout_layout_constraintRight_toRightOf
+           @see #ConstraintLayout_Layout_layout_constraintStart_toEndOf
+           @see #ConstraintLayout_Layout_layout_constraintStart_toStartOf
+           @see #ConstraintLayout_Layout_layout_constraintTop_creator
+           @see #ConstraintLayout_Layout_layout_constraintTop_toBottomOf
+           @see #ConstraintLayout_Layout_layout_constraintTop_toTopOf
+           @see #ConstraintLayout_Layout_layout_constraintVertical_bias
+           @see #ConstraintLayout_Layout_layout_editor_absoluteX
+           @see #ConstraintLayout_Layout_layout_editor_absoluteY
+           @see #ConstraintLayout_Layout_orientation
+           @see #ConstraintLayout_Layout_relativeBegin
+           @see #ConstraintLayout_Layout_relativeEnd
+           @see #ConstraintLayout_Layout_relativePercent
+         */
+        public static final int[] ConstraintLayout_Layout = {
+            0x7f010003, 0x7f010004, 0x7f010005, 0x7f010006,
+            0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a,
+            0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e,
+            0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012,
+            0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016,
+            0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a,
+            0x7f01001b, 0x7f01001c, 0x7f01001d, 0x7f01001e,
+            0x7f01001f, 0x7f010020
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#containerItemSkip}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:containerItemSkip
+        */
+        public static final int ConstraintLayout_Layout_containerItemSkip = 4;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintBaseline_creator}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_constraintBaseline_creator
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintBaseline_creator = 26;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintBaseline_toBaselineOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintBaseline_toBaselineOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf = 13;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintBottom_creator}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_constraintBottom_creator
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintBottom_creator = 25;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintBottom_toBottomOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintBottom_toBottomOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintBottom_toBottomOf = 12;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintBottom_toTopOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintBottom_toTopOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintBottom_toTopOf = 11;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintCenterX_toCenterX}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintCenterX_toCenterX
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintCenterX_toCenterX = 14;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintCenterY_toCenterY}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintCenterY_toCenterY
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintCenterY_toCenterY = 15;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintDimensionRatio}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_constraintDimensionRatio
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintDimensionRatio = 27;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintEnd_toEndOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintEnd_toEndOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintEnd_toEndOf = 19;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintEnd_toStartOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintEnd_toStartOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintEnd_toStartOf = 18;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintHorizontal_bias}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_constraintHorizontal_bias
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintHorizontal_bias = 20;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintLeft_creator}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_constraintLeft_creator
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintLeft_creator = 22;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintLeft_toLeftOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintLeft_toLeftOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintLeft_toLeftOf = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintLeft_toRightOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintLeft_toRightOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintLeft_toRightOf = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintRight_creator}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_constraintRight_creator
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintRight_creator = 24;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintRight_toLeftOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintRight_toLeftOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintRight_toLeftOf = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintRight_toRightOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintRight_toRightOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintRight_toRightOf = 8;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintStart_toEndOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintStart_toEndOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintStart_toEndOf = 16;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintStart_toStartOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintStart_toStartOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintStart_toStartOf = 17;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintTop_creator}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_constraintTop_creator
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintTop_creator = 23;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintTop_toBottomOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintTop_toBottomOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintTop_toBottomOf = 10;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintTop_toTopOf}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          @attr name com.openatk.field_work:layout_constraintTop_toTopOf
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintTop_toTopOf = 9;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_constraintVertical_bias}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a floating point value, such as "<code>1.2</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_constraintVertical_bias
+        */
+        public static final int ConstraintLayout_Layout_layout_constraintVertical_bias = 21;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_editor_absoluteX}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_editor_absoluteX
+        */
+        public static final int ConstraintLayout_Layout_layout_editor_absoluteX = 28;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#layout_editor_absoluteY}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:layout_editor_absoluteY
+        */
+        public static final int ConstraintLayout_Layout_layout_editor_absoluteY = 29;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#orientation}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>horizontal</code></td><td>0</td><td></td></tr>
+<tr><td><code>vertical</code></td><td>1</td><td></td></tr>
+</table>
+          @attr name com.openatk.field_work:orientation
+        */
+        public static final int ConstraintLayout_Layout_orientation = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#relativeBegin}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:relativeBegin
+        */
+        public static final int ConstraintLayout_Layout_relativeBegin = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#relativeEnd}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:relativeEnd
+        */
+        public static final int ConstraintLayout_Layout_relativeEnd = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#relativePercent}
+          attribute's value can be found in the {@link #ConstraintLayout_Layout} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.openatk.field_work:relativePercent
+        */
+        public static final int ConstraintLayout_Layout_relativePercent = 3;
         /** Attributes that can be used with a LoadingImageView.
            <p>Includes the following attributes:</p>
            <table>
@@ -716,7 +1386,7 @@ containing a value of this type.
            @see #LoadingImageView_imageAspectRatioAdjust
          */
         public static final int[] LoadingImageView = {
-            0x7f010003, 0x7f010004, 0x7f010005
+            0x7f010021, 0x7f010022, 0x7f010023
         };
         /**
           <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#circleCrop}
@@ -807,11 +1477,11 @@ containing a value of this type.
            @see #MapAttrs_zOrderOnTop
          */
         public static final int[] MapAttrs = {
-            0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009,
-            0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d,
-            0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011,
-            0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015,
-            0x7f010016
+            0x7f010024, 0x7f010025, 0x7f010026, 0x7f010027,
+            0x7f010028, 0x7f010029, 0x7f01002a, 0x7f01002b,
+            0x7f01002c, 0x7f01002d, 0x7f01002e, 0x7f01002f,
+            0x7f010030, 0x7f010031, 0x7f010032, 0x7f010033,
+            0x7f010034
         };
         /**
           <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#ambientEnabled}
@@ -1072,7 +1742,7 @@ containing a value of this type.
            @see #SignInButton_scopeUris
          */
         public static final int[] SignInButton = {
-            0x7f010017, 0x7f010018, 0x7f010019
+            0x7f010035, 0x7f010036, 0x7f010037
         };
         /**
           <p>This symbol is the offset where the {@link com.openatk.field_work.R.attr#buttonSize}

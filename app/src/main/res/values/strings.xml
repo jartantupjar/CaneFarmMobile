@@ -3,12 +3,12 @@
 
     <string name="app_name">Field Work</string>
     <string name="action_settings">Settings</string>
-	<string-array name="labelMenu">
-        <item >Disc 2012</item>
-        <item >Chisel 2012</item>
+    <string-array name="labelMenu">
+        <item>Disc 2012</item>
+        <item>Chisel 2012</item>
     </string-array>
-    
-	<string name="trello_perm_desc">Let apps access your trello synced data</string>
+
+    <string name="trello_perm_desc">Let apps access your trello synced data</string>
     <string name="trello_perm_label">Trello Access</string>
     <string name="title_activity_select_farmer">selectFarmer</string>
 
@@ -17,24 +17,24 @@
     <string name="title_activity_farmer_profile">farmerProfile</string>
 
     <string-array name="gender">
-        <item >Male</item>
-        <item >Female</item>
+        <item>Male</item>
+        <item>Female</item>
     </string-array>
 
     <string-array name="civil">
-        <item >Single</item>
-        <item >Married</item>
-        <item >Separated</item>
-        <item >Widowed</item>
+        <item>Single</item>
+        <item>Married</item>
+        <item>Separated</item>
+        <item>Widowed</item>
     </string-array>
     <string-array name="education">
-        <item >Elem</item>
-        <item >HS Undergrad</item>
-        <item >HS Grad</item>
-        <item >College Undergrad</item>
-        <item >College Grad</item>
-        <item >Vocational</item>
-        <item >None</item>
+        <item>Elem</item>
+        <item>HS Undergrad</item>
+        <item>HS Grad</item>
+        <item>College Undergrad</item>
+        <item>College Grad</item>
+        <item>Vocational</item>
+        <item>None</item>
     </string-array>
 
     <string-array name="management_type">
@@ -44,8 +44,35 @@
         <item>CLOA holder/individually managed</item>
         <item>CLOA on process</item>
     </string-array>
+    <string-array name="farming_systems">
+        <item>automatic</item>
+        <item>nature</item>
+        <item>manual</item>
+    </string-array>
+    <string-array name="sugarcane">
+        <item>PHIL 99-1793</item>
+        <item>Phil 97-2041</item>
+        <item>Phil 97-1123</item>
+        <item>Phil 97-0693</item>
+        <item>PHIL 94-0913</item>
+        <item>PHIL 93-3849</item>
+        <item>PHIL 93-3727</item>
+        <item>PHIL 93-3155</item>
+        <item>PHIL 93-2349</item>
+        <item>PHIL 93-1601</item>
+        <item>PHIL 92-0751</item>
+        <item>PHIL 92-0577</item>
+        <item>PHIL 92-0051</item>
+        <item>PHIL 91-1091</item>
+        <item>PHIL 90-0345</item>
+    </string-array>
+    <string-array name="crop_class">
+        <item>PC</item>
+        <item>RC</item>
+    </string-array>
     <string name="title_activity_base_details">BaseDetails</string>
     <string name="title_activity_farm_details">FarmDetails</string>
     <string name="title_activity_farms_list_details">FarmsListDetails</string>
+    <string name="title_activity_crop_validation_survey">CropValidationSurvey</string>
 
 </resources>

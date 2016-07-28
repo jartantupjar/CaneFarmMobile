@@ -132,8 +132,9 @@ public class TableBaseField {
             SQLiteDatabase database = dbHelper.getReadableDatabase();
             // Find current field
             BaseField theField = null;
-            String where = TableBaseField.COL_ID + " = " + Integer.toString(id);
-            Cursor cursor = database.query(TableBaseField.TABLE_NAME,TableBaseField.COLUMNS, where, null, null, null, null);
+            String where = TableBaseField.COL_ID + " = ?";
+            Cursor cursor = database.query(TableBaseField.TABLE_NAME,TableBaseField.COLUMNS,
+                    where, new String[] {Integer.toString(id)}, null, null, null);
             if (cursor.moveToFirst()) {
                 theField = TableBaseField.cursorToBaseField(cursor);
             }

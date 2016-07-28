@@ -7,10 +7,9 @@ import java.util.Date;
  */
 public class CropSurv {
 
-    private Integer id = null;
     private Integer worker_Id=null;
     private String farm_name=null;
-    private Date year = null;
+    private Integer year = null;
     private String variety=null;
     private Integer furrow_dist=null;
     private String texture=null;
@@ -25,13 +24,12 @@ public class CropSurv {
     private Double stalk_length=null;
     private Double diameter=null;
     private Double weight=null;
-    private Double farm_sys=null;
+    private String farm_sys=null;
 
     public CropSurv(){
-        this.id = null;
         this.worker_Id = null;
         this.farm_name = null;
-        this.year = null;
+        this.setYear(null);
         this.variety=null;
         this.furrow_dist=null;
         this.texture=null;
@@ -46,18 +44,17 @@ public class CropSurv {
         this.stalk_length=null;
         this.diameter=null;
         this.weight=null;
-        this.farm_sys=null;
+        this.setFarm_sys(null);
     }
-    public CropSurv(Integer id, Integer worker_Id, String farm_name, Date year, String variety,
+    public CropSurv(Integer worker_Id, String farm_name, Integer year, String variety,
                     Integer furrow_dist, String texture, String topography,
                     Double planting_density, Date harvest_date, String crop_class,
                     Date date_millable, Integer num_millable, Double avg_mill_stool,
-                    Double brix, Double stalk_length, Double diameter, Double weight, Double farm_sys){
+                    Double brix, Double stalk_length, Double diameter, Double weight, String farm_sys){
         super();
-        this.id = id;
         this.worker_Id = worker_Id;
         this.farm_name = farm_name;
-        this.year = year;
+        this.setYear(year);
         this.variety=variety;
         this.furrow_dist=furrow_dist;
         this.texture=texture;
@@ -72,16 +69,8 @@ public class CropSurv {
         this.stalk_length=stalk_length;
         this.diameter=diameter;
         this.weight=weight;
-        this.farm_sys=farm_sys;
+        this.setFarm_sys(farm_sys);
     }
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
 
 
     public Integer getWorker_Id() {
@@ -98,14 +87,6 @@ public class CropSurv {
 
     public void setFarm_name(String farm_name) {
         this.farm_name = farm_name;
-    }
-
-    public Date getYear() {
-        return year;
-    }
-
-    public void setYear(Date year) {
-        this.year = year;
     }
 
     public String getVariety() {
@@ -220,11 +201,20 @@ public class CropSurv {
         this.weight = weight;
     }
 
-    public Double getFarm_sys() {
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
+    }
+
+    public String getFarm_sys() {
         return farm_sys;
     }
 
-    public void setFarm_sys(Double farm_sys) {
+    public void setFarm_sys(String farm_sys) {
         this.farm_sys = farm_sys;
     }
 }

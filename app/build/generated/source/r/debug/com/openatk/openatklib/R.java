@@ -8,32 +8,32 @@ package com.openatk.openatklib;
 
 public final class R {
 	public static final class attr {
-		public static final int ambientEnabled = 0x7f010016;
-		public static final int buttonSize = 0x7f010017;
-		public static final int cameraBearing = 0x7f010007;
-		public static final int cameraTargetLat = 0x7f010008;
-		public static final int cameraTargetLng = 0x7f010009;
-		public static final int cameraTilt = 0x7f01000a;
-		public static final int cameraZoom = 0x7f01000b;
-		public static final int circleCrop = 0x7f010005;
-		public static final int colorScheme = 0x7f010018;
+		public static final int ambientEnabled = 0x7f010034;
+		public static final int buttonSize = 0x7f010035;
+		public static final int cameraBearing = 0x7f010025;
+		public static final int cameraTargetLat = 0x7f010026;
+		public static final int cameraTargetLng = 0x7f010027;
+		public static final int cameraTilt = 0x7f010028;
+		public static final int cameraZoom = 0x7f010029;
+		public static final int circleCrop = 0x7f010023;
+		public static final int colorScheme = 0x7f010036;
 		public static final int horizontalSpacing = 0x7f010000;
-		public static final int imageAspectRatio = 0x7f010004;
-		public static final int imageAspectRatioAdjust = 0x7f010003;
-		public static final int liteMode = 0x7f01000c;
-		public static final int mapType = 0x7f010006;
-		public static final int scopeUris = 0x7f010019;
+		public static final int imageAspectRatio = 0x7f010022;
+		public static final int imageAspectRatioAdjust = 0x7f010021;
+		public static final int liteMode = 0x7f01002a;
+		public static final int mapType = 0x7f010024;
+		public static final int scopeUris = 0x7f010037;
 		public static final int shown = 0x7f010002;
-		public static final int uiCompass = 0x7f01000d;
-		public static final int uiMapToolbar = 0x7f010015;
-		public static final int uiRotateGestures = 0x7f01000e;
-		public static final int uiScrollGestures = 0x7f01000f;
-		public static final int uiTiltGestures = 0x7f010010;
-		public static final int uiZoomControls = 0x7f010011;
-		public static final int uiZoomGestures = 0x7f010012;
-		public static final int useViewLifecycle = 0x7f010013;
+		public static final int uiCompass = 0x7f01002b;
+		public static final int uiMapToolbar = 0x7f010033;
+		public static final int uiRotateGestures = 0x7f01002c;
+		public static final int uiScrollGestures = 0x7f01002d;
+		public static final int uiTiltGestures = 0x7f01002e;
+		public static final int uiZoomControls = 0x7f01002f;
+		public static final int uiZoomGestures = 0x7f010030;
+		public static final int useViewLifecycle = 0x7f010031;
 		public static final int verticalSpacing = 0x7f010001;
-		public static final int zOrderOnTop = 0x7f010014;
+		public static final int zOrderOnTop = 0x7f010032;
 	}
 	public static final class color {
 		public static final int common_action_bar_splitter = 0x7f090006;
@@ -116,41 +116,41 @@ public final class R {
 		public static final int unselected_vertex = 0x7f020056;
 	}
 	public static final class id {
-		public static final int adjust_height = 0x7f0c0000;
-		public static final int adjust_width = 0x7f0c0001;
-		public static final int atkSlider = 0x7f0c0088;
-		public static final int auto = 0x7f0c000a;
-		public static final int dark = 0x7f0c000b;
-		public static final int edit_field_chkDone = 0x7f0c0060;
-		public static final int edit_field_chkPlanned = 0x7f0c005a;
-		public static final int edit_field_chkStarted = 0x7f0c005d;
-		public static final int edit_field_label_chkDone = 0x7f0c0061;
-		public static final int edit_field_label_chkPlanned = 0x7f0c005b;
-		public static final int edit_field_label_chkStarted = 0x7f0c005e;
-		public static final int edit_field_layStatus = 0x7f0c0058;
-		public static final int edit_field_layStatusDone = 0x7f0c005f;
-		public static final int edit_field_layStatusPlanned = 0x7f0c0059;
-		public static final int edit_field_layStatusStarted = 0x7f0c005c;
-		public static final int edit_field_layTitle = 0x7f0c0053;
-		public static final int fragment_slider_content_container = 0x7f0c0069;
-		public static final int fragment_slider_tab_container = 0x7f0c0068;
-		public static final int hybrid = 0x7f0c0003;
-		public static final int icon_only = 0x7f0c0007;
-		public static final int light = 0x7f0c000c;
-		public static final int none = 0x7f0c0002;
-		public static final int normal = 0x7f0c0004;
-		public static final int satellite = 0x7f0c0005;
-		public static final int standard = 0x7f0c0008;
-		public static final int terrain = 0x7f0c0006;
-		public static final int wide = 0x7f0c0009;
+		public static final int adjust_height = 0x7f0c0002;
+		public static final int adjust_width = 0x7f0c0003;
+		public static final int atkSlider = 0x7f0c00a1;
+		public static final int auto = 0x7f0c000c;
+		public static final int dark = 0x7f0c000d;
+		public static final int edit_field_chkDone = 0x7f0c0079;
+		public static final int edit_field_chkPlanned = 0x7f0c0073;
+		public static final int edit_field_chkStarted = 0x7f0c0076;
+		public static final int edit_field_label_chkDone = 0x7f0c007a;
+		public static final int edit_field_label_chkPlanned = 0x7f0c0074;
+		public static final int edit_field_label_chkStarted = 0x7f0c0077;
+		public static final int edit_field_layStatus = 0x7f0c0071;
+		public static final int edit_field_layStatusDone = 0x7f0c0078;
+		public static final int edit_field_layStatusPlanned = 0x7f0c0072;
+		public static final int edit_field_layStatusStarted = 0x7f0c0075;
+		public static final int edit_field_layTitle = 0x7f0c006c;
+		public static final int fragment_slider_content_container = 0x7f0c0082;
+		public static final int fragment_slider_tab_container = 0x7f0c0081;
+		public static final int hybrid = 0x7f0c0005;
+		public static final int icon_only = 0x7f0c0009;
+		public static final int light = 0x7f0c000e;
+		public static final int none = 0x7f0c0004;
+		public static final int normal = 0x7f0c0006;
+		public static final int satellite = 0x7f0c0007;
+		public static final int standard = 0x7f0c000a;
+		public static final int terrain = 0x7f0c0008;
+		public static final int wide = 0x7f0c000b;
 	}
 	public static final class integer {
 		public static final int google_play_services_version = 0x7f0a0000;
 	}
 	public static final class layout {
-		public static final int fragment_slider_layout = 0x7f03000a;
-		public static final int view_color_options = 0x7f030014;
-		public static final int view_job_status = 0x7f030015;
+		public static final int fragment_slider_layout = 0x7f03000b;
+		public static final int view_color_options = 0x7f030015;
+		public static final int view_job_status = 0x7f030016;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f05001e;
@@ -196,11 +196,11 @@ public final class R {
 		public static final int ATKSliderLayout_LayoutParams_shown = 0;
 		public static final int ATKSliderLayout_horizontalSpacing = 0;
 		public static final int ATKSliderLayout_verticalSpacing = 1;
-		public static final int[] LoadingImageView = { 0x7f010003, 0x7f010004, 0x7f010005 };
+		public static final int[] LoadingImageView = { 0x7f010021, 0x7f010022, 0x7f010023 };
 		public static final int LoadingImageView_circleCrop = 2;
 		public static final int LoadingImageView_imageAspectRatio = 1;
 		public static final int LoadingImageView_imageAspectRatioAdjust = 0;
-		public static final int[] MapAttrs = { 0x7f010006, 0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e, 0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016 };
+		public static final int[] MapAttrs = { 0x7f010024, 0x7f010025, 0x7f010026, 0x7f010027, 0x7f010028, 0x7f010029, 0x7f01002a, 0x7f01002b, 0x7f01002c, 0x7f01002d, 0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031, 0x7f010032, 0x7f010033, 0x7f010034 };
 		public static final int MapAttrs_ambientEnabled = 16;
 		public static final int MapAttrs_cameraBearing = 1;
 		public static final int MapAttrs_cameraTargetLat = 2;
@@ -218,7 +218,7 @@ public final class R {
 		public static final int MapAttrs_uiZoomGestures = 12;
 		public static final int MapAttrs_useViewLifecycle = 13;
 		public static final int MapAttrs_zOrderOnTop = 14;
-		public static final int[] SignInButton = { 0x7f010017, 0x7f010018, 0x7f010019 };
+		public static final int[] SignInButton = { 0x7f010035, 0x7f010036, 0x7f010037 };
 		public static final int SignInButton_buttonSize = 0;
 		public static final int SignInButton_colorScheme = 1;
 		public static final int SignInButton_scopeUris = 2;

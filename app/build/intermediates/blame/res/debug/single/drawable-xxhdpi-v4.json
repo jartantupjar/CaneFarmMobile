@@ -108,6 +108,10 @@
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xxhdpi\\common_plus_signin_btn_text_light_normal.9.png"
     },
     {
+        "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\common_ic_googleplayservices.png",
+        "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.0.2\\res\\drawable-xxhdpi-v4\\common_ic_googleplayservices.png"
+    },
+    {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png",
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xxhdpi\\common_plus_signin_btn_text_dark_focused.9.png"
     },

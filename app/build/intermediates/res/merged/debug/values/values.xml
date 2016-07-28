@@ -6,6 +6,10 @@
         <item>Separated</item>
         <item>Widowed</item>
     </string-array>
+    <string-array name="crop_class">
+        <item>PC</item>
+        <item>RC</item>
+    </string-array>
     <string-array name="education">
         <item>Elem</item>
         <item>HS Undergrad</item>
@@ -14,6 +18,11 @@
         <item>College Grad</item>
         <item>Vocational</item>
         <item>None</item>
+    </string-array>
+    <string-array name="farming_systems">
+        <item>automatic</item>
+        <item>nature</item>
+        <item>manual</item>
     </string-array>
     <string-array name="gender">
         <item>Male</item>
@@ -29,6 +38,23 @@
         <item>CLOA holder/lessee</item>
         <item>CLOA holder/individually managed</item>
         <item>CLOA on process</item>
+    </string-array>
+    <string-array name="sugarcane">
+        <item>PHIL 99-1793</item>
+        <item>Phil 97-2041</item>
+        <item>Phil 97-1123</item>
+        <item>Phil 97-0693</item>
+        <item>PHIL 94-0913</item>
+        <item>PHIL 93-3849</item>
+        <item>PHIL 93-3727</item>
+        <item>PHIL 93-3155</item>
+        <item>PHIL 93-2349</item>
+        <item>PHIL 93-1601</item>
+        <item>PHIL 92-0751</item>
+        <item>PHIL 92-0577</item>
+        <item>PHIL 92-0051</item>
+        <item>PHIL 91-1091</item>
+        <item>PHIL 90-0345</item>
     </string-array>
     <color name="article_title">#3399FF</color>
     <color name="articlecolor">#3399FF</color>
@@ -60,6 +86,7 @@
     <color name="white">#ffffff</color>
     <declare-styleable name="ATKSliderLayout"><attr format="dimension" name="horizontalSpacing"/><attr format="dimension" name="verticalSpacing"/></declare-styleable>
     <declare-styleable name="ATKSliderLayout_LayoutParams"><attr format="boolean" name="shown"/></declare-styleable>
+    <declare-styleable name="ConstraintLayout_Layout"><attr name="orientation"><enum name="horizontal" value="0"/><enum name="vertical" value="1"/></attr><attr format="dimension" name="relativeBegin"/><attr format="dimension" name="relativeEnd"/><attr format="integer" name="relativePercent"/><attr format="integer" name="containerItemSkip"/><attr format="reference" name="layout_constraintLeft_toLeftOf"/><attr format="reference" name="layout_constraintLeft_toRightOf"/><attr format="reference" name="layout_constraintRight_toLeftOf"/><attr format="reference" name="layout_constraintRight_toRightOf"/><attr format="reference" name="layout_constraintTop_toTopOf"/><attr format="reference" name="layout_constraintTop_toBottomOf"/><attr format="reference" name="layout_constraintBottom_toTopOf"/><attr format="reference" name="layout_constraintBottom_toBottomOf"/><attr format="reference" name="layout_constraintBaseline_toBaselineOf"/><attr format="reference" name="layout_constraintCenterX_toCenterX"/><attr format="reference" name="layout_constraintCenterY_toCenterY"/><attr format="reference" name="layout_constraintStart_toEndOf"/><attr format="reference" name="layout_constraintStart_toStartOf"/><attr format="reference" name="layout_constraintEnd_toStartOf"/><attr format="reference" name="layout_constraintEnd_toEndOf"/><attr format="float" name="layout_constraintHorizontal_bias"/><attr format="float" name="layout_constraintVertical_bias"/><attr format="integer" name="layout_constraintLeft_creator"/><attr format="integer" name="layout_constraintTop_creator"/><attr format="integer" name="layout_constraintRight_creator"/><attr format="integer" name="layout_constraintBottom_creator"/><attr format="integer" name="layout_constraintBaseline_creator"/><attr format="string" name="layout_constraintDimensionRatio"/><attr format="dimension" name="layout_editor_absoluteX"/><attr format="dimension" name="layout_editor_absoluteY"/></declare-styleable>
     <declare-styleable name="LoadingImageView"><attr format="enum" name="imageAspectRatioAdjust"><enum name="none" value="0"/><enum name="adjust_width" value="1"/><enum name="adjust_height" value="2"/></attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
     <declare-styleable name="MapAttrs"><attr format="enum" name="mapType"><enum name="none" value="0"/><enum name="normal" value="1"/><enum name="satellite" value="2"/><enum name="terrain" value="3"/><enum name="hybrid" value="4"/></attr><attr format="float" name="cameraBearing"/><attr format="float" name="cameraTargetLat"/><attr format="float" name="cameraTargetLng"/><attr format="float" name="cameraTilt"/><attr format="float" name="cameraZoom"/><attr format="boolean" name="liteMode"/><attr format="boolean" name="uiCompass"/><attr format="boolean" name="uiRotateGestures"/><attr format="boolean" name="uiScrollGestures"/><attr format="boolean" name="uiTiltGestures"/><attr format="boolean" name="uiZoomControls"/><attr format="boolean" name="uiZoomGestures"/><attr format="boolean" name="useViewLifecycle"/><attr format="boolean" name="zOrderOnTop"/><attr format="boolean" name="uiMapToolbar"/><attr format="boolean" name="ambientEnabled"/></declare-styleable>
     <declare-styleable name="SignInButton"><attr format="reference|enum" name="buttonSize"><enum name="standard" value="0"/><enum name="wide" value="1"/><enum name="icon_only" value="2"/></attr><attr format="reference|enum" name="colorScheme"><enum name="dark" value="0"/><enum name="light" value="1"/><enum name="auto" value="2"/></attr><attr format="reference|string" name="scopeUris"/></declare-styleable>
@@ -101,6 +128,7 @@
     <string name="common_signin_button_text_long">Sign in with Google</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_base_details">BaseDetails</string>
+    <string name="title_activity_crop_validation_survey">CropValidationSurvey</string>
     <string name="title_activity_farm_details">FarmDetails</string>
     <string name="title_activity_farmer_menu">FarmerMenu</string>
     <string name="title_activity_farmer_profile">farmerProfile</string>

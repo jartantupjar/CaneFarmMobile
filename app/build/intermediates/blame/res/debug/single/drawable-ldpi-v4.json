@@ -6,5 +6,9 @@
     {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\launcher.png",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\drawable-ldpi\\launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi-v4\\common_ic_googleplayservices.png",
+        "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\9.0.2\\res\\drawable-ldpi-v4\\common_ic_googleplayservices.png"
     }
 ]

@@ -68,6 +68,10 @@
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\exploded-aar\\CaneFarmMobile\\OpenATKLib\\unspecified\\res\\layout\\view_color_options.xml"
     },
     {
+        "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_crop_validation_survey.xml",
+        "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\app\\src\\main\\res\\layout\\activity_crop_validation_survey.xml"
+    },
+    {
         "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_farmer_menu.xml",
         "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\app\\src\\main\\res\\layout\\activity_farmer_menu.xml"
     },

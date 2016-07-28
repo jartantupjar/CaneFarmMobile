@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.TableWorkers;
+import com.openatk.field_work.models.CropSurv;
 import com.openatk.field_work.models.Worker;
 
 public class FarmerMenu extends Activity {
@@ -19,7 +20,7 @@ public class FarmerMenu extends Activity {
     private Worker worker;
     private int farmerId;
     private DatabaseHelper dbHelper;
-    private Button btnProf, btnFarms;
+    private Button btnProf, btnFarms, btnCSurvey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,10 +37,26 @@ public class FarmerMenu extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getBaseContext(), FarmsListDetails.class);
+                intent.putExtra("class", "FarmDetails");
                 intent.putExtra(TableWorkers.COL_ID, farmerId);
                 startActivity(intent);
             }
         });
+
+        btnCSurvey = (Button) findViewById(R.id.btnCSurvey);
+
+        btnCSurvey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getBaseContext(), FarmsListDetails.class);
+                intent.putExtra(TableWorkers.COL_ID, farmerId);
+                intent.putExtra("class", "CropSurvey");
+                startActivity(intent);
+            }
+        });
+
+
 
         worker=TableWorkers.FindWorkerById(dbHelper,farmerId);
 

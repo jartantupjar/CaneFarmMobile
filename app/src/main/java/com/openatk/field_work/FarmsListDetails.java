@@ -32,9 +32,12 @@ public class FarmsListDetails extends Activity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             Intent i = new Intent();
-            i.setClass(getBaseContext(), FarmDetails.class);
             i.putExtra("worker ID",  getIntent().getExtras().getInt(TableWorkers.COL_ID) );
             i.putExtra(TableBaseField.COL_ID, (String) parent.getItemAtPosition(position));
+            if (getIntent().getExtras().getString("class").equals("FarmDetails"))
+            i.setClass(getBaseContext(), FarmDetails.class);
+            if (getIntent().getExtras().getString("class").equals("CropSurvey"))
+                i.setClass(getBaseContext(), CropValidationSurvey.class);
             startActivity(i);
         }
     };

@@ -82,28 +82,25 @@
 
         <activity
             android:name="com.openatk.field_work.selectFarmer"
-            android:label="@string/title_activity_select_farmer" >
-        </activity>
+            android:label="@string/title_activity_select_farmer" />
         <activity
             android:name="com.openatk.field_work.FarmerMenu"
-            android:label="@string/title_activity_farmer_menu" >
-        </activity>
+            android:label="@string/title_activity_farmer_menu" />
         <activity
             android:name="com.openatk.field_work.farmerProfile"
-            android:label="@string/title_activity_farmer_profile" >
-        </activity>
+            android:label="@string/title_activity_farmer_profile" />
         <activity
             android:name="com.openatk.field_work.BaseDetails"
-            android:label="@string/title_activity_base_details" >
-        </activity>
+            android:label="@string/title_activity_base_details" />
         <activity
             android:name="com.openatk.field_work.FarmDetails"
-            android:label="@string/title_activity_farm_details" >
-        </activity>
+            android:label="@string/title_activity_farm_details" />
         <activity
             android:name="com.openatk.field_work.FarmsListDetails"
-            android:label="@string/title_activity_farms_list_details" >
-        </activity>
+            android:label="@string/title_activity_farms_list_details" />
+        <activity
+            android:name="com.openatk.field_work.CropValidationSurvey"
+            android:label="@string/title_activity_crop_validation_survey" />
     </application>
 
 </manifest>
