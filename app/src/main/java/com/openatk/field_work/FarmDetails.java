@@ -121,9 +121,14 @@ public class FarmDetails extends Activity {
 
         @Override
         protected void onPostExecute(String s) {
-            if (s.equalsIgnoreCase("true")){
-                TableBaseField.updateField(dbHelper, baseField);
-            } else{
+            if (s!=null) {
+                if (s.equalsIgnoreCase("true")) {
+                    TableBaseField.updateField(dbHelper, baseField);
+                } else {
+                    Toast.makeText(getBaseContext(), "Update Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
                 Toast.makeText(getBaseContext(), "Update Failed", Toast.LENGTH_SHORT).show();
             }
         }

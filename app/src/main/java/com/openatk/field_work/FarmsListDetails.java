@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.TableBaseField;
 import com.openatk.field_work.db.TableWorkers;
+import com.openatk.field_work.models.MonitorSurv;
 
 public class FarmsListDetails extends Activity {
 
@@ -22,7 +23,7 @@ public class FarmsListDetails extends Activity {
         DatabaseHelper dbHelper = new DatabaseHelper(this);
        ArrayAdapter adapter = new ArrayAdapter<String>(this,
               R.layout.tv_farmslistdetails,
-               TableBaseField.getFarmsofOwner(dbHelper, getIntent().getExtras().getInt(TableWorkers.COL_ID)));
+               TableBaseField.getFarmsofOwner(dbHelper, getIntent().getExtras().getInt("worker ID")));
        ListView lvFarmsListDetails = (ListView) findViewById(R.id.lvFarmsListDetails);
         lvFarmsListDetails.setAdapter(adapter);
        lvFarmsListDetails.setOnItemClickListener(lvFarmsListListener);
@@ -32,12 +33,16 @@ public class FarmsListDetails extends Activity {
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
             Intent i = new Intent();
-            i.putExtra("worker ID",  getIntent().getExtras().getInt(TableWorkers.COL_ID) );
+            i.putExtra("worker ID",  getIntent().getExtras().getInt("worker ID") );
             i.putExtra(TableBaseField.COL_ID, (String) parent.getItemAtPosition(position));
             if (getIntent().getExtras().getString("class").equals("FarmDetails"))
-            i.setClass(getBaseContext(), FarmDetails.class);
+                i.setClass(getBaseContext(), FarmDetails.class);
             if (getIntent().getExtras().getString("class").equals("CropSurvey"))
                 i.setClass(getBaseContext(), CropValidationSurvey.class);
+            if(getIntent().getExtras().getString("class").equals("MonthlySurvey"))
+                i.setClass(getBaseContext(), MonthlySurvey.class);
+            if (getIntent().getExtras().getString("class").equals("MillDataImport"))
+                i.setClass(getBaseContext(), MillDataImport.class);
             startActivity(i);
         }
     };

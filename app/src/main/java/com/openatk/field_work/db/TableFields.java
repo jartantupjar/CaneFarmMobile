@@ -190,8 +190,8 @@ public class TableFields {
 				theField = TableFields.cursorToField(cursor);
 			}
 			cursor.close();
-			database.close();
-			dbHelper.close();
+			//database.close();
+			//dbHelper.close();
 			return theField;
 		} else {
 			return null;

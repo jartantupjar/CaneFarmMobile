@@ -74,5 +74,7 @@
     <string name="title_activity_farm_details">FarmDetails</string>
     <string name="title_activity_farms_list_details">FarmsListDetails</string>
     <string name="title_activity_crop_validation_survey">CropValidationSurvey</string>
+    <string name="title_activity_monthly_survey">MonthlySurvey</string>
+    <string name="title_activity_mill_data_import">MillDataImport</string>
 
 </resources>

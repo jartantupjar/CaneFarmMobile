@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 19
+    compileSdkVersion 23
     buildToolsVersion '23.0.1'
     defaultConfig {
         applicationId "com.openatk.field_work"
@@ -18,7 +18,7 @@ android {
 }
 
 dependencies {
-    compile 'com.google.android.gms:play-services-maps:8.4.0'
+    compile "com.google.android.gms:play-services:8.4.0"
     compile project(':OpenATKLib')
     compile 'com.squareup.okio:okio:1.8.0'
     compile 'com.squareup.okhttp:okhttp:2.7.5'

@@ -169,7 +169,7 @@ public class TableJobs {
 			theJob = TableJobs.cursorToJob(cursor);
 		}
 		cursor.close();
-		dbHelper.close();
+		//dbHelper.close();
 		return theJob;
 	}
 
@@ -279,8 +279,8 @@ public class TableJobs {
 				ret = true;
 			}
 			
-			database.close();
-			dbHelper.close();
+			//database.close();
+			//dbHelper.close();
 		}
 		return ret;
 	}

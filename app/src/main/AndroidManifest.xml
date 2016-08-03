@@ -82,25 +82,31 @@
 
         <activity
             android:name=".selectFarmer"
-            android:label="@string/title_activity_select_farmer"></activity>
+            android:label="@string/title_activity_select_farmer" />
         <activity
             android:name=".FarmerMenu"
-            android:label="@string/title_activity_farmer_menu"></activity>
+            android:label="@string/title_activity_farmer_menu" />
         <activity
             android:name=".farmerProfile"
-            android:label="@string/title_activity_farmer_profile"></activity>
+            android:label="@string/title_activity_farmer_profile" />
         <activity
             android:name=".BaseDetails"
-            android:label="@string/title_activity_base_details"></activity>
+            android:label="@string/title_activity_base_details" />
         <activity
             android:name=".FarmDetails"
-            android:label="@string/title_activity_farm_details"></activity>
+            android:label="@string/title_activity_farm_details" />
         <activity
             android:name=".FarmsListDetails"
-            android:label="@string/title_activity_farms_list_details"></activity>
+            android:label="@string/title_activity_farms_list_details" />
         <activity
             android:name=".CropValidationSurvey"
-            android:label="@string/title_activity_crop_validation_survey"></activity>
+            android:label="@string/title_activity_crop_validation_survey" />
+        <activity
+            android:name=".MonthlySurvey"
+            android:label="@string/title_activity_monthly_survey" />
+        <activity
+            android:name=".MillDataImport"
+            android:label="@string/title_activity_mill_data_import"></activity>
     </application>
 
 </manifest>

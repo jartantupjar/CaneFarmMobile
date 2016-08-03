@@ -151,6 +151,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	private BaseFieldView currentBaseView;
 	private BaseField toUpdateBaseField;
 
+	private BaseField selectedBaseField;
+
 	private Worker currentOperation;
 
 	private Worker newOp;
@@ -1299,7 +1301,10 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 	private Void addFieldMapView() {
 		// Add field (Polygon)
 
-		if(this.currentBaseView!=null)this.currentBaseView.setState(BaseFieldView.STATE_NORMAL); this.currentBaseView=null;
+		if(this.currentBaseView!=null){
+			selectedBaseField = currentBaseView.getBaseField();
+			this.currentBaseView.setState(BaseFieldView.STATE_NORMAL);
+			this.currentBaseView=null;}
 		if(this.currentFieldView!=null)this.currentFieldView.setState(FieldView.STATE_NORMAL);this.currentFieldView=null;
 		//Allow the user to draw a polygon on the map
 		ATKPolygonView polygonBeingDrawn = map.drawPolygon(ID_FIELD_DRAWING);
@@ -1618,7 +1623,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 			Response response;
 			String result = null;
 			OkHttpClient client = new OkHttpClient();
-			System.out.println(toUpdateBaseField.getId()+"******");
 			RequestBody postRequestBody = new FormEncodingBuilder()
 					.add("acres", toUpdateBaseField.gettAcres().toString())
 					.add("farm_name", toUpdateBaseField.getId().toString())
@@ -1745,7 +1749,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener, F
 				if(deleted == false) {
 					Log.d("FragmentAddField_Done", "Saving Field to local db. Name: " + toUpdate.getName());
 					if(toUpdate.getId() != null) Log.d("FragmentAddField_Done", "Saving Field to local db. id:" + Integer.toString(field.getId()));
-
+					toUpdate.setBaseId(selectedBaseField.getId());
+					Toast.makeText(this, toUpdate.getBaseId()+"", Toast.LENGTH_SHORT).show();
 					TableFields.updateField(dbHelper, toUpdate);
 					if(toUpdate.getId() != null) field.setId(toUpdate.getId()); //Update id of fieldview field if was insert
 				}

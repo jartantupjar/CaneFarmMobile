@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.openatk.field_work.models.CropSurv;
 
 import java.util.Calendar;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by ndrs on 7/18/2016.
@@ -78,9 +78,9 @@ public class TableCropSurv {
             String texture = cursor.getString(cursor.getColumnIndex(TableCropSurv.COL_TEXTURE));
             String topography = cursor.getString(cursor.getColumnIndex(TableCropSurv.COL_TOPOGRAPHY));
             Double plantingdensity = cursor.getDouble(cursor.getColumnIndex(TableCropSurv.COL_PLANTING_DENSITY));
-            Date harvestdate = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableCropSurv.COL_HARVEST_DATE)));
+            Date harvestdate = Date.valueOf(cursor.getString(cursor.getColumnIndex(TableCropSurv.COL_HARVEST_DATE)));
             String cropclass = cursor.getString(cursor.getColumnIndex(TableCropSurv.COL_CROP_CLASS));
-            Date datemill = DatabaseHelper.stringToDateUTC(cursor.getString(cursor.getColumnIndex(TableCropSurv.COL_DATE_MILLABLE)));
+            Date datemill = Date.valueOf(cursor.getString(cursor.getColumnIndex(TableCropSurv.COL_DATE_MILLABLE)));
             Integer nummill = cursor.getInt(cursor.getColumnIndex(TableCropSurv.COL_NUM_MILLABLE));
             Double avgstool = cursor.getDouble(cursor.getColumnIndex(TableCropSurv.COL_AVG_MILL_STOOL));
             Double brix = cursor.getDouble(cursor.getColumnIndex(TableCropSurv.COL_BRIX));

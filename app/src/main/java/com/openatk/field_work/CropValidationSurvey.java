@@ -3,6 +3,7 @@ package com.openatk.field_work;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
@@ -12,13 +13,23 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.openatk.field_work.db.DatabaseHelper;
+import com.openatk.field_work.db.IPConfig;
 import com.openatk.field_work.db.TableBaseField;
 import com.openatk.field_work.db.TableCropSurv;
 import com.openatk.field_work.db.TableWorkers;
 import com.openatk.field_work.models.CropSurv;
+import com.squareup.okhttp.FormEncodingBuilder;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.RequestBody;
+import com.squareup.okhttp.Response;
 
+import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class CropValidationSurvey extends FragmentActivity {
@@ -78,7 +89,7 @@ public class CropValidationSurvey extends FragmentActivity {
         ArrayAdapter<CharSequence> farmingSystemAdapter = ArrayAdapter.createFromResource
                 (this, R.array.farming_systems, android.R.layout.simple_spinner_item);
         farmingSystemAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnCropClass.setAdapter(farmingSystemAdapter);
+        spnFarmingSystem.setAdapter(farmingSystemAdapter);
 
 
         cropSurv = TableCropSurv.getCropSurv(dbHelper, Integer.parseInt(getIntent().getExtras().getString(TableBaseField.COL_ID)));
@@ -100,28 +111,92 @@ public class CropValidationSurvey extends FragmentActivity {
         btnSaveCVS.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cropSurv = new CropSurv();
                 cropSurv.setWorker_Id(getIntent().getExtras().getInt("worker ID"));
                 cropSurv.setFarm_name(getIntent().getExtras().getString(TableBaseField.COL_ID));
                 cropSurv.setYear(Calendar.getInstance().get(Calendar.YEAR));
+                if (!etFurrowDistance.getText().toString().isEmpty())
                 cropSurv.setFurrow_dist(Integer.parseInt(etFurrowDistance.getText().toString()));
                 cropSurv.setTexture(etTexture.getText().toString());
                 cropSurv.setTopography(etTopography.getText().toString());
+                if (!etPlantingDensity.getText().toString().isEmpty())
                 cropSurv.setPlanting_density(Double.parseDouble(etPlantingDensity.getText().toString()));
+                if (!etNumMillable.getText().toString().isEmpty())
                 cropSurv.setNum_millable(Integer.parseInt(etNumMillable.getText().toString()));
+                if (!etAvgMillableStool.getText().toString().isEmpty())
                 cropSurv.setAvg_mill_stool(Double.parseDouble(etAvgMillableStool.getText().toString()));
+                if (!etBrix.getText().toString().isEmpty())
                 cropSurv.setBrix(Double.parseDouble(etBrix.getText().toString()));
+                if (!etDiameter.getText().toString().isEmpty())
                 cropSurv.setDiameter(Double.parseDouble(etDiameter.getText().toString()));
+                if (!etWeight.getText().toString().isEmpty())
                 cropSurv.setWeight(Double.parseDouble(etWeight.getText().toString()));
                 cropSurv.setVariety(spnVariety.getSelectedItem().toString());
                 cropSurv.setCrop_class(spnCropClass.getSelectedItem().toString());
                 cropSurv.setFarm_sys(spnFarmingSystem.getSelectedItem().toString());
+                if (!tvHarvestDate.getText().toString().isEmpty())
+                cropSurv.setHarvest_date(Date.valueOf(tvHarvestDate.getText().toString()));
+                if(!tvDateMillable.getText().toString().isEmpty())
+                cropSurv.setDate_millable(Date.valueOf(tvDateMillable.getText().toString()));
+                new UpdateCropValidationSurvey().execute();
 
 
             }
         });
 
     }
+    private class UpdateCropValidationSurvey extends AsyncTask<String, Void, String> {
 
+
+        @Override
+        protected String doInBackground(String... params) {
+            Response response;
+            String result = null;
+            OkHttpClient client = new OkHttpClient();
+            RequestBody postRequestBody = new FormEncodingBuilder()
+                    .add("owner", TableWorkers.getNameByID(dbHelper,cropSurv.getWorker_Id()))
+                    .add("farm_name", cropSurv.getFarm_name())
+                    .add("year", cropSurv.getYear().toString())
+                    .add("furrow_distance", cropSurv.getFurrow_dist()+"")
+                    .add("texture", cropSurv.getTexture())
+                    .add("topography", cropSurv.getTopography())
+                    .add("planting_density", cropSurv.getPlanting_density()+"")
+                    .add("num_millable", cropSurv.getNum_millable()+"")
+                    .add("avg_millable", cropSurv.getAvg_mill_stool()+"")
+                    .add("brix", cropSurv.getBrix()+"")
+                    .add("diameter", cropSurv.getDiameter()+"")
+                    .add("weight", cropSurv.getWeight()+"")
+                    .add("variety", cropSurv.getVariety())
+                    .add("crop_class", cropSurv.getCrop_class())
+                    .add("farming_system", cropSurv.getFarm_sys())
+                    .add("harvest_date", cropSurv.getHarvest_date()+"")
+                    .add("date_millable", cropSurv.getDate_millable()+"")
+                    .build();
+            Request request = new Request.Builder().url(new IPConfig().getBaseUrl() +"UpdateCropValidationSurvey").post(postRequestBody).build();
+            try {
+                response = client.newCall(request).execute();
+                result = response.body().string();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            if (s!=null) {
+                if (s.equalsIgnoreCase("true")) {
+                    TableCropSurv.updateCropsurv(dbHelper, cropSurv);
+                } else {
+                    Toast.makeText(getBaseContext(), "Update Failed", Toast.LENGTH_SHORT).show();
+                }
+            }
+            else{
+                Toast.makeText(getBaseContext(), "No response from server", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
     public static  class HarvestDatePickerFragment extends DialogFragment
             implements DatePickerDialog.OnDateSetListener {
         @Override
@@ -137,8 +212,7 @@ public class CropValidationSurvey extends FragmentActivity {
 
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            CropValidationSurvey.tvHarvestDate.setText(monthOfYear+"/"+dayOfMonth+"/"+year);
-            Calendar.getInstance().set(year,monthOfYear,dayOfMonth);
+            CropValidationSurvey.tvHarvestDate.setText(year+"-"+monthOfYear+"-"+dayOfMonth);
         }
 
     }
@@ -163,7 +237,7 @@ public class CropValidationSurvey extends FragmentActivity {
 
         @Override
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            CropValidationSurvey.tvDateMillable.setText(monthOfYear+"/"+dayOfMonth+"/"+year);
+            CropValidationSurvey.tvDateMillable.setText(year+"-"+monthOfYear+"-"+dayOfMonth);
             Calendar.getInstance().set(year,monthOfYear,dayOfMonth);
         }
 

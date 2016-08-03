@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_mill_data_import"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.openatk.field_work.MillDataImport">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="25dp"
+                    android:text="Farm"
+                    android:id="@+id/tvFarmIDMDI"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:textSize="25dp"
+                    android:text="Owner"
+                    android:id="@+id/tvOwnerMDI"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Area Harvested"/>
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:textSize="25dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/etAreaHarvested"
+                    android:inputType="numberDecimal"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Tons Cane"/>
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:textSize="25dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/etTonsCane"
+                    android:inputType="numberDecimal"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:layout_alignParentLeft="true"
+                    android:text="Lkg"/>
+                <EditText
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:textSize="25dp"
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/etLkg"
+                    android:inputType="numberDecimal"/>
+            </RelativeLayout>
+        </LinearLayout>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:id="@+id/btnSubmitMDI"/>
+        </LinearLayout>
+
+</ScrollView>

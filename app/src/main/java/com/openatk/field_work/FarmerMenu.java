@@ -20,7 +20,7 @@ public class FarmerMenu extends Activity {
     private Worker worker;
     private int farmerId;
     private DatabaseHelper dbHelper;
-    private Button btnProf, btnFarms, btnCSurvey;
+    private Button btnProf, btnFarms, btnCSurvey, btnMSurvey, btnMillDataImport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +38,7 @@ public class FarmerMenu extends Activity {
                 Intent intent = new Intent();
                 intent.setClass(getBaseContext(), FarmsListDetails.class);
                 intent.putExtra("class", "FarmDetails");
-                intent.putExtra(TableWorkers.COL_ID, farmerId);
+                intent.putExtra("worker ID", farmerId);
                 startActivity(intent);
             }
         });
@@ -50,13 +50,38 @@ public class FarmerMenu extends Activity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getBaseContext(), FarmsListDetails.class);
-                intent.putExtra(TableWorkers.COL_ID, farmerId);
+                intent.putExtra("worker ID", farmerId);
                 intent.putExtra("class", "CropSurvey");
                 startActivity(intent);
             }
         });
 
 
+        btnMSurvey = (Button) findViewById(R.id.btnMSurvey);
+        btnMSurvey.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getBaseContext(), FarmsListDetails.class);
+                intent.putExtra("worker ID", farmerId);
+                intent.putExtra("class", "MonthlySurvey");
+                startActivity(intent);
+            }
+        });
+
+
+        btnMillDataImport = (Button) findViewById(R.id.btnMillDataImport);
+
+        btnMillDataImport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getBaseContext(), FarmsListDetails.class);
+                intent.putExtra("worker ID", farmerId);
+                intent.putExtra("class", "MillDataImport");
+                startActivity(intent);
+            }
+        });
 
         worker=TableWorkers.FindWorkerById(dbHelper,farmerId);
 

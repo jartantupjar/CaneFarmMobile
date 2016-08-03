@@ -162,8 +162,8 @@ public class TableWorkers {
 			username = cursor.getString(cursor.getColumnIndex(TableWorkers.COL_NAME2));
 		}
 		cursor.close();
-		database.close();
-		dbHelper.close();
+		//database.close();
+		//dbHelper.close();
 		return username;
 
 	}

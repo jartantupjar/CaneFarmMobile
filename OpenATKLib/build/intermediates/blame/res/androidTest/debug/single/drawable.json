@@ -1,27 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_google_signin_btn_text_light.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_light.xml"
-    },
-    {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_google_signin_btn_icon_light.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_light.xml"
-    },
-    {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_plus_signin_btn_text_light.xml",
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\checkbox_planned.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\checkbox_planned.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_google_signin_btn_text_dark.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_google_signin_btn_text_light.xml",
@@ -58,33 +42,5 @@
     {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\checkbox_planned.xml",
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\checkbox_planned.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_google_signin_btn_icon_dark.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\checkbox_done.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\checkbox_done.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_plus_signin_btn_text_light.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_light.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_plus_signin_btn_text_dark.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_text_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\checkbox_started.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\bundles\\debug\\res\\drawable\\checkbox_started.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_plus_signin_btn_icon_dark.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_dark.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\drawable\\common_plus_signin_btn_icon_light.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable\\common_plus_signin_btn_icon_light.xml"
     }
 ]

@@ -59,12 +59,12 @@
             android:layout_alignLeft="@+id/btnMSurvey"
             android:layout_alignStart="@+id/btnMSurvey" />
         <Button
-            android:text="Emergency Survey"
+            android:text="Mill Data Import"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/btnRec"
             android:layout_marginTop="30dp"
-            android:id="@+id/btnEsrvy"
+            android:id="@+id/btnMillDataImport"
             android:layout_alignRight="@+id/btnMSurvey"
             android:layout_alignLeft="@+id/btnMSurvey"
             android:layout_alignStart="@+id/btnMSurvey" />
@@ -72,12 +72,12 @@
             android:text="Farm Details"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/btnEsrvy"
+            android:layout_below="@id/btnMillDataImport"
             android:layout_marginTop="30dp"
             android:id="@+id/frmDetails"
-            android:layout_alignRight="@+id/btnEsrvy"
-            android:layout_alignLeft="@+id/btnEsrvy"
-            android:layout_alignStart="@+id/btnEsrvy" />
+            android:layout_alignRight="@+id/btnMillDataImport"
+            android:layout_alignLeft="@+id/btnMillDataImport"
+            android:layout_alignStart="@+id/btnMillDataImport" />
 
     </RelativeLayout>
 

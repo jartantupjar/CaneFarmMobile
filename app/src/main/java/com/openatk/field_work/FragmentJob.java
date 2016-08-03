@@ -14,6 +14,8 @@ import java.util.concurrent.Callable;
 
 import com.openatk.field_work.db.DatabaseHelper;
 import com.openatk.field_work.db.IPConfig;
+import com.openatk.field_work.db.TableCropSurv;
+import com.openatk.field_work.db.TableFields;
 import com.openatk.field_work.db.TableJobs;
 //import com.openatk.field_work.db.TableOperations;
 import com.openatk.field_work.db.TableWorkers;
@@ -461,6 +463,9 @@ public class FragmentJob extends Fragment implements
 				
 				//Save in db, this will set it's id
 				TableJobs.updateJob(dbHelper, currentJob);
+				//Toast.makeText(getContext(), "AddField", Toast.LENGTH_SHORT).show();
+				new AddField().execute();
+
 			}
 			
 			Boolean changed = false;
@@ -538,6 +543,45 @@ public class FragmentJob extends Fragment implements
 		}
 	}
 
+	private class AddField extends AsyncTask<String, Void, String> {
+		@Override
+		protected String doInBackground(String... params) {
+			Response response;
+			String result = null;
+			OkHttpClient client = new OkHttpClient();
+			Field field = TableFields.FindFieldByName(dbHelper, currentJob.getFieldName());
+			RequestBody postRequestBody = new FormEncodingBuilder()
+					.add("block_num", TableJobs.FindJobByFieldName(dbHelper, currentJob.getFieldName(), currentOperation.getId()).getId()+"")
+					.add("owner", TableWorkers.getUsernameById(dbHelper, currentJob.getWorkerId()))
+					.add("farm_name", field.getBaseId()+"")
+					.add("area", field.getAcres()+"")
+					.add("boundary", TableFields.BoundaryToString(field.getBoundary()))
+					.build();
+			Request request = new Request.Builder().url(new IPConfig().getBaseUrl() +"AddField").post(postRequestBody).build();
+			try {
+				response = client.newCall(request).execute();
+				result = response.body().string();
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			return result;
+		}
+
+		@Override
+		protected void onPostExecute(String s) {
+			if (s!=null) {
+				if (s.equalsIgnoreCase("true")) {
+
+				} else {
+					Toast.makeText(getContext(), "Update Failed", Toast.LENGTH_SHORT).show();
+				}
+			}
+			else{
+				Toast.makeText(getContext(), "No response from server", Toast.LENGTH_SHORT).show();
+			}
+		}
+	}
 	private class MyTextWatcher implements TextWatcher {
 		private View view;
 

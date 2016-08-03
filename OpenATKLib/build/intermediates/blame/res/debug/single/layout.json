@@ -4,23 +4,11 @@
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\src\\main\\res\\layout\\fragment_slider_layout.xml"
     },
     {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\debug\\layout\\view_job_status.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\src\\main\\res\\layout\\view_job_status.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_slider_layout.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\src\\main\\res\\layout\\fragment_slider_layout.xml"
-    },
-    {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\res\\merged\\debug\\layout\\view_color_options.xml",
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\src\\main\\res\\layout\\view_color_options.xml"
     },
     {
         "merged": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\build\\intermediates\\res\\merged\\debug\\layout\\view_job_status.xml",
         "source": "C:\\Users\\micha\\AndroidStudioProjects\\CaneFarmMobile\\OpenATKLib\\src\\main\\res\\layout\\view_job_status.xml"
-    },
-    {
-        "merged": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\build\\intermediates\\res\\merged\\debug\\layout\\view_color_options.xml",
-        "source": "C:\\Users\\ndrs\\AndroidStudioProjects\\Field-Work\\OpenATKLib\\src\\main\\res\\layout\\view_color_options.xml"
     }
 ]

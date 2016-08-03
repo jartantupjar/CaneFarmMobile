@@ -1,6 +1,6 @@
 package com.openatk.field_work.models;
 
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by ndrs on 7/18/2016.
